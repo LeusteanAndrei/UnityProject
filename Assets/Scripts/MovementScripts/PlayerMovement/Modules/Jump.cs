@@ -29,16 +29,12 @@ public class Jump : MonoBehaviour
 
     void Update()
     {
-        if (movementComponent.GroundCheckJump())
-        {
-            nrJump = 0;
-        }
         StartJump();
     }
 
     private void StartJump()
     {
-        if (jumpAction.WasPressedThisFrame() && nrJump < 2)
+        if (jumpAction.WasPressedThisFrame() && nrJump <= 1 )
         { 
             RequestJump();
             holdTime = 0f;
@@ -70,6 +66,11 @@ public class Jump : MonoBehaviour
     public bool isJumping()
     {
         return nrJump > 0;
+    }
+
+    public void ResetJumps()
+    {
+        this.nrJump = 0;
     }
 
 }

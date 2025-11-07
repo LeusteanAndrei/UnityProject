@@ -26,17 +26,33 @@ public class Movement : MonoBehaviour
 
     private Vector3 movementDirection;
     InputAction moveAction;
+    
     Jump jumpComponent;
+    Dash dashComponent;
+
+    private int sprintNr = 0;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         moveAction = InputSystem.actions.FindAction("Move");
         jumpComponent = GetComponent<Jump>();
+        dashComponent = GetComponent<Dash>();
     }
 
     private void Update()
     {
+        if ( isGrounded )
+        {
+            dashComponent.ResetDash();
+        }
+
+        if ( GroundCheckJump() )
+        {
+            jumpComponent.ResetJumps();
+        }
+
         Hover();
         ReadInput();
         Move();
@@ -60,11 +76,16 @@ public class Movement : MonoBehaviour
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             return;
         }
-
-        float speed = moveSpeed;
-        if (isSprinting())
-            speed = sprintSpeed;
+        
         RotateTowards(movementDirection);
+        float speed = moveSpeed;
+        if (isSprinting() && !jumpComponent.isJumping())
+            speed = sprintSpeed;
+
+        if (Keyboard.current.leftShiftKey.isPressed && jumpComponent.isJumping())
+        {
+            dashComponent.StartDash(movementDirection);
+        }
 
         // direct prin transform
         //if (GroundCheck())
@@ -72,10 +93,8 @@ public class Movement : MonoBehaviour
         //    transform.position += movementDirection * speed * Time.deltaTime;
         //}
         // cu fizica
-        Debug.Log(jumpComponent.isJumping());
-        if ( GroundCheck() || jumpComponent.isJumping() )
+        if ( GroundCheck() || jumpComponent.isJumping())
         {
-            Debug.Log("aaa");
             Vector3 desiredVelocity = movementDirection * speed;
             Vector3 velocityChange = desiredVelocity - new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
             rb.AddForce(velocityChange, ForceMode.Acceleration);
@@ -120,18 +139,17 @@ public class Movement : MonoBehaviour
 
     public bool GroundCheckJump()
     {
-        isGrounded = Physics.CheckSphere(groundOrigin.position, groundCheckJumpDistance, groundMask);
+        return Physics.CheckSphere(groundOrigin.position, groundCheckJumpDistance, groundMask);
+    }
 
-        return isGrounded;
-    }
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(groundOrigin.position, groundCheckJumpDistance);
-    }
 
     public bool IsGrounded()
     {
         return isGrounded;
+    }
+
+    public void ResetSprints()
+    {
+        sprintNr = 0;
     }
 }
