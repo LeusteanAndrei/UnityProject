@@ -42,8 +42,6 @@ public class Movement : MonoBehaviour
         OnGroundReset();
         CheckInputs();
         ReadInput();
-        GroundCheck();
-
     }
 
 
@@ -107,15 +105,6 @@ public class Movement : MonoBehaviour
             );
     }
 
-    public bool GroundCheck()
-    {
-        // checks wether the user is on ground or not
-        // it checks using a sphere cast at the ground origin position ( the feet ) 
-        // with the given ground check distance ( the radius of the sphere ) and ground mask ( ground type )
-        isGrounded = Physics.CheckSphere(groundOrigin.position, groundCheckDistance, groundMask);
-        return isGrounded;
-    }
-
 
     /*  Function for checking inputs */
     /*   - to be called in the Update function */
@@ -158,12 +147,11 @@ public class Movement : MonoBehaviour
     private void OnGroundReset()
     {
         // checks ground and resets all the corresponding elements
-        if (GroundCheck())
+        if (isGrounded)
         {
             dashComponent.ResetDash();
         }
     }
-
 
     /* Debugging */
     void OnDrawGizmosSelected()

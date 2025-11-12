@@ -1,29 +1,48 @@
 using UnityEngine;
 
+
+/* class for checking the ground collision */
 public class GroundCheck : MonoBehaviour
 {
 
     [SerializeField] public LayerMask groundMask;
 
+    int groundContacts = 0; // number of ground contacts
     Movement movementComponent;
 
     void Start()
     {
-        movementComponent = GetComponent<Movement>();
+        movementComponent = GetComponentInParent<Movement>();
     }
 
-    void Update()
-    {}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (IsGroundLayer(other.gameObject))
-        {
-            movementComponent.isGrounded = true;
-            Debug.Log("Ground");
-        }
+        if (!IsGroundLayer(other.gameObject))
+            return;
+
+        groundContacts++;
+        UpdateGround();
+
+    }   
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!IsGroundLayer(other.gameObject))
+            return;
+        
+        groundContacts = Mathf.Max( 0, groundContacts - 1 );
+        UpdateGround();
     }
 
+
+    private void UpdateGround()
+    {
+        movementComponent.isGrounded = groundContacts > 0;
+    }
+
+
+    // checks wether the layer of the object is the groundMask layer 
     private bool IsGroundLayer(GameObject obj)
     {
         return groundMask == (groundMask | (1 << obj.layer));

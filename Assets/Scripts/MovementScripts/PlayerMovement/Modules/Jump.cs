@@ -21,6 +21,8 @@ public class Jump : MonoBehaviour
     private bool shouldJump = false; // wether the player should jump or not
     private bool holdJump = false; // wether the player is holding jump or not
 
+    private bool wasGroundedLastFrame = true;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -36,6 +38,19 @@ public class Jump : MonoBehaviour
     private void FixedUpdate()
     {
         tryJump();
+
+        if (movementComponent.isGrounded)
+        {
+            if (!wasGroundedLastFrame)
+            {
+                ResetJump();
+            }
+            wasGroundedLastFrame = true;
+        }
+        else
+        {
+            wasGroundedLastFrame = false;
+        }
     }
 
     /*  Functions for checking input */
@@ -54,30 +69,32 @@ public class Jump : MonoBehaviour
 
     public void tryJump()
     {
-        if (nrJump == 2 && !movementComponent.isGrounded)
-            return;
         
         if ( shouldJump )
         {
-            if ( nrJump == 0 || nrJump == 1 )
+            if ( nrJump < 2 )
             {
                 RequestJump();
             }
         }
-        
-        //if ( holdJump )
-        //{
-        //    if ( nrJump == 0 )
-        //    {
-        //        currentHoldTime += Time.fixedDeltaTime;
-        //        if (currentHoldTime < maxHoldTime)
-        //        {
-        //            rb.AddForce(Vector3.up * holdForce * Time.fixedDeltaTime, ForceMode.Impulse);
-        //        }
-        //    }
-        //}
 
-        Debug.Log(nrJump);
+        if (holdJump)
+        {
+            if (nrJump == 1)
+            {
+                currentHoldTime += Time.fixedDeltaTime;
+                if (currentHoldTime < maxHoldTime)
+                {
+                    rb.AddForce(Vector3.up * holdForce * Time.fixedDeltaTime, ForceMode.Impulse);
+                }
+            }
+        }
+        else
+        {
+            currentHoldTime = 0;
+        }
+
+            logindex++;
         shouldJump = false;
 
     }
@@ -92,6 +109,7 @@ public class Jump : MonoBehaviour
 
     private void ResetJump()
     {
+        logindex++;
         shouldJump = false;
         holdJump = false;
         nrJump = 0;
