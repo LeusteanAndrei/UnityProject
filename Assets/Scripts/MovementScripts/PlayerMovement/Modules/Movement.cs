@@ -117,7 +117,6 @@ public class Movement : MonoBehaviour
     }
 
 
-
     /*  Function for checking inputs */
     /*   - to be called in the Update function */
     private void CheckInputs()
@@ -156,7 +155,6 @@ public class Movement : MonoBehaviour
         movementDirection = new Vector3(inputRead.x, 0, inputRead.y).normalized;
 
     }
-
     private void OnGroundReset()
     {
         // checks ground and resets all the corresponding elements
@@ -168,7 +166,6 @@ public class Movement : MonoBehaviour
 
 
     /* Debugging */
-
     void OnDrawGizmosSelected()
     {
         if (groundOrigin == null) return;
