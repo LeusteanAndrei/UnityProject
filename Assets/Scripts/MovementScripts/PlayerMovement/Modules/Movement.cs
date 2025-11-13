@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
         sprintAction = InputSystem.actions.FindAction("Sprint");
 
         dashComponent = GetComponent<Dash>();
+
     }
 
     private void Update()
@@ -47,6 +48,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         RotateTowards(movementDirection); // rotate the player towards the movement direction
 
         if (dashComponent.startDash)
@@ -62,21 +64,25 @@ public class Movement : MonoBehaviour
     }
 
 
+
+
     /*  Physics based functions */
     /*   - to be called in the FixedUpdate function */
+
+
 
     private void Move()
     {
         // movement function which moves the player
         if (movementDirection.sqrMagnitude < 0.01f)
         {
-            // if the movement direction is almost zero, stopts the player's movement
+            // if the movement direction is almost zero, stops the player's movement
             rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             return;
         }
 
         float speed = moveSpeed; // normal moving speed
-        if (!dashComponent.noDashRunning && isSprinting && isGrounded)
+        if (dashComponent.noDashRunning && isSprinting && isGrounded)
             // if we are sprinting ( that means no dash is running, the sprint button is pressed and we are grounded we set speed to the sprint speed
             speed = sprintSpeed;
         if (!isGrounded)

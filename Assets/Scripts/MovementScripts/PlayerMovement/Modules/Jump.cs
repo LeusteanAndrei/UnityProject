@@ -8,12 +8,11 @@ public class Jump : MonoBehaviour
 {
     int logindex = 0;
     [SerializeField] private float jumpForce = 15f; // the force with which the character jumps upwards
-    [SerializeField] private float maxHoldTime = 1.0f; // the maximum hold time for the enhanced jump
-                                                       // ( so that the jump increases after a certain amount of time while holding)
+    [SerializeField] private float firstJumpmaxHoldTime = 0.5f; // the maximum hold time for the enhanced jump
+                                                                // ( so that the jump increases after a certain amount of time while holding)
+    [SerializeField] private float secondJumpMaxHoldTime = 0.2f; // same but for the second jump
     [SerializeField] private float holdJumpMultiplier = 0.5f; // the number with which to decrease the jump when space is no longer pressed
-    [SerializeField] private float fallMultiplier = 2.5f; // the multiplier for the gravity when falling down
-    [SerializeField] private float maxJumpHeight = 20f; // the maximum height the player can reach from the starting point of the jump
-
+    [SerializeField] private float fallMultiplier = 3f; // the multiplier for the gravity when falling down
 
    
     Rigidbody rb; 
@@ -95,22 +94,34 @@ public class Jump : MonoBehaviour
             {
                 // if the space bar was released and it is the first jump, reduce the velocity by a multiplier to cut the jump short
                 rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y * holdJumpMultiplier, rb.linearVelocity.z);
+                
                 //if (currentHoldTime < maxHoldTime)
-                    //{
-
-                    //rb.AddForce(Vector3.up * holdForce * Time.fixedDeltaTime, ForceMode.Impulse);
-                    //}
+                //{
+                //    rb.AddForce(Vector3.up * holdForce * Time.fixedDeltaTime, ForceMode.Impulse);
+                //}
             }
-            else if (holdJump )
+            else if (holdJump)
             {
                 // if the player is still holding the jump button ( and it is the first jump )
                 currentHoldTime += Time.fixedDeltaTime; // increase the hold time
             }
 
-            if(currentHoldTime > maxHoldTime)
+            if (nrJump == 1)
             {
-                // if the hold time exceeded the maximum hold time, we stop the jump
-                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y * holdJumpMultiplier,  rb.linearVelocity.z);
+                //Debug.Log("Jump Hold Time: " + currentHoldTime + " Log Index: " + logindex);
+                if (currentHoldTime > firstJumpmaxHoldTime)
+                {
+                    // if the hold time exceeded the maximum hold time, we stop the jump
+                    rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y * holdJumpMultiplier, rb.linearVelocity.z);
+                }
+            }
+            else if (nrJump == 2)
+            {
+                //Debug.Log("Second Jump Hold Time: " + currentHoldTime + " Log Index: " + logindex);
+                if (currentHoldTime > secondJumpMaxHoldTime)
+                {
+                    rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y * holdJumpMultiplier, rb.linearVelocity.z);
+                }
             }
         }
 
