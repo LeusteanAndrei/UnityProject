@@ -1,27 +1,33 @@
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.Windows;
 
 public class Jump : MonoBehaviour
 {
     int logindex = 0;
-    [SerializeField] private float jumpForce = 5f; // the force with which the character jumps upwards
+    [SerializeField] private float jumpForce = 15f; // the force with which the character jumps upwards
     [SerializeField] private float maxHoldTime = 1.0f; // the maximum hold time for the enhanced jump
                                                        // ( so that the jump increases after a certain amount of time while holding)
-    [SerializeField] private float holdForce = 1.0f; // the force with which the jump constantly increases while holding
+    [SerializeField] private float holdJumpMultiplier = 0.5f; // the number with which to decrease the jump when space is no longer pressed
+    [SerializeField] private float fallMultiplier = 2.5f; // the multiplier for the gravity when falling down
+    [SerializeField] private float maxJumpHeight = 20f; // the maximum height the player can reach from the starting point of the jump
 
 
+   
     Rigidbody rb; 
     Movement movementComponent; // the movement component ( class ) of the player
     float currentHoldTime = 0; // the current holdTime of the jump button
     int nrJump = 0; // the number of jumps the player has done ( resets when touching the ground )
+    private float jumpStartPosition = 0f; // the current height of the jump
 
     InputAction jumpAction; // input action for the jump
     private bool shouldJump = false; // wether the player should jump or not
     private bool holdJump = false; // wether the player is holding jump or not
 
     private bool wasGroundedLastFrame = true;
+    private bool reduceSecondJump = false;
 
     private void Start()
     {
@@ -33,11 +39,14 @@ public class Jump : MonoBehaviour
     private void Update()
     {
         CheckJumpInput();
+
+
     }
 
     private void FixedUpdate()
     {
-        tryJump();
+        TryJump();
+        TryFallOff();
 
         if (movementComponent.isGrounded)
         {
@@ -67,9 +76,8 @@ public class Jump : MonoBehaviour
 
     /*  Functions for jumping */
 
-    public void tryJump()
+    private void TryJump()
     {
-        
         if ( shouldJump )
         {
             if ( nrJump < 2 )
@@ -78,33 +86,58 @@ public class Jump : MonoBehaviour
             }
         }
 
-        if (holdJump)
+        if (rb.linearVelocity.y > 0)
         {
-            if (nrJump == 1)
+            // if we're moving up in the jump
+            float jumpHeight = transform.position.y - jumpStartPosition;
+
+            if (!holdJump )
             {
-                currentHoldTime += Time.fixedDeltaTime;
-                if (currentHoldTime < maxHoldTime)
-                {
-                    rb.AddForce(Vector3.up * holdForce * Time.fixedDeltaTime, ForceMode.Impulse);
-                }
+                // if the space bar was released and it is the first jump, reduce the velocity by a multiplier to cut the jump short
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y * holdJumpMultiplier, rb.linearVelocity.z);
+                //if (currentHoldTime < maxHoldTime)
+                    //{
+
+                    //rb.AddForce(Vector3.up * holdForce * Time.fixedDeltaTime, ForceMode.Impulse);
+                    //}
+            }
+            else if (holdJump )
+            {
+                // if the player is still holding the jump button ( and it is the first jump )
+                currentHoldTime += Time.fixedDeltaTime; // increase the hold time
+            }
+
+            if(currentHoldTime > maxHoldTime)
+            {
+                // if the hold time exceeded the maximum hold time, we stop the jump
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, rb.linearVelocity.y * holdJumpMultiplier,  rb.linearVelocity.z);
             }
         }
-        else
-        {
-            currentHoldTime = 0;
-        }
 
-            logindex++;
+        if (!holdJump)
+            currentHoldTime = 0;
+
+        logindex++;
         shouldJump = false;
 
     }
-
-
     public void RequestJump()
     {
-        nrJump += 1; 
+        nrJump += 1;
+        float currentJumpForce = jumpForce;
+        jumpStartPosition = 0;
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * currentJumpForce, ForceMode.Impulse);
+        
+    }
+    private void TryFallOff()
+    {
+        // if falling down then add an extra force pulling it down so it feels crispier
+
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+        }
     }
 
     private void ResetJump()
