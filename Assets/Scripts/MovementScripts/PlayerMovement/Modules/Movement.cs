@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private float sprintSpeed = 15f;
     [SerializeField] private float inAirSpeedMultiplier = 0.5f;
+    [SerializeField] private float crouchSpeedMultiplier = 0.3f;
 
     [Header("Ground Detection")]
     [SerializeField] public LayerMask groundMask;
@@ -25,16 +26,21 @@ public class Movement : MonoBehaviour
     private InputAction sprintAction;
 
     private Dash dashComponent;
+    private Crouch crouchComponent;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+
+        rb.linearDamping = 0f;
+        rb.angularDamping = 0f;
+
         moveAction = InputSystem.actions.FindAction("Move");
         sprintAction = InputSystem.actions.FindAction("Sprint");
 
         dashComponent = GetComponent<Dash>();
+        crouchComponent = GetComponent<Crouch>();
 
     }
 
@@ -82,12 +88,15 @@ public class Movement : MonoBehaviour
         }
 
         float speed = moveSpeed; // normal moving speed
-        if (dashComponent.noDashRunning && isSprinting && isGrounded)
-            // if we are sprinting ( that means no dash is running, the sprint button is pressed and we are grounded we set speed to the sprint speed
+        if (dashComponent.noDashRunning && isSprinting && isGrounded && !crouchComponent.isCrouching)
+            // if we are sprinting ( that means no dash is running, the sprint button is pressed and we are grounded we set speed to the sprint speed )
             speed = sprintSpeed;
         if (!isGrounded)
             // if we are in air, we move the character slower towards the desired direction
             speed *= inAirSpeedMultiplier;
+        if ( crouchComponent.isCrouching )
+            // if we're crouching we move him slower compared to his initial speed 
+            speed *= crouchSpeedMultiplier;
         
         Vector3 desiredVelocity = movementDirection * speed; // the desired velocity
         Vector3 velocityChange = desiredVelocity - new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z); // how much we need to change the velocity to reach the desired velocity

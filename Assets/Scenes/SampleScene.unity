@@ -903,7 +903,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -1766,6 +1766,8 @@ GameObject:
   - component: {fileID: 2110791568}
   - component: {fileID: 2110791569}
   - component: {fileID: 2110791570}
+  - component: {fileID: 2110791571}
+  - component: {fileID: 2110791572}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1865,8 +1867,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 10
-  maxHoldTime: 1
-  holdForce: 10
+  firstJumpmaxHoldTime: 0.5
+  secondJumpMaxHoldTime: 0.2
+  holdJumpMultiplier: 0.5
+  fallMultiplier: 3
 --- !u!114 &2110791570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1883,6 +1887,45 @@ MonoBehaviour:
   dashDuration: 0.2
   startDash: 0
   noDashRunning: 1
+--- !u!114 &2110791571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110791562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd4a7986a679b04fb847a2c3c95a6eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCollider: {fileID: 2110791572}
+  crouchHeightMultiplier: 0.5
+  transitionSpeed: 10
+  isCrouching: 0
+--- !u!136 &2110791572
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110791562}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2112140297
 GameObject:
   m_ObjectHideFlags: 0
