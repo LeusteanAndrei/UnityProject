@@ -825,10 +825,10 @@ GameObject:
   - component: {fileID: 382222840}
   - component: {fileID: 382222839}
   - component: {fileID: 382222838}
+  - component: {fileID: 382222834}
   - component: {fileID: 382222837}
   - component: {fileID: 382222836}
   - component: {fileID: 382222835}
-  - component: {fileID: 382222834}
   - component: {fileID: 382222833}
   m_Layer: 0
   m_Name: Player

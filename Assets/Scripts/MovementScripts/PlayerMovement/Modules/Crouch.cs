@@ -91,9 +91,12 @@ public class Crouch : MonoBehaviour
         float castDistance = standingHeight - currentHeight; // the distance we need to check 
 
         RaycastHit hit;
-        if (Physics.SphereCast(start, playerCollider.radius, Vector3.up, out hit, castDistance)) 
+        if (Physics.SphereCast(start, playerCollider.radius, Vector3.up, out hit, castDistance))
+        {
+            Debug.Log("Object hit: " + hit.collider.name);
             // if we hit, we return true
             return true;
+        }
         return false;
 
     }

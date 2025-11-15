@@ -2029,7 +2029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 1458168824}
-  crouchHeightMultiplier: 0.5
+  crouchHeightMultiplier: 0.8
   isCrouching: 0
 --- !u!114 &1458168826
 MonoBehaviour:
@@ -2722,7 +2722,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
