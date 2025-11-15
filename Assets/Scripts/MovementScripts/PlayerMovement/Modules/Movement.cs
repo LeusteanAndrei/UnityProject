@@ -9,147 +9,163 @@ public class Movement : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private float sprintSpeed = 15f;
+    [SerializeField] private float inAirSpeedMultiplier = 0.5f;
 
     [Header("Ground Detection")]
     [SerializeField] public LayerMask groundMask;
     [SerializeField] private float groundCheckDistance = 0.5f;
     [SerializeField] public Transform groundOrigin;
-    [SerializeField] private float groundCheckJumpDistance = 0.2f;
 
-    [Header("Hover Settings")]
-    [SerializeField] private float maxHoverHeight = 2f;      
-    [SerializeField] private float hoverUpwardForce = 10f;     
-    [SerializeField] private float hoverDamping = 5f;
+    [HideInInspector] public bool isGrounded = false;
+    private bool isSprinting = false;
 
     private Rigidbody rb;
-    private bool isGrounded = false;
-
     private Vector3 movementDirection;
-    InputAction moveAction;
-    
-    Jump jumpComponent;
-    Dash dashComponent;
+    private InputAction moveAction;
+    private InputAction sprintAction;
 
-    private int sprintNr = 0;
+    private Dash dashComponent;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        
         moveAction = InputSystem.actions.FindAction("Move");
-        jumpComponent = GetComponent<Jump>();
+        sprintAction = InputSystem.actions.FindAction("Sprint");
+
         dashComponent = GetComponent<Dash>();
+
     }
 
     private void Update()
     {
-        if ( isGrounded )
-        {
-            dashComponent.ResetDash();
-        }
-
-        if ( GroundCheckJump() )
-        {
-            jumpComponent.ResetJumps();
-        }
-
-        Hover();
+        OnGroundReset();
+        CheckInputs();
         ReadInput();
-        Move();
+    }
+
+
+    private void FixedUpdate()
+    {
+
+        RotateTowards(movementDirection); // rotate the player towards the movement direction
+
+        if (dashComponent.startDash)
+        {
+            // if we need to start a dash, we call the dash function
+            dashComponent.StartDash(movementDirection);
+            dashComponent.startDash = false; // set this to zero because we started a dash
+        }
+        else
+        {
+            Move();
+        }
+    }
+
+
+
+
+    /*  Physics based functions */
+    /*   - to be called in the FixedUpdate function */
+
+
+
+    private void Move()
+    {
+        // movement function which moves the player
+        if (movementDirection.sqrMagnitude < 0.01f)
+        {
+            // if the movement direction is almost zero, stops the player's movement
+            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
+            return;
+        }
+
+        float speed = moveSpeed; // normal moving speed
+        if (dashComponent.noDashRunning && isSprinting && isGrounded)
+            // if we are sprinting ( that means no dash is running, the sprint button is pressed and we are grounded we set speed to the sprint speed
+            speed = sprintSpeed;
+        if (!isGrounded)
+            // if we are in air, we move the character slower towards the desired direction
+            speed *= inAirSpeedMultiplier;
+        
+        Vector3 desiredVelocity = movementDirection * speed; // the desired velocity
+        Vector3 velocityChange = desiredVelocity - new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z); // how much we need to change the velocity to reach the desired velocity
+        rb.AddForce(velocityChange, ForceMode.Acceleration); // add the coresponding force
+        // ForceMode.Acceleration is used so that the mass of the rigidbody doesn't affect the movement speed
     }
 
     private void RotateTowards(Vector3 vector)
     {
+        // rotates the player towards the given direction vector 
+        // the smoothness of the rotation is determined by the rotateSpeed variable ( the bigger the faster )
+
         if (vector == Vector3.zero)
             return;
-        Quaternion toRotation = Quaternion.LookRotation(vector);
+
+        Quaternion toRotation = Quaternion.LookRotation(vector); //  computes the rotation needed to look at the target vector
         transform.rotation = Quaternion.RotateTowards(
-            transform.rotation, 
-            toRotation, 
-            rotateSpeed * Time.deltaTime);
+            transform.rotation,  // current rotation
+            toRotation,   // target rotation
+            rotateSpeed * Time.deltaTime // how many degrees to rotate this frame 
+            );
     }
 
-    private void Move()
+
+    /*  Function for checking inputs */
+    /*   - to be called in the Update function */
+    private void CheckInputs()
     {
-        if (movementDirection.sqrMagnitude < 0.01f)
+        if (isGrounded)
         {
-            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
-            return;
+            if (sprintAction.IsPressed())
+            {
+                isSprinting = true;
+            }
+            else
+            {
+                isSprinting = false;
+            }
         }
-        
-        RotateTowards(movementDirection);
-        float speed = moveSpeed;
-        if (isSprinting() && !jumpComponent.isJumping())
-            speed = sprintSpeed;
-
-        if (Keyboard.current.leftShiftKey.isPressed && jumpComponent.isJumping())
+        else
         {
-            dashComponent.StartDash(movementDirection);
-        }
+            isSprinting = false;
 
-        // direct prin transform
-        //if (GroundCheck())
+            if (sprintAction.WasPressedThisFrame())
+            {
+                dashComponent.startDash = true;
+                dashComponent.noDashRunning = false;
+            }
+        }
+        //if (Keyboard.current.leftShiftKey.wasPressedThisFrame && !isGrounded)
         //{
-        //    transform.position += movementDirection * speed * Time.deltaTime;
+        //    dashComponent.startDash = true;
+        //    dashComponent.noDashRunning = false;
         //}
-        // cu fizica
-        if ( GroundCheck() || jumpComponent.isJumping())
-        {
-            Vector3 desiredVelocity = movementDirection * speed;
-            Vector3 velocityChange = desiredVelocity - new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
-            rb.AddForce(velocityChange, ForceMode.Acceleration);
-        }
     }
-
-    private bool isSprinting()
-    {
-        return Keyboard.current.leftShiftKey.isPressed;
-    }
-   
     private void ReadInput()
     {
+        // function which reads the movement input and sets the direction accordingly
         Vector2 inputRead = moveAction.ReadValue<Vector2>();
         movementDirection = new Vector3(inputRead.x, 0, inputRead.y).normalized;
+
     }
-
-    private void Hover()
+    private void OnGroundReset()
     {
-        if(!GroundCheck())
-            return;
-        Ray ray = new Ray(transform.position, Vector3.down);
-        if (Physics.Raycast(ray, out RaycastHit hit, maxHoverHeight * 2f, groundMask))
+        // checks ground and resets all the corresponding elements
+        if (isGrounded)
         {
-            float distance = hit.distance;
-            float heightError = maxHoverHeight - distance;
-
-            float upwardSpeed = heightError * hoverUpwardForce;
-
-            float damp = -rb.linearVelocity.y * hoverDamping;
-
-            Vector3 force = Vector3.up * (upwardSpeed + damp);
-            rb.AddForce(force, ForceMode.Acceleration);
+            dashComponent.ResetDash();
         }
     }
 
-    public bool GroundCheck()
+    /* Debugging */
+    void OnDrawGizmosSelected()
     {
-        isGrounded = Physics.CheckSphere(groundOrigin.position, groundCheckDistance, groundMask);
-        return isGrounded;
+        if (groundOrigin == null) return;
+
+        Gizmos.color = Color.yellow; // or any color you like
+        Gizmos.DrawWireSphere(groundOrigin.position, groundCheckDistance);
     }
 
-    public bool GroundCheckJump()
-    {
-        return Physics.CheckSphere(groundOrigin.position, groundCheckJumpDistance, groundMask);
-    }
-
-
-    public bool IsGrounded()
-    {
-        return isGrounded;
-    }
-
-    public void ResetSprints()
-    {
-        sprintNr = 0;
-    }
 }
