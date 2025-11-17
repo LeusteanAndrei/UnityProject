@@ -17,6 +17,9 @@ public class Movement : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.5f;
     [SerializeField] public Transform groundOrigin;
 
+    [Header("Camera settings")]
+    public Transform cameraTransform;
+
     [HideInInspector] public bool isGrounded = false;
     private bool isSprinting = false;
 
@@ -54,7 +57,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        movementDirection = GetDirectionRelativeToCamera(movementDirection); // get the movement direction relative to the camera
         RotateTowards(movementDirection); // rotate the player towards the movement direction
 
         if (dashComponent.startDash)
@@ -104,6 +107,24 @@ public class Movement : MonoBehaviour
         // ForceMode.Acceleration is used so that the mass of the rigidbody doesn't affect the movement speed
     }
 
+    private Vector3 GetDirectionRelativeToCamera(Vector3 currentDir)
+    {
+        // function which returns the normalized direction vector of the movement ( currentDir ) relative to the facing of the camera
+
+        Vector3 cameraForward = cameraTransform.forward; // gets the forward direction of the camera
+        cameraForward.y = 0; // we only want the direction on the xz plane
+
+        Vector3 cameraRight = cameraTransform.right; // gets the right direction of the camera
+        cameraRight.y = 0;  // we only want the direction on the xz plane
+
+        Vector3 newDir = cameraForward * currentDir.z + cameraRight * currentDir.x;
+        // z component = normal forward direction
+        // x component = normal right direction
+        // new direction = forward of camera * normal forward + right of camera * normal right
+
+        return newDir.normalized; // return it normalized
+    }
+
     private void RotateTowards(Vector3 vector)
     {
         // rotates the player towards the given direction vector 
@@ -111,6 +132,7 @@ public class Movement : MonoBehaviour
 
         if (vector == Vector3.zero)
             return;
+
 
         Quaternion toRotation = Quaternion.LookRotation(vector); //  computes the rotation needed to look at the target vector
         transform.rotation = Quaternion.RotateTowards(
@@ -171,9 +193,11 @@ public class Movement : MonoBehaviour
     /* Debugging */
     void OnDrawGizmosSelected()
     {
+        // draws the ground check sphere in the editor for debugging purposes
+
         if (groundOrigin == null) return;
 
-        Gizmos.color = Color.yellow; // or any color you like
+        Gizmos.color = Color.yellow; 
         Gizmos.DrawWireSphere(groundOrigin.position, groundCheckDistance);
     }
 
