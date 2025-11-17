@@ -12,6 +12,12 @@ shift - for sprinting on ground and if the character is in the air he will perfo
 
 c - crouching, the character's collision box gets smaller by half its size ( the mesh doesn't change )
 
+scroll wheel - for zooming in with the camera
+
+mouse - for moving the camera ( there currently is a bug where the movement is a little jittery
+ due to the camera  - for non-jittery
+ movement test the sample scene where the camera is static ) 
+
 ### Basic gameplay
 sound bar - how loud the player is, gets higher when dropping objects
 
