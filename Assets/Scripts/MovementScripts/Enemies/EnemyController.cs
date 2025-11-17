@@ -14,10 +14,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private float moveSpeed;
 
+    Rigidbody rb;
+
     private void Start()
     {
         //I tagged the player, so that it starts by finding their position
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        rb = GetComponent<Rigidbody>();
 
     }
     private void Update()
@@ -39,7 +43,7 @@ public class EnemyController : MonoBehaviour
             //once it's too close, it stops following you (we don't want the enemy to eat us :( )
             if (distanceToPlayer >= minDistance)
             {
-                transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
             }
         }
@@ -47,6 +51,7 @@ public class EnemyController : MonoBehaviour
         {
             //it stops following us the moment we escape their zone
             isPlayerInZone = false;
+            rb.linearDamping = 1f; // stops the enemy from moving
         }
     }
     //this function is here just to help you visualise the distances - NOT in game mode (especially when you modify them in editor)
