@@ -662,7 +662,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 100
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -979,6 +979,7 @@ MonoBehaviour:
     m_Bits: 8
   groundCheckDistance: 0.3
   groundOrigin: {fileID: 617928356}
+  cameraTransform: {fileID: 1770249190}
   isGrounded: 0
 --- !u!114 &382222839
 MonoBehaviour:
@@ -2824,7 +2825,7 @@ MonoBehaviour:
   TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
-  MinimumDistanceFromTarget: 3
+  MinimumDistanceFromTarget: 4
   AvoidObstacles:
     Enabled: 1
     DistanceLimit: 0
@@ -2960,7 +2961,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 100
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
