@@ -1,10 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-//hello
     private Rigidbody rb;
-    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -12,4 +11,5 @@ public class PlayerMovement : MonoBehaviour
         rb.linearDamping = 0; 
 
     }
+
 }
