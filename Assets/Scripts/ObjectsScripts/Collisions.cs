@@ -23,7 +23,7 @@ public class Collisions : MonoBehaviour
         {
             Surface surface = other.gameObject.GetComponent<Surface>();
             float loudness = currentSpeed * surface.GetHardness() * soundMultiplier;
-            Debug.Log(loudness);
+            //Debug.Log(loudness);
             if (loudness > damageThreshold)
             {
                 //break object

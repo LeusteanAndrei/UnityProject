@@ -17,8 +17,15 @@ public class Movement : MonoBehaviour
     [SerializeField] private float groundCheckDistance = 0.5f;
     [SerializeField] public Transform groundOrigin;
 
+
+    [Header("Shake settings")]
+    [SerializeField] public float sprintIntensity;
+    [SerializeField] public float sprintShakeDuration = 1f;
+    [SerializeField] public float frequency = 1f;
+
+
     [Header("Camera settings")]
-    public Transform cameraTransform;
+    [SerializeField] public Transform cameraTransform;
 
     [HideInInspector] public bool isGrounded = false;
     private bool isSprinting = false;
@@ -52,6 +59,7 @@ public class Movement : MonoBehaviour
         OnGroundReset();
         CheckInputs();
         ReadInput();
+
     }
 
 
