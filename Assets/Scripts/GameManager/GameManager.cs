@@ -1,3 +1,4 @@
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,12 +7,19 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField]
-    private GameObject mainMenu;
+    //[SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject pauseMenu;
 
     public string mainGameSceneName = "Level 2";
     public string loadingSceneName = "Loading Screen";
+    public string mainMenuSceneName = "Main Menu";
+    private string lastSceneLoaded;
+
+
     private LoadingScreenManager currentLoadingScreenManager;
+
+    private bool isPaused = false;
+
     private void Start()
     {
         if (Instance == null)
@@ -23,63 +31,109 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("ESC pressed");
+            TogglePause();
+        }
+    }
     public void LoadTargetScene(string targetSceneName)
     {
         Debug.Log($"Requesting load sequence for scene: {targetSceneName}");
         StartCoroutine(LoadSceneSequence(targetSceneName));
     }
-    private void Update()
+    private void TogglePause()
     {
-        //I'll put the pause Menu here when it's done
+        isPaused = !isPaused;
+
+        pauseMenu.SetActive(isPaused);
+
+        // Freeze or unfreeze gameplay
+        Time.timeScale = isPaused ? 0 : 1;
+
+        if (isPaused)
+        {
+            // Allow clicking UI
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            // Restore gameplay mode (camera scripts expect this)
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
+
+    public void Resume()
+    {
+        isPaused = false;
+        pauseMenu.SetActive(false);
+
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void Restart()
+    {
+        //Time.timeScale = 1; // Reset in case paused
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void NewGame()
     {
         Debug.Log("New Game started...");
         LoadTargetScene(mainGameSceneName);
-        //SceneManager.LoadScene(mainGameSceneName);
     }
+
+    public void GoMainMenu()
+    {
+        Time.timeScale = 1f;
+        LoadTargetScene(mainMenuSceneName);
+    }
+
     public void Quit()
     {
-        // Quits the application when run as a build
         Application.Quit();
-
-        // Special command to stop the game when running inside the Unity Editor
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
     private IEnumerator LoadSceneSequence(string targetSceneName)
     {
-        // Load loading screen additively
+        // Load the loading screen additively
         yield return SceneManager.LoadSceneAsync(loadingSceneName, LoadSceneMode.Additive);
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(loadingSceneName));
+
         currentLoadingScreenManager = FindFirstObjectByType<LoadingScreenManager>();
         if (currentLoadingScreenManager == null)
         {
-            Debug.Log("LoadingScreenManager not found!");
+            Debug.LogError("LoadingScreenManager not found!");
             yield break;
         }
 
-        // Start async load of target scene
+        // Begin loading the target scene
         AsyncOperation operation = SceneManager.LoadSceneAsync(targetSceneName);
         operation.allowSceneActivation = false;
+        lastSceneLoaded = targetSceneName;
 
         float minLoadTime = 2f;
         float timer = 0f;
 
         while (!operation.isDone)
         {
-
-            // Update fake progress (Unity load stops at 0.9)
             float progress = Mathf.Clamp01(operation.progress / 0.9f);
             currentLoadingScreenManager.UpdateProgress(progress);
 
             timer += Time.deltaTime;
 
-            // Conditions to activate the scene:
             if (operation.progress >= 0.9f && timer >= minLoadTime)
             {
-                // Ensure progress bar is full
                 currentLoadingScreenManager.UpdateProgress(1f);
                 operation.allowSceneActivation = true;
             }
@@ -87,8 +141,16 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        // Unload loading scene
+        // WAIT 1 FRAME for activation
+        yield return null;
+
+        // Make the target scene active
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(targetSceneName));
+
+        // Unload loading screen
         yield return SceneManager.UnloadSceneAsync(loadingSceneName);
     }
 }
+
+
 
