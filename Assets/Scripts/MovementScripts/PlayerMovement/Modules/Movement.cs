@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -11,21 +12,28 @@ public class Movement : MonoBehaviour
     [SerializeField] private float sprintSpeed = 15f;
     [SerializeField] private float inAirSpeedMultiplier = 0.5f;
     [SerializeField] private float crouchSpeedMultiplier = 0.3f;
+    [SerializeField] private float staminaSprintDrainCost = 20f;
 
     [Header("Ground Detection")]
-    [SerializeField] public LayerMask groundMask;
+    [SerializeField] private LayerMask groundMask;
     [SerializeField] private float groundCheckDistance = 0.5f;
-    [SerializeField] public Transform groundOrigin;
+    [SerializeField] private Transform groundOrigin;
 
 
     [Header("Shake settings")]
-    [SerializeField] public float sprintIntensity;
-    [SerializeField] public float sprintShakeDuration = 1f;
-    [SerializeField] public float frequency = 1f;
+    [SerializeField] private float sprintIntensity;
+    [SerializeField] private float sprintShakeDuration = 1f;
+    [SerializeField] private float frequency = 1f;
 
 
     [Header("Camera settings")]
-    [SerializeField] public Transform cameraTransform;
+    [SerializeField] private Transform cameraTransform;
+
+    [Header("Stamina bar")]
+    [SerializeField] public StaminaBarScript staminaBar;
+
+
+
 
     [HideInInspector] public bool isGrounded = false;
     private bool isSprinting = false;
@@ -60,6 +68,7 @@ public class Movement : MonoBehaviour
         CheckInputs();
         ReadInput();
 
+        HandleStaminaBar();
     }
 
 
@@ -82,6 +91,14 @@ public class Movement : MonoBehaviour
 
 
 
+    private void HandleStaminaBar()
+    {
+        if (isSprinting)
+        {
+            staminaBar.ConsumeStamina(staminaSprintDrainCost * Time.fixedDeltaTime);
+        }
+    }
+
 
     /*  Physics based functions */
     /*   - to be called in the FixedUpdate function */
@@ -99,7 +116,7 @@ public class Movement : MonoBehaviour
         }
 
         float speed = moveSpeed; // normal moving speed
-        if (dashComponent.noDashRunning && isSprinting && isGrounded && !crouchComponent.isCrouching)
+        if (dashComponent.noDashRunning && isSprinting && isGrounded && !crouchComponent.isCrouching && staminaBar.getStamina()>0 )
             // if we are sprinting ( that means no dash is running, the sprint button is pressed and we are grounded we set speed to the sprint speed )
             speed = sprintSpeed;
         if (!isGrounded)
@@ -172,23 +189,29 @@ public class Movement : MonoBehaviour
 
             if (sprintAction.WasPressedThisFrame())
             {
-                dashComponent.startDash = true;
-                dashComponent.noDashRunning = false;
+                if (staminaBar.getStamina() > dashComponent.dashStaminaConsumption)
+                {
+                    dashComponent.startDash = true;
+                    dashComponent.noDashRunning = false;
+                    staminaBar.ConsumeStamina(dashComponent.dashStaminaConsumption);
+                }
             }
         }
+
         //if (Keyboard.current.leftShiftKey.wasPressedThisFrame && !isGrounded)
         //{
         //    dashComponent.startDash = true;
         //    dashComponent.noDashRunning = false;
         //}
     }
+
     private void ReadInput()
     {
         // function which reads the movement input and sets the direction accordingly
         Vector2 inputRead = moveAction.ReadValue<Vector2>();
         movementDirection = new Vector3(inputRead.x, 0, inputRead.y).normalized;
-
     }
+
     private void OnGroundReset()
     {
         // checks ground and resets all the corresponding elements
