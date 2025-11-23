@@ -95,7 +95,7 @@ public class Movement : MonoBehaviour
     {
         if (isSprinting)
         {
-            staminaBar.ConsumeStamina(staminaSprintDrainCost * Time.fixedDeltaTime);
+            staminaBar.ConsumeStamina(staminaSprintDrainCost * Time.fixedDeltaTime); // if the player is sprinting, consume stamina
         }
     }
 
@@ -189,11 +189,11 @@ public class Movement : MonoBehaviour
 
             if (sprintAction.WasPressedThisFrame())
             {
-                if (staminaBar.getStamina() > dashComponent.dashStaminaConsumption)
+                if (staminaBar.getStamina() > dashComponent.dashStaminaConsumption) // if there's enough stamina for dashing
                 {
                     dashComponent.startDash = true;
                     dashComponent.noDashRunning = false;
-                    staminaBar.ConsumeStamina(dashComponent.dashStaminaConsumption);
+                    staminaBar.ConsumeStamina(dashComponent.dashStaminaConsumption); // consume stamina
                 }
             }
         }
