@@ -8,11 +8,14 @@ public class Dash : MonoBehaviour
     [Header("Dash Settings")]
     [SerializeField] private float dashForce = 30f; // the force with which the player dashes
     [SerializeField] private float dashDuration = 0.5f; // the duration of the dash
+    [SerializeField] public float dashStaminaConsumption = 30f;
+
 
     private int dashCount; // number of dashes done 
     private Rigidbody rb; 
     [HideInInspector] public bool startDash = false; // states whether the dash has started or not
     [HideInInspector] public bool noDashRunning = true; // states whether the dash is currently running or not
+
 
 
     private void Start()
@@ -23,7 +26,7 @@ public class Dash : MonoBehaviour
     {
         // dashing function which starts the dash coroutine and increases the dash count 
         // additionally checks whether it's the first dash
-        // dashesh towards the dashDirection parameter 
+        // dashes towards the dashDirection parameter 
 
         if (dashCount < 1)
         {
@@ -52,6 +55,7 @@ public class Dash : MonoBehaviour
         // resets the player's velocity on the x and y plane so he stops in place
         rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
         noDashRunning = true;
+
     }
 
     public void ResetDash()
@@ -65,9 +69,6 @@ public class Dash : MonoBehaviour
     {
         return dashCount;
     }
-
-
-
 
 
 
