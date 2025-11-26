@@ -5,6 +5,9 @@ public class Collisions : MonoBehaviour
     public float currentSpeed;
     [SerializeField] private float damageThreshold;
     [SerializeField] private float soundMultiplier = 1f;
+    [SerializeField] private float stunMin = 0.5f;
+    [SerializeField] private float stunMax = 3f;
+    [SerializeField] private float stunScale = 20f; // speed*multiplier value that yields max stun
     public SoundMeterManage soundMeter;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,10 +44,21 @@ public class Collisions : MonoBehaviour
                 if (h == null) continue;
                 if (h.CompareTag("Enemy"))
                 {
-                    Debug.Log("Enemy alerted by sound!");
+                    h.GetComponent<EnemyMovement>().GetDistracted(gameObject);
                 }
             }
             
+        }
+        if(other.gameObject.GetComponent<EnemyMovement>() != null)
+        {
+            if(gameObject.transform.position.y>other.gameObject.transform.position.y)
+            {
+            var enemy = other.gameObject.GetComponent<EnemyMovement>();
+            float intensity = currentSpeed * soundMultiplier;
+            float t = Mathf.Clamp01(intensity / Mathf.Max(0.0001f, stunScale));
+            float stunDuration = Mathf.Lerp(stunMin, stunMax, t);
+            enemy.GetStunned(stunDuration);
+            }
         }
     }
 }
