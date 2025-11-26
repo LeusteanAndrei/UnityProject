@@ -13,11 +13,15 @@ public class SoundMeterManage : MonoBehaviour
     {
         currentSoundLevel = 0f;
         maxSoundLevel = 20f;
-        SoundMeterUI = GameObject.Find("SoundMeter").GetComponent<Slider>();
-        if (SoundMeterUI != null)
+        GameObject soundMeterObject = GameObject.Find("SoundMeter");
+        if (soundMeterObject != null)
         {
-            SoundMeterUI.maxValue = maxSoundLevel;
-            SoundMeterUI.value = currentSoundLevel;
+            SoundMeterUI = soundMeterObject.GetComponent<Slider>();
+            if (SoundMeterUI != null)
+            {
+                SoundMeterUI.maxValue = maxSoundLevel;
+                SoundMeterUI.value = currentSoundLevel;
+            }
         }
     }
     // Update is called once per frame
