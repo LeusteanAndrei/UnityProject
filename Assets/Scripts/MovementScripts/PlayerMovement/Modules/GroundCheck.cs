@@ -5,8 +5,6 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
 
-    [SerializeField] public LayerMask groundMask;
-
     int groundContacts = 0; // number of ground contacts
     Movement movementComponent;
 
@@ -18,34 +16,33 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!IsGroundLayer(other.gameObject))
-            return;
-
         groundContacts++;
-        UpdateGround();
+        UpdateGround(other.gameObject);
 
     }   
 
     private void OnTriggerExit(Collider other)
     {
-        if (!IsGroundLayer(other.gameObject))
-            return;
+        //if (!IsGroundLayer(other.gameObject))
+        //    return;
         
         groundContacts = Mathf.Max( 0, groundContacts - 1 );
-        UpdateGround();
+        UpdateGround(other.gameObject);
     }
 
 
-    private void UpdateGround()
+    private void UpdateGround(GameObject obj)
     {
+        if (movementComponent == null) return;
         movementComponent.isGrounded = groundContacts > 0;
+        movementComponent.currentLayerIndex = obj.layer;
     }
 
 
-    // checks wether the layer of the object is the groundMask layer 
-    private bool IsGroundLayer(GameObject obj)
-    {
-        return groundMask == (groundMask | (1 << obj.layer));
-    }
+    //// checks wether the layer of the object is the groundMask layer 
+    //private bool IsGroundLayer(GameObject obj)
+    //{
+    //    return groundMask == (groundMask | (1 << obj.layer));
+    //}
 
 }

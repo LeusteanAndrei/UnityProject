@@ -3437,12 +3437,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1458168831}
   - component: {fileID: 1458168830}
+  - component: {fileID: 1458168824}
   - component: {fileID: 1458168829}
   - component: {fileID: 1458168828}
   - component: {fileID: 1458168827}
   - component: {fileID: 1458168826}
   - component: {fileID: 1458168825}
-  - component: {fileID: 1458168824}
   - component: {fileID: 1458168823}
   m_Layer: 6
   m_Name: Player
@@ -3557,6 +3557,7 @@ MonoBehaviour:
   inAirSpeedMultiplier: 0.3
   crouchSpeedMultiplier: 0.3
   staminaSprintDrainCost: 10
+  turnSmooth: 0.494
   groundMask:
     serializedVersion: 2
     m_Bits: 8

@@ -26,7 +26,6 @@ public class Jump : MonoBehaviour
     private bool holdJump = false; // wether the player is holding jump or not
 
     private bool wasGroundedLastFrame = true;
-    private bool reduceSecondJump = false;
 
     private void Start()
     {
