@@ -51,7 +51,7 @@ public class Collisions : MonoBehaviour
         }
         if(other.gameObject.GetComponent<EnemyMovement>() != null)
         {
-            if(gameObject.transform.position.y>other.gameObject.transform.position.y)
+            if(gameObject.transform.position.y>other.gameObject.transform.position.y && !gameObject.CompareTag("Player"))
             {
             var enemy = other.gameObject.GetComponent<EnemyMovement>();
             float intensity = currentSpeed * soundMultiplier;
