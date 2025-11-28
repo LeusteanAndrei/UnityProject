@@ -7,8 +7,8 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
 
-    [SerializeField] private List<int> groundLayers = new List<int>();
-    private HashSet<int> _groundLayerSet;
+    [SerializeField] private List<int> notGroundLayers = new List<int>();
+    private HashSet<int> _notGroundLayerSet;
 
     int groundContacts = 0; // number of ground contacts
     Movement movementComponent;
@@ -17,7 +17,7 @@ public class GroundCheck : MonoBehaviour
     void Start()
     {
         movementComponent = GetComponentInParent<Movement>();
-        _groundLayerSet = new HashSet<int>(groundLayers);
+        _notGroundLayerSet = new HashSet<int>(notGroundLayers);
     }
 
 
@@ -53,7 +53,7 @@ public class GroundCheck : MonoBehaviour
 
     private bool IsGround(int layerNumber)
     {
-        return _groundLayerSet.Contains(layerNumber);
+        return !_notGroundLayerSet.Contains(layerNumber);
     }
 
     //// checks wether the layer of the object is the groundMask layer 
