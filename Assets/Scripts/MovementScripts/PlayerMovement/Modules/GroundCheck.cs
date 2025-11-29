@@ -23,7 +23,8 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        groundContacts++;
+
+        if (IsGround(other.gameObject.layer)) groundContacts++;
         UpdateGround(other.gameObject);
 
     }   
@@ -32,8 +33,7 @@ public class GroundCheck : MonoBehaviour
     {
         //if (!IsGroundLayer(other.gameObject))
         //    return;
-        
-        groundContacts = Mathf.Max( 0, groundContacts - 1 );
+        if (IsGround(other.gameObject.layer))  groundContacts = Mathf.Max( 0, groundContacts - 1 );
         UpdateGround(other.gameObject);
     }
 
@@ -44,6 +44,7 @@ public class GroundCheck : MonoBehaviour
 
     private void UpdateGround(GameObject obj)
     {
+        Debug.Log(obj.layer);
         if (movementComponent == null) return;
         if (!IsGround(obj.layer)) return;
         movementComponent.isGrounded = groundContacts > 0;
