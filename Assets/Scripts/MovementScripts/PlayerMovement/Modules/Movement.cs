@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
-using UnityEditorInternal;
 
 public class Movement : MonoBehaviour
 {

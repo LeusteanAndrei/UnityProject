@@ -721,7 +721,7 @@ MonoBehaviour:
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
   ChannelMask: -1
-  UpdateMethod: 2
+  UpdateMethod: 0
   BlendUpdateMethod: 1
   LensModeOverride:
     Enabled: 0
@@ -3426,6 +3426,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1525353406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1537101807134508675, guid: d39dff56b5fad6a4993cf025d99db9d3, type: 3}
+  m_PrefabInstance: {fileID: 2003819210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1556270749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4535,7 +4540,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1537101807134508675, guid: d39dff56b5fad6a4993cf025d99db9d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2003819218}
   m_SourcePrefab: {fileID: 100100000, guid: d39dff56b5fad6a4993cf025d99db9d3, type: 3}
 --- !u!4 &2003819211 stripped
 Transform:
@@ -4547,12 +4555,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2572662392881093947, guid: d39dff56b5fad6a4993cf025d99db9d3, type: 3}
   m_PrefabInstance: {fileID: 2003819210}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1525353406}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2003819218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525353406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 0
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &2102342708
 GameObject:
   m_ObjectHideFlags: 0
