@@ -39,6 +39,7 @@ public class Movement : MonoBehaviour
 
     private Dash dashComponent;
     private Crouch crouchComponent;
+    private Grappling grapplingComponent;
 
 
     [HideInInspector] public int currentLayerIndex;
@@ -63,6 +64,7 @@ public class Movement : MonoBehaviour
 
         dashComponent = GetComponent<Dash>();
         crouchComponent = GetComponent<Crouch>();
+        grapplingComponent = GetComponent<Grappling>();
 
     }
 
@@ -122,9 +124,9 @@ public class Movement : MonoBehaviour
 
 
         // movement function which moves the player
-        if (movementDirection.sqrMagnitude < 0.01f)
+        if (movementDirection.sqrMagnitude < 0.01f )
         {
-            if (!onSlipperyLayer)
+            if (!onSlipperyLayer && !grapplingComponent.IsPulling())
             {
                 // if the movement direction is almost zero, stops the player's movement
                 rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);

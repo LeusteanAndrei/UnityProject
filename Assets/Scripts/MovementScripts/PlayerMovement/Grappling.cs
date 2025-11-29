@@ -189,6 +189,11 @@ public class Grappling : MonoBehaviour
         isPulling = false;
         if (line != null) line.positionCount = 0;
     }
+
+    public bool IsPulling()
+    {
+        return isPulling;
+    }
     private IEnumerator GrapplePullRoutine(Vector3 target)
     {
         EnsureInit();
