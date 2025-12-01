@@ -55,8 +55,8 @@ public class Glide : MonoBehaviour
                 nrJump = 0;
             }
             nrJump++;
-            Debug.Log("nrJump: " + nrJump);
-            Debug.Log("isGrounded: " + isGrounded);
+            //Debug.Log("nrJump: " + nrJump);
+            //Debug.Log("isGrounded: " + isGrounded);
         }
     }
 
