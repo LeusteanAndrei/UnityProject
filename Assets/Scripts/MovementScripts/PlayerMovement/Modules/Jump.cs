@@ -155,4 +155,10 @@ public class Jump : MonoBehaviour
         nrJump = 0;
     }
 
+    public float GetFallMultiplier() { return fallMultiplier; }
+    public int GetNrJump() { return nrJump; }
+    public bool GetShouldJump() { return shouldJump; }
+    public bool GetHoldJump() { return holdJump; }
+
+    public void SetFallMultiplier(float multiplier) { fallMultiplier = multiplier; }
 }
