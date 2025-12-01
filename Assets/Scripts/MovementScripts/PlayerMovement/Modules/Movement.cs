@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private float sprintSpeed = 15f;
+    [SerializeField] private float glideSpeed = 10f;
     [SerializeField] private float inAirSpeedMultiplier = 0.5f;
     [SerializeField] private float crouchSpeedMultiplier = 0.3f;
     [SerializeField] private float staminaSprintDrainCost = 20f;
@@ -40,6 +41,7 @@ public class Movement : MonoBehaviour
     private Dash dashComponent;
     private Crouch crouchComponent;
     private Grappling grapplingComponent;
+    private Glide glideComponent;
 
 
     [HideInInspector] public int currentLayerIndex;
@@ -65,6 +67,7 @@ public class Movement : MonoBehaviour
         dashComponent = GetComponent<Dash>();
         crouchComponent = GetComponent<Crouch>();
         grapplingComponent = GetComponent<Grappling>();
+        glideComponent = GetComponent<Glide>();
 
     }
 
@@ -143,6 +146,9 @@ public class Movement : MonoBehaviour
         if (dashComponent.noDashRunning && isSprinting && isGrounded && !crouchComponent.isCrouching && staminaBar.getStamina()>0 )
             // if we are sprinting ( that means no dash is running, the sprint button is pressed and we are grounded we set speed to the sprint speed )
             speed = sprintSpeed;
+        if (glideComponent.GetIsGliding())
+            // if we're gliding we move the character according to the glide speed
+            speed = glideSpeed;
         if (!isGrounded)
             // if we are in air, we move the character slower towards the desired direction
             speed *= inAirSpeedMultiplier;
@@ -283,5 +289,9 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public bool GetIsGrounded()
+    {
+        return isGrounded;
+    }
 
 }
