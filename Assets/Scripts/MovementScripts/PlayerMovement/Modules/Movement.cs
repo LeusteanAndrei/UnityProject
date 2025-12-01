@@ -26,8 +26,7 @@ public class Movement : MonoBehaviour
     [Header("Camera settings")]
     [SerializeField] private Transform cameraTransform;
 
-    [Header("Stamina bar")]
-    [SerializeField] public StaminaBarScript staminaBar;
+    private StaminaBarScript staminaBar;
 
 
     [HideInInspector] public bool isGrounded = false;
@@ -68,7 +67,7 @@ public class Movement : MonoBehaviour
         crouchComponent = GetComponent<Crouch>();
         grapplingComponent = GetComponent<Grappling>();
         glideComponent = GetComponent<Glide>();
-
+        staminaBar = GetComponent<Stamina>().staminaBar;
     }
 
     private void Update()
@@ -146,15 +145,15 @@ public class Movement : MonoBehaviour
         if (dashComponent.noDashRunning && isSprinting && isGrounded && !crouchComponent.isCrouching && staminaBar.getStamina()>0 )
             // if we are sprinting ( that means no dash is running, the sprint button is pressed and we are grounded we set speed to the sprint speed )
             speed = sprintSpeed;
-        if (glideComponent.GetIsGliding())
-            // if we're gliding we move the character according to the glide speed
-            speed = glideSpeed;
         if (!isGrounded)
             // if we are in air, we move the character slower towards the desired direction
             speed *= inAirSpeedMultiplier;
         if ( crouchComponent.isCrouching )
             // if we're crouching we move him slower compared to his initial speed 
             speed *= crouchSpeedMultiplier;
+        if (glideComponent.GetIsGliding())
+            // if we're gliding we move the character according to the glide speed
+            speed = glideSpeed;
 
         float smoothness = turnSmoothness;
 

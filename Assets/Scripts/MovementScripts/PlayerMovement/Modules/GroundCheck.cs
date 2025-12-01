@@ -44,7 +44,6 @@ public class GroundCheck : MonoBehaviour
 
     private void UpdateGround(GameObject obj)
     {
-        Debug.Log(obj.layer);
         if (movementComponent == null) return;
         if (!IsGround(obj.layer)) return;
         movementComponent.isGrounded = groundContacts > 0;

@@ -33,11 +33,20 @@ public class Grappling : MonoBehaviour
     private float lastGrappleTime = -1000f;
     private SpringJoint activeJoint;
     private InputAction jumpAction;
+
+    private bool jumpPressedWhileGrappling = false;
     void Start()
     {
         EnsureInit();
         jumpAction = InputSystem.actions.FindAction("Jump");
     }
+
+    private void Update()
+    {
+        if (isPulling && jumpAction.WasPressedThisFrame())
+            jumpPressedWhileGrappling = true ;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -56,7 +65,8 @@ public class Grappling : MonoBehaviour
                 StopGrapple();
             }
         }
-        if(Vector3.Distance(transform.position, targetPoint) < stopDistance || (isPulling && Time.time > lastGrappleTime + maxPullDuration) || (jumpAction.WasPressedThisFrame() && isPulling))
+
+        if(Vector3.Distance(transform.position, targetPoint) < stopDistance || (isPulling && Time.time > lastGrappleTime + maxPullDuration) || jumpPressedWhileGrappling )
         {
             StopGrapple();
         }
@@ -231,6 +241,7 @@ public class Grappling : MonoBehaviour
             Destroy(activeJoint);
             activeJoint = null;
         }
+        jumpPressedWhileGrappling = false;
     }
 
     public bool IsPulling()

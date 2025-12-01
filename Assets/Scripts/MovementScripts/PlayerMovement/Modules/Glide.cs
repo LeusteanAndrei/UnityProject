@@ -5,7 +5,9 @@ public class Glide : MonoBehaviour
 {
     Jump jumpComponent;
     Movement movementComponent;
+
     [SerializeField] float glideFallSpeed = 2f; // the multiplier for the gravity when falling down while gliding
+    [SerializeField] float glideStaminaConsumption = 10f;
 
     Rigidbody rb;
     InputAction jumpAction;
@@ -17,6 +19,8 @@ public class Glide : MonoBehaviour
     Vector3 velocity;
     bool isGliding = false;
 
+    StaminaBarScript staminaBar;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,14 +28,16 @@ public class Glide : MonoBehaviour
         jumpAction = InputSystem.actions.FindAction("Jump");
         jumpComponent = GetComponent<Jump>();
         movementComponent = GetComponent<Movement>();
+        staminaBar = GetComponent<Stamina>().staminaBar;
     }
 
     void FixedUpdate()
     {
-        if (!isGrounded && holdJump && nrJump > 2)
+        if (!isGrounded && holdJump && nrJump >= 2 && staminaBar.getStamina()>0)
         {
             isGliding = true;
             AllowGliding();
+            ConsumeStamina();
         }
 
         else
@@ -70,6 +76,12 @@ public class Glide : MonoBehaviour
         }
 
         rb.linearVelocity = velocity;
+
+    }
+
+    void ConsumeStamina()
+    {
+        staminaBar.ConsumeStamina(glideStaminaConsumption * Time.fixedDeltaTime);
     }
 
     public bool GetIsGliding() { return isGliding; }

@@ -17,6 +17,7 @@ public class Flashlight : MonoBehaviour
         if(currentTime>loseTime)
         {
             Debug.Log("GameOver");
+            GameManager.GameOver();
         }
         if(!isPlayerInLight && currentTime>0f)
         {
