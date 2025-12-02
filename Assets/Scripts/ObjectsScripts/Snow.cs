@@ -31,20 +31,19 @@ public class Snow : MonoBehaviour
                 if(snowEffect != null)
                 {
                     Vector3 contactPos = collision.GetContact(0).point + Vector3.up * 0.1f;
-                    // Use player's facing from Movement component for orientation
-                    Movement move = other.GetComponentInParent<Movement>();
-                    Vector3 facing = (move != null ? move.transform.forward : other.transform.forward);
+                    Vector3 facing = other.transform.forward;
                     Vector3 dir = new Vector3(facing.x, 0f, facing.z);
                     if (dir.sqrMagnitude < 0.0001f)
                     {
-                        // Fallback to velocity direction if facing is degenerate
                         Vector3 v = rb != null ? rb.linearVelocity : Vector3.zero;
                         dir = new Vector3(v.x, 0f, v.z);
                     }
-                    Quaternion baseRot = dir.sqrMagnitude > 0.0001f ? Quaternion.LookRotation(dir.normalized, Vector3.up) : Quaternion.identity;
-                    Quaternion rot = Quaternion.AngleAxis(rotationOffsetDegrees, Vector3.up) * baseRot;
-
-                    GameObject snowPrint = Instantiate(snowEffect.gameObject, contactPos, rot);
+                    // Explicit yaw from facing/velocity on XZ, then set X=90°, Z=0°
+                    float yawDeg = dir.sqrMagnitude > 0.0001f
+                        ? Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg + rotationOffsetDegrees
+                        : rotationOffsetDegrees;
+                    Quaternion finalRot = Quaternion.Euler(90f, yawDeg, 0f);
+                    GameObject snowPrint = Instantiate(snowEffect.gameObject, contactPos, finalRot);
                     lastPrintTime = Time.time;
                 }
             }

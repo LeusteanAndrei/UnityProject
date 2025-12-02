@@ -2,14 +2,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     //[SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
-
+    [SerializeField] public List<ParticleSystem> effects;
     public string mainGameSceneName = "Level 2";
     public string loadingSceneName = "Loading Screen";
     public string mainMenuSceneName = "Main Menu";
