@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 243757460}
   - component: {fileID: 243757459}
   - component: {fileID: 243757458}
+  - component: {fileID: 243757464}
   - component: {fileID: 243757457}
   - component: {fileID: 243757456}
   - component: {fileID: 243757455}
@@ -427,6 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Glide
   glideFallSpeed: 1
+  glideStaminaConsumption: 10
 --- !u!114 &243757454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +526,6 @@ MonoBehaviour:
     friction: 0
     spinSpeed: 0
   cameraTransform: {fileID: 870812193}
-  staminaBar: {fileID: 1706815997}
   isGrounded: 0
   currentLayerIndex: 0
 --- !u!114 &243757459
@@ -636,6 +637,19 @@ MonoBehaviour:
   jointDamper: 20
   jointShrinkSpeed: 20
   horizontalImpulseFactor: 0.5
+--- !u!114 &243757464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243757452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22725857b5066d74eb6e9424be7e1afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Stamina
+  staminaBar: {fileID: 1706815997}
 --- !u!1 &276122740
 GameObject:
   m_ObjectHideFlags: 0

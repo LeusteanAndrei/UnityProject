@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] public List<ParticleSystem> effects;
+    [SerializeField] private GameObject gameOverCanvas;
+
     public string mainGameSceneName = "Level 2";
     public string loadingSceneName = "Loading Screen";
     public string mainMenuSceneName = "Main Menu";
@@ -102,6 +104,13 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    public static void GameOver()
+    {
+        Instance.gameOverCanvas.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private IEnumerator LoadSceneSequence(string targetSceneName)

@@ -27,6 +27,7 @@ public class SoundMeterManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(currentSoundLevel);
         timeSinceLastIncrease += Time.deltaTime;
         if(timeSinceLastIncrease >= cooldownTime && currentSoundLevel > 0f) 
         {
