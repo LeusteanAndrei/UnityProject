@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 
     //[SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] public List<ParticleSystem> effects;
     [SerializeField] private GameObject gameOverCanvas;
 
     public string mainGameSceneName = "Level 2";

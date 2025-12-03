@@ -9,12 +9,11 @@ public class Collisions : MonoBehaviour
     [SerializeField] private float stunMax = 3f;
     [SerializeField] private float stunScale = 20f; // speed*multiplier value that yields max stun
     public SoundMeterManage soundMeter;
-    private List<ParticleSystem> effects = new List<ParticleSystem>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         soundMeter = GameObject.Find("GameManager").GetComponent<SoundMeterManage>();
-        effects = new List<ParticleSystem>(GameObject.Find("GameManager").GetComponent<GameManager>().effects);
     }
     // Update is called once per frame
     void Update()
@@ -37,11 +36,6 @@ public class Collisions : MonoBehaviour
             soundMeter.IncreaseSoundLevel(audioIncrease);
             
             Vector3 origin = other.contactCount > 0 ? other.GetContact(0).point : transform.position;
-            if(!gameObject.CompareTag("Player"))
-            {
-                ParticleSystem effect = effects[Random.Range(0, effects.Count)];
-                Instantiate(effect.gameObject, origin, Quaternion.identity);
-            }
             float radius = Mathf.Clamp(loudness, 1f, 30f) / 2f;
             var hits = Physics.OverlapSphere(origin, radius, ~0, QueryTriggerInteraction.Ignore);
             for (int i = 0; i < hits.Length; i++)
