@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 1624033390736489809}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1835,4 +1835,5 @@ MonoBehaviour:
   loseTime: 5
   currentTime: 0
   isPlayerInLight: 0
+  DetectionMark: {fileID: 0}
   DetectionFillImage: {fileID: 3247710371662453864}

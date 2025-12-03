@@ -73,12 +73,11 @@ public class LaserBeam : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"LaserBeam triggered by {other.gameObject.name}");
     }
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log($"LaserBeam staying in trigger with {other.gameObject.name}");
+
     }
 
     

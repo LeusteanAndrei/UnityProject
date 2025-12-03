@@ -34,7 +34,6 @@ public class Collisions : MonoBehaviour
             }
             int audioIncrease = Mathf.CeilToInt(loudness / 10f);
             soundMeter.IncreaseSoundLevel(audioIncrease);
-            
             Vector3 origin = other.contactCount > 0 ? other.GetContact(0).point : transform.position;
             float radius = Mathf.Clamp(loudness, 1f, 30f) / 2f;
             var hits = Physics.OverlapSphere(origin, radius, ~0, QueryTriggerInteraction.Ignore);
@@ -44,6 +43,7 @@ public class Collisions : MonoBehaviour
                 if (h == null) continue;
                 if (h.CompareTag("Enemy"))
                 {
+                    Debug.Log($"Enemy at {h.transform.position} distracted by sound");
                     h.GetComponent<EnemyMovement>().GetDistracted(gameObject);
                 }
             }

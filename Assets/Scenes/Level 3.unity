@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 227353076}
   - component: {fileID: 227353075}
   - component: {fileID: 227353081}
+  - component: {fileID: 227353082}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -350,7 +351,7 @@ Transform:
   m_GameObject: {fileID: 227353074}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -19.19, y: -4.85, z: -1.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -371,6 +372,22 @@ MonoBehaviour:
   shakeDuration: 0.1
   shakeFrequency: 0.3
   shakeMultiplier: 0.2
+--- !u!208 &227353082
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227353074}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.505, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &262811173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,6 +3054,17 @@ Transform:
   - {fileID: 936815304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1213806822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7456710421659437187, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
+  m_PrefabInstance: {fileID: 1758101672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1222077108 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6455743557121420716, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
@@ -3897,14 +3925,38 @@ PrefabInstance:
       objectReference: {fileID: 957100280}
     - target: {fileID: 477305327720980255, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
       propertyPath: m_VersionIndex
-      value: 3527
+      value: 3530
       objectReference: {fileID: 0}
+    - target: {fileID: 793262328307079161, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
+      propertyPath: DetectionMark
+      value: 
+      objectReference: {fileID: 1213806822}
     - target: {fileID: 1375567898106351928, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 957100280}
+    - target: {fileID: 2012206934727036700, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
+      propertyPath: stunnedTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012206934727036700, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
+      propertyPath: distractedTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012206934727036700, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
+      propertyPath: distractedDuration
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247710371662453864, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4049719526463347876, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049719526463347876, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7339571336414475971, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
@@ -4389,7 +4441,7 @@ GameObject:
   - component: {fileID: 2127806194}
   - component: {fileID: 2127806196}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
