@@ -1,14 +1,15 @@
 # UnityProject
 We'd like to receive the feedback on teams.
+
 ### Descriere Joc
-The game has multiple scenes, the relevant ones are Gliding, Level 2 and 3 ( this one also has a laser ) . If the player touches the lasers, then a message in the console will appear.
-Please build the game if there are issues, they might be due to running it in the editor.
+
+Please use Testing Level for testing the game. It contains all the up to date mechanics, without bugs.
+
 ### Mechanics
 w,a,s,d - moving
 
 spacebar - jumping ( can double jump )
 - for the first jump, upon holding the jump button longer, the character jumps higher
-- in the Gliding scene, press the spacebar a third time while in the air and hold to glide ( after releasing you can hold again to resume gliding if in the air )
 
 shift - for sprinting on ground and if the character is in the air he will perform a quick dash
 
@@ -18,10 +19,15 @@ scroll wheel - for zooming in with the camera
 
 mouse - for moving the camera
 
+grappling - there are different grappling points, they will be marked by a red circle. When the circle is visible, if the player presses the right click, he will pe pulled towards the point. To stop pulling, either press spacebar, or wait for the grapple timer to finish
+
+gliding - when holding spacebar, the player will glide - this will consume stamina bar and whene stamina reaches zero, gliding will abruptly stop
+
+
 ### Basic gameplay
 sound bar - how loud the player is, gets higher when dropping objects
 
-enemy - has a radius and moves towards the player, no collision effects implemented yet
+enemy - has a radius, moves on a fixed path. If any sound is produced near him, he will pe distracted and look into the origin of the sound. While the player is in the range of the flashlight, a red mark will fill on top of the enemy, if it is fully filled, game over.
 
 ### Reviews
 
