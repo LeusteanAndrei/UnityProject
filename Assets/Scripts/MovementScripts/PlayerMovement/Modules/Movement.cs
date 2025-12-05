@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
 
+    [SerializeField] private Animator animator;
+
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float rotateSpeed = 10f;
@@ -79,6 +81,9 @@ public class Movement : MonoBehaviour
 
         HandleStaminaBar();
 
+           
+        animator.SetBool("isWalking", movementDirection.sqrMagnitude > 0.1f);
+        animator.SetBool("isRunning", isSprinting && staminaBar.getStamina()>0);
     }
 
 
@@ -139,6 +144,7 @@ public class Movement : MonoBehaviour
             }
             return;
         }
+
 
         isSliding = false;
         float speed = moveSpeed; // normal moving speed
