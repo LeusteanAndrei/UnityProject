@@ -81,9 +81,11 @@ public class Movement : MonoBehaviour
 
         HandleStaminaBar();
 
-           
-        animator.SetBool("isWalking", movementDirection.sqrMagnitude > 0.1f);
-        animator.SetBool("isRunning", isSprinting && staminaBar.getStamina()>0);
+        if (animator != null)
+        {
+            animator.SetBool("isWalking", movementDirection.sqrMagnitude > 0.1f);
+            animator.SetBool("isRunning", isSprinting && staminaBar.getStamina() > 0);
+        }
     }
 
 
