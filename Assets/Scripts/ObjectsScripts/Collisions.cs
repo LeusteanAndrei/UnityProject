@@ -9,6 +9,7 @@ public class Collisions : MonoBehaviour
     [SerializeField] private float stunMin = 0.5f;
     [SerializeField] private float stunMax = 3f;
     [SerializeField] private float stunScale = 20f; // speed*multiplier value that yields max stun
+    [SerializeField] private bool destroyed = false;
     public SoundMeterManage soundMeter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -69,8 +70,12 @@ public class Collisions : MonoBehaviour
         currentDamage += damage;
         if(currentDamage >= damageThreshold)
         {
-            //destroy object
+            destroyed = true;
             Debug.Log("Object destroyed due to damage");
         }
+    }
+    public bool IsDestroyed()
+    {
+        return destroyed;
     }
 }
