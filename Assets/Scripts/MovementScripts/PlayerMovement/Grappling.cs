@@ -4,23 +4,33 @@ using System.Collections;
 
 public class Grappling : MonoBehaviour
 {
+    [Header("Grappling Settings")]
     [SerializeField] private string grappleTag = "GrapplePoint";
     [SerializeField] private float maxGrappleDistance = 25f;
     [SerializeField] private float ropeExtendSpeed = 60f;
     [SerializeField] private float stopDistance = 2f;
-    [SerializeField] private Transform ropeOrigin;
+
+
     [SerializeField] private LayerMask lineOfSightMask = ~0;
     [SerializeField] private float grappleCooldown = 1.0f;
     [SerializeField] private float maxPullDuration = 3f;
     [SerializeField] private float minPullAcceleration = 10f;
     [SerializeField] private float maxPullAcceleration = 60f;
-    [SerializeField] private Transform bestGrapplePoint;
 
+    [Header("Joint Settings")]
     // Simple joint settings (no gravity/options)
     [SerializeField] private float jointSpring = 250f;
     [SerializeField] private float jointDamper = 20f;
-    [SerializeField] private float jointShrinkSpeed = 20f;
+    //[SerializeField] private float jointShrinkSpeed = 20f;
     [SerializeField] private float horizontalImpulseFactor = 0.5f; // reduce horizontal component of per-tick impulses
+
+
+    private Transform ropeOrigin;
+    private Transform bestGrapplePoint;
+
+
+
+
 
     private Rigidbody rb;
     private LineRenderer line;

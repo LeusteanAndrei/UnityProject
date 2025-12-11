@@ -15,9 +15,6 @@ public class StaminaBarScript : MonoBehaviour
     [SerializeField] private float rechargeDelay; // the delay until starting to recharge
     [SerializeField] private float rechargeAmount; // how fast it recharges
 
-    [Header("Position")]
-    [SerializeField] private Transform target; // the object target
-    [SerializeField] private Vector3 offset; // the offset of the position
 
     private float lastDrainedTime; // last time the bar was drained
     private float lastChangeTime = 0; // the last time it changed ( going up or down )
@@ -38,16 +35,9 @@ public class StaminaBarScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovetToTarget(); // move to the correct point
-    }
-
-    void MovetToTarget()
-    {
-        if (target != null)
-        {
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(target.position); // change the world coord to screen point
-            transform.position = screenPosition + offset;
-        }
+        transform.rotation = Quaternion.LookRotation(
+            transform.position - Camera.main.transform.position
+        );
     }
 
     private void TryRecharge()
