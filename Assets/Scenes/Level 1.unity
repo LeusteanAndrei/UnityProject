@@ -859,7 +859,6 @@ GameObject:
   - component: {fileID: 93744912}
   - component: {fileID: 93744911}
   - component: {fileID: 93744910}
-  - component: {fileID: 93744914}
   m_Layer: 3
   m_Name: GoalObject 5
   m_TagString: Untagged

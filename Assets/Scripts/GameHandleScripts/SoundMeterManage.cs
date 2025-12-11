@@ -11,8 +11,8 @@ public class SoundMeterManage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentSoundLevel = 0f;
-        maxSoundLevel = 20f;
+        //currentSoundLevel = 0f;
+        //maxSoundLevel = 20f;
         GameObject soundMeterObject = GameObject.Find("SoundMeter");
         if (soundMeterObject != null)
         {
@@ -36,7 +36,6 @@ public class SoundMeterManage : MonoBehaviour
                 currentSoundLevel = 0f;
             }
         }
-        
         // Update the UI
         if (SoundMeterUI != null)
         {

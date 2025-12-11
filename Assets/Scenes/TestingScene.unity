@@ -1506,32 +1506,28 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &450510174
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450510173}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.59, y: 1.53, z: 10.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2049500578}
-  - {fileID: 351378004}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &450510175
+  m_IsActive: 0
+--- !u!114 &492312580
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450510173}
-  m_Enabled: 1
+  m_GameObject: {fileID: 492312579}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddea6a854b3ea04aa60fc3839d39bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultThickness: 0.1
+--- !u!114 &492312581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492312579}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22725857b5066d74eb6e9424be7e1afc, type: 3}
   m_Name: 
@@ -4555,54 +4551,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1368707312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a767c778888c6649a24d32f038bef83, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1368707315}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1450561839}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NewGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1368707315
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  moveSpeed: 30
+  rotateSpeed: 720
+  sprintSpeed: 45
+  glideSpeed: 10
+  inAirSpeedMultiplier: 0.3
+  crouchSpeedMultiplier: 0.3
+  staminaSprintDrainCost: 20
+  turnSmoothness: 0.3
+  slipperyLayers:
+    layers:
+      serializedVersion: 2
+      m_Bits: 64
+    turnSmoothness: 0
+    slideSpeed: 50
+    friction: 20
+    spinSpeed: 20
+  cameraTransform: {fileID: 1407873473}
+  isGrounded: 0
+  currentLayerIndex: 0
+--- !u!114 &1412340616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4705,7 +4677,7 @@ MonoBehaviour:
   currentSoundLevel: 0
   maxSoundLevel: 100
   reduceRate: 1
-  cooldownTime: 1
+  cooldownTime: 3
   SoundMeterUI: {fileID: 0}
 --- !u!1 &1454294689
 GameObject:
@@ -5897,6 +5869,17 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!114 &1938001442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7456710421659437187, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
+  m_PrefabInstance: {fileID: 1953312354}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &1953312354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5953,6 +5936,10 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 3527
       objectReference: {fileID: 0}
+    - target: {fileID: 793262328307079161, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
+      propertyPath: DetectionMark
+      value: 
+      objectReference: {fileID: 1938001442}
     - target: {fileID: 1375567898106351928, guid: 9aab26812d2d49444aedaef99eea2352, type: 3}
       propertyPath: m_Mesh
       value: 

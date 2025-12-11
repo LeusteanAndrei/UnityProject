@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 public class Collisions : MonoBehaviour
 {
-    public float currentSpeed;
+    [Header("Sound settings")]
     [SerializeField] private float damageThreshold;
     [SerializeField] private float currentDamage;
     [SerializeField] private float soundMultiplier = 1f;
@@ -10,7 +10,9 @@ public class Collisions : MonoBehaviour
     [SerializeField] private float stunMax = 3f;
     [SerializeField] private float stunScale = 20f; // speed*multiplier value that yields max stun
     [SerializeField] private bool destroyed = false;
-    public SoundMeterManage soundMeter;
+    
+    [HideInInspector] public SoundMeterManage soundMeter;
+    [HideInInspector] public float currentSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
