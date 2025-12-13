@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 787701686735747986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.64, y: 0.482, z: 0}
+  m_LocalPosition: {x: 3.64, y: -0.23, z: 0}
   m_LocalScale: {x: 0.33333334, y: 0.43267006, z: 0.45321262}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1519,7 +1519,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0.8
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8510729531175905833
@@ -1575,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87dd643ab949229418ba9400e67cf1c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.909
+      value: -1.042
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87dd643ab949229418ba9400e67cf1c0, type: 3}
       propertyPath: m_LocalPosition.z
