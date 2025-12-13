@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Seagull.City_03.Inspector {
+namespace Seagull.Interior_04E.Inspector {
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
     public class AButtonAttribute : Attribute {
         public string text { get; set; } = null;

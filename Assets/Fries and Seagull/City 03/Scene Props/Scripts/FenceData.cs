@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Seagull.City_03.SceneProps {
+namespace Seagull.Interior_04E.SceneProps {
     public class FenceData : MonoBehaviour {
         public Vector3 start;
         public Vector3 end;
@@ -22,9 +22,7 @@ namespace Seagull.City_03.SceneProps {
         }
         
         private void OnDrawGizmos() {
-            // 设置 Gizmos 的颜色
             Gizmos.color = new Color(1, 0, 0, 0.5f);
-            // 绘制 pos1 和 pos2 的球体表示
             Gizmos.DrawSphere(getStartWorldPos(), 0.2f);
             Gizmos.color = new Color(0, 0, 1, 0.5f);
             Gizmos.DrawSphere(getEndWorldPos(), 0.2f);

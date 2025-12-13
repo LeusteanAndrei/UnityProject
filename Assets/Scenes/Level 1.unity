@@ -206,6 +206,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &13833721
 MeshFilter:
@@ -318,6 +319,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &24978852
 MeshFilter:
@@ -563,6 +565,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &55005972
 MeshFilter:
@@ -600,6 +603,7 @@ GameObject:
   - component: {fileID: 58024229}
   - component: {fileID: 58024228}
   - component: {fileID: 58024232}
+  - component: {fileID: 58024233}
   m_Layer: 3
   m_Name: GoalObject 2
   m_TagString: Untagged
@@ -675,6 +679,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &58024230
 MeshFilter:
@@ -714,6 +719,33 @@ MonoBehaviour:
   collisions: {fileID: 0}
   isMarked: 0
   order: 2
+--- !u!54 &58024233
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58024227}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &89541765
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +892,7 @@ GameObject:
   - component: {fileID: 93744911}
   - component: {fileID: 93744910}
   - component: {fileID: 93744914}
+  - component: {fileID: 93744915}
   m_Layer: 3
   m_Name: GoalObject 5
   m_TagString: Untagged
@@ -935,6 +968,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &93744912
 MeshFilter:
@@ -974,6 +1008,33 @@ MonoBehaviour:
   collisions: {fileID: 0}
   isMarked: 0
   order: 6
+--- !u!54 &93744915
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93744909}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &140610909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,6 +1122,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &140610912
 MeshFilter:
@@ -1251,6 +1313,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &188239387
 MeshFilter:
@@ -1362,6 +1425,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &189290615
 MeshFilter:
@@ -1548,6 +1612,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &218167589
 MeshFilter:
@@ -1696,6 +1761,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &322349290
 MeshFilter:
@@ -1836,6 +1902,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &339916733
 MeshFilter:
@@ -1961,6 +2028,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &346109558
 MeshFilter:
@@ -2086,6 +2154,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &346797534
 MeshFilter:
@@ -2182,6 +2251,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &347467505
 MeshFilter:
@@ -2293,6 +2363,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &349793539
 MeshFilter:
@@ -2494,6 +2565,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &355445457
 MeshFilter:
@@ -2590,6 +2662,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &369591118
 MeshFilter:
@@ -2776,6 +2849,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &381425216
 MeshFilter:
@@ -2887,6 +2961,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &403997382
 MeshFilter:
@@ -3035,6 +3110,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &412046521
 MeshFilter:
@@ -3225,6 +3301,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &463706425
 MeshFilter:
@@ -3336,6 +3413,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &479981564
 MeshFilter:
@@ -3447,6 +3525,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &497582091
 MeshFilter:
@@ -3560,6 +3639,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &511567494
 MeshFilter:
@@ -3700,6 +3780,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &524729318
 MeshFilter:
@@ -3796,6 +3877,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &576823494
 MeshFilter:
@@ -3907,6 +3989,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &587526591
 MeshFilter:
@@ -4018,6 +4101,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &598745263
 MeshFilter:
@@ -4219,6 +4303,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &606079481
 MeshFilter:
@@ -4405,6 +4490,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &626584208
 MeshFilter:
@@ -4524,6 +4610,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4652,6 +4739,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &648051122
 MeshFilter:
@@ -4792,6 +4880,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &715809118
 MeshFilter:
@@ -4888,6 +4977,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &730275834
 MeshFilter:
@@ -4999,6 +5089,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &739604234
 MeshFilter:
@@ -5118,6 +5209,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5275,6 +5367,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &759637784
 MeshFilter:
@@ -5379,6 +5472,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5507,6 +5601,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &778255604
 MeshFilter:
@@ -5618,6 +5713,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &798432625
 MeshFilter:
@@ -5812,6 +5908,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &815452896
 MeshFilter:
@@ -5938,6 +6035,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &831218783
 MeshFilter:
@@ -6034,6 +6132,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &860560500
 MeshFilter:
@@ -6145,6 +6244,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &900569162
 MeshFilter:
@@ -6271,6 +6371,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &901322273
 MeshFilter:
@@ -6367,6 +6468,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &933188912
 MeshFilter:
@@ -6537,6 +6639,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &959954657
 MeshFilter:
@@ -6656,6 +6759,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6946,6 +7050,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1004760547
 MeshFilter:
@@ -7042,6 +7147,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1021438245
 MeshFilter:
@@ -7154,6 +7260,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1047421969
 MeshFilter:
@@ -7376,6 +7483,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1106835140
 MeshFilter:
@@ -7613,6 +7721,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1144222554
 MeshFilter:
@@ -7684,6 +7793,7 @@ GameObject:
   - component: {fileID: 1177662487}
   - component: {fileID: 1177662486}
   - component: {fileID: 1177662490}
+  - component: {fileID: 1177662491}
   m_Layer: 3
   m_Name: GoalObject 6
   m_TagString: Untagged
@@ -7759,6 +7869,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1177662488
 MeshFilter:
@@ -7798,6 +7909,33 @@ MonoBehaviour:
   collisions: {fileID: 0}
   isMarked: 0
   order: 7
+--- !u!54 &1177662491
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177662485}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1212714504
 GameObject:
   m_ObjectHideFlags: 0
@@ -7914,6 +8052,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1212714509
 MeshFilter:
@@ -8011,6 +8150,7 @@ GameObject:
   - component: {fileID: 1219491137}
   - component: {fileID: 1219491136}
   - component: {fileID: 1219491140}
+  - component: {fileID: 1219491141}
   m_Layer: 3
   m_Name: GoalObject 3
   m_TagString: Untagged
@@ -8086,6 +8226,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1219491138
 MeshFilter:
@@ -8125,6 +8266,33 @@ MonoBehaviour:
   collisions: {fileID: 0}
   isMarked: 0
   order: 3
+--- !u!54 &1219491141
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219491135}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1230164858
 GameObject:
   m_ObjectHideFlags: 0
@@ -8227,6 +8395,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1230164862
 MeshFilter:
@@ -8249,6 +8418,7 @@ GameObject:
   - component: {fileID: 1262203024}
   - component: {fileID: 1262203023}
   - component: {fileID: 1262203027}
+  - component: {fileID: 1262203028}
   m_Layer: 3
   m_Name: GoalObject 4
   m_TagString: Untagged
@@ -8324,6 +8494,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1262203025
 MeshFilter:
@@ -8363,6 +8534,33 @@ MonoBehaviour:
   collisions: {fileID: 0}
   isMarked: 0
   order: 4
+--- !u!54 &1262203028
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262203022}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1278414783
 GameObject:
   m_ObjectHideFlags: 0
@@ -8525,6 +8723,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1298357481
 MeshFilter:
@@ -8562,6 +8761,7 @@ GameObject:
   - component: {fileID: 1302861653}
   - component: {fileID: 1302861652}
   - component: {fileID: 1302861656}
+  - component: {fileID: 1302861657}
   m_Layer: 3
   m_Name: GoalObject 1
   m_TagString: Untagged
@@ -8637,6 +8837,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1302861654
 MeshFilter:
@@ -8676,6 +8877,33 @@ MonoBehaviour:
   collisions: {fileID: 0}
   isMarked: 0
   order: 1
+--- !u!54 &1302861657
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302861651}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1338269108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8763,6 +8991,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1338269111
 MeshFilter:
@@ -8875,6 +9104,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1353553619
 MeshFilter:
@@ -8986,6 +9216,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1355007008
 MeshFilter:
@@ -9126,6 +9357,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1362768120
 MeshFilter:
@@ -9222,6 +9454,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1395304997
 MeshFilter:
@@ -9333,6 +9566,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1400686444
 MeshFilter:
@@ -9577,6 +9811,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1420650023
 MeshFilter:
@@ -9819,6 +10054,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -9947,6 +10183,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1475739466
 MeshFilter:
@@ -10073,6 +10310,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1512305929
 MeshFilter:
@@ -10236,6 +10474,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1532822817
 MeshFilter:
@@ -10451,6 +10690,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1549035103
 MeshFilter:
@@ -10576,6 +10816,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1550411921
 MeshFilter:
@@ -10822,6 +11063,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1557240069
 MeshFilter:
@@ -10918,6 +11160,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1578871821
 MeshFilter:
@@ -11029,6 +11272,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1597142238
 MeshFilter:
@@ -11169,6 +11413,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1601790616
 MeshFilter:
@@ -11294,6 +11539,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1625253659
 MeshFilter:
@@ -11390,6 +11636,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1633330529
 MeshFilter:
@@ -11577,6 +11824,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1637232946
 MeshFilter:
@@ -11601,6 +11849,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 22.757, z: 0}
+--- !u!1001 &1694605089
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514066053945744301, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3917606737338947088, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_Height
+      value: 0.32518524
+      objectReference: {fileID: 0}
+    - target: {fileID: 3917606737338947088, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_Radius
+      value: 0.1204831
+      objectReference: {fileID: 0}
+    - target: {fileID: 3917606737338947088, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_Center.y
+      value: 0.12988025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3917606737338947088, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_Center.z
+      value: -0.008157011
+      objectReference: {fileID: 0}
+    - target: {fileID: 3917606737338947088, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3ddf9b149deb3d442b5934d709ee7c19, type: 2}
+    - target: {fileID: 4605217138498044141, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3ddf9b149deb3d442b5934d709ee7c19, type: 2}
+    - target: {fileID: 4667606029211282060, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_Name
+      value: PlayerCameraPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4772241634260370810, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3ddf9b149deb3d442b5934d709ee7c19, type: 2}
+    - target: {fileID: 6113503478664006733, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.3690195
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113503478664006733, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.001527
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113503478664006733, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.296185
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
 --- !u!1 &1700208985
 GameObject:
   m_ObjectHideFlags: 0
@@ -11703,6 +12048,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1700208989
 MeshFilter:
@@ -11799,6 +12145,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1700742182
 MeshFilter:
@@ -11910,6 +12257,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1730233244
 MeshFilter:
@@ -12021,6 +12369,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1735130205
 MeshFilter:
@@ -12132,6 +12481,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1750810664
 MeshFilter:
@@ -12244,6 +12594,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1764267919
 MeshFilter:
@@ -12355,6 +12706,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1773658333
 MeshFilter:
@@ -12467,6 +12819,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1773715357
 MeshFilter:
@@ -12492,152 +12845,6 @@ Transform:
   - {fileID: 901322270}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 96.108, z: 0}
---- !u!1001 &1779955612
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.533553
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.4702775
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.240746
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9928202
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.10911509
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.045757003
-      objectReference: {fileID: 0}
-    - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.017561058
-      objectReference: {fileID: 0}
-    - target: {fileID: 5341413878988099255, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: Radius
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5651750248428485987, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_Name
-      value: Camera System
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.22285
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.40256
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9706531
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.23543687
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.047630075
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.011552917
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6242486934837960219, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.533553
-      objectReference: {fileID: 0}
-    - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.4702785
-      objectReference: {fileID: 0}
-    - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.240746
-      objectReference: {fileID: 0}
-    - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9928202
-      objectReference: {fileID: 0}
-    - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.10911511
-      objectReference: {fileID: 0}
-    - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.045757018
-      objectReference: {fileID: 0}
-    - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.017561061
-      objectReference: {fileID: 0}
-    - target: {fileID: 8030032125649434132, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      propertyPath: Target.TrackingTarget
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6455743557121420716, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1779955615}
-  m_SourcePrefab: {fileID: 100100000, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
---- !u!1 &1779955613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6455743557121420716, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
-  m_PrefabInstance: {fileID: 1779955612}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1779955615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779955613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
-  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-  PivotOffset: {x: 0, y: 0, z: 0}
-  AmplitudeGain: 0
-  FrequencyGain: 0
-  m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1836212860
 GameObject:
   m_ObjectHideFlags: 0
@@ -12740,6 +12947,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1836212864
 MeshFilter:
@@ -12838,6 +13046,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1840610083
 MeshFilter:
@@ -12958,6 +13167,7 @@ MonoBehaviour:
   m_VerticalAlignment: 2048
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -13129,6 +13339,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1905733255
 MeshFilter:
@@ -13340,6 +13551,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -13505,6 +13717,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1927012271
 MeshFilter:
@@ -13757,6 +13970,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -13885,6 +14099,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1977070899
 MeshFilter:
@@ -14025,6 +14240,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1989921383
 MeshFilter:
@@ -14229,6 +14445,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2003131523
 MeshFilter:
@@ -14562,6 +14779,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2023239633
 MeshFilter:
@@ -14658,6 +14876,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2056200992
 MeshFilter:
@@ -14769,6 +14988,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2063209366
 MeshFilter:
@@ -14806,6 +15026,7 @@ GameObject:
   - component: {fileID: 2076728547}
   - component: {fileID: 2076728546}
   - component: {fileID: 2076728550}
+  - component: {fileID: 2076728551}
   m_Layer: 3
   m_Name: GoalObject 5 (1)
   m_TagString: Untagged
@@ -14881,6 +15102,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2076728548
 MeshFilter:
@@ -14920,6 +15142,33 @@ MonoBehaviour:
   collisions: {fileID: 0}
   isMarked: 0
   order: 5
+--- !u!54 &2076728551
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076728545}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2107098596
 GameObject:
   m_ObjectHideFlags: 0
@@ -15007,6 +15256,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2107098599
 MeshFilter:
@@ -15043,11 +15293,11 @@ SceneRoots:
   - {fileID: 1916310442}
   - {fileID: 457223397}
   - {fileID: 180699573}
-  - {fileID: 1779955612}
   - {fileID: 55005973}
   - {fileID: 463706426}
   - {fileID: 576823495}
   - {fileID: 2107098600}
+  - {fileID: 1694605089}
   - {fileID: 1750810665}
   - {fileID: 24978853}
   - {fileID: 1773715358}

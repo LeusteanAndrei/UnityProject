@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4553322472434988195}
   - component: {fileID: 1983624286805924775}
   - component: {fileID: 5501259265121320035}
-  - component: {fileID: 4087740140268167148}
+  - component: {fileID: 1699200142417153983}
   m_Layer: 6
   m_Name: GroundDetection
   m_TagString: Player
@@ -55,8 +55,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notGroundLayers: 00000000
---- !u!136 &4087740140268167148
-CapsuleCollider:
+--- !u!65 &1699200142417153983
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -73,11 +73,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.26732033
-  m_Height: 1.8593366
-  m_Direction: 2
-  m_Center: {x: 0, y: -0.8770916, z: -0.04781062}
+  serializedVersion: 3
+  m_Size: {x: 1.7632127, y: 1, z: 2.0054698}
+  m_Center: {x: 0.018991472, y: 0, z: -0.0146270385}
 --- !u!1 &2186442155069700950
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,10 +432,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageThreshold: 9999
+  currentDamage: 0
   soundMultiplier: 0.5
   stunMin: 0.5
   stunMax: 3
   stunScale: 20
+  destroyed: 0
   soundMeter: {fileID: 0}
   currentSpeed: 0
 --- !u!114 &6178739557403313335
@@ -846,15 +846,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5089865
+      value: -4.3690195
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.252705
+      value: -8.001527
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.76735
+      value: -20.296185
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1021,7 +1021,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6898028641127736336}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3ddf9b149deb3d442b5934d709ee7c19, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1076,7 +1076,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7996063891541619413}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3ddf9b149deb3d442b5934d709ee7c19, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1088,10 +1088,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.06162902
-  m_Height: 0.12325804
+  m_Radius: 0.1204831
+  m_Height: 0.32518524
   m_Direction: 2
-  m_Center: {x: 0.00054473785, y: 0.06281901, z: -0.016818741}
+  m_Center: {x: 0.00054473785, y: 0.12988025, z: -0.008157011}
 --- !u!1 &8507839409516802432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1452193943830019588, guid: 31d2c91682ac6f045b4b75ebf27e5d77, type: 3}
@@ -1104,7 +1104,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8507839409516802432}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3ddf9b149deb3d442b5934d709ee7c19, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

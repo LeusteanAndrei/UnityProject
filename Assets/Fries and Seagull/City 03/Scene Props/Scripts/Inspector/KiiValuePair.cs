@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Seagull.City_03.Inspector {
+namespace Seagull.Interior_04E.Inspector {
     [System.Serializable]
     public class KiiValuePair { }
 

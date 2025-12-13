@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Seagull.City_03.SceneProps {
+namespace Seagull.Interior_04E.SceneProps {
     [System.Flags]
     public enum AxisOption {
         None = 0,
@@ -73,7 +73,7 @@ namespace Seagull.City_03.SceneProps {
                 Vector3 unitVector = Vector3.zero;
                 if (insts.Count > 1) unitVector = delta / (insts.Count - 1);
                 Vector3 normal = delta.normalized;
-                Quaternion rotation = Quaternion.Euler(0, -90, 0); // 绕 Y 轴逆时针旋转 90 度
+                Quaternion rotation = Quaternion.Euler(0, -90, 0);
                 normal = rotation * normal;
                 for (int i = 0; i < insts.Count; i++) {
                     float x = i / (insts.Count - 1f);
@@ -106,7 +106,7 @@ namespace Seagull.City_03.SceneProps {
                 Vector3 unitVector = Vector3.zero;
                 if (insts.Count > 1) unitVector = delta / (insts.Count - 1);
                 Vector3 normal = delta.normalized;
-                Quaternion rotation = Quaternion.Euler(0, -90, 0); // 绕 Y 轴逆时针旋转 90 度
+                Quaternion rotation = Quaternion.Euler(0, -90, 0);
                 normal = rotation * normal;
                 for (int i = 0; i < insts.Count; i++) {
                     float x = i / (insts.Count - 1f);
@@ -218,7 +218,7 @@ namespace Seagull.City_03.SceneProps {
                     Vector3 unitVector = Vector3.zero;
                     if (insts.Count > 1) unitVector = delta / (insts.Count - 1);
                     Vector3 normal = delta.normalized;
-                    Quaternion rotation = Quaternion.Euler(0, -90, 0); // 绕 Y 轴逆时针旋转 90 度
+                    Quaternion rotation = Quaternion.Euler(0, -90, 0); 
                     normal = rotation * normal;
                     for (int i = 0; i < insts.Count; i++) {
                         if (!insts[i]) continue;
@@ -248,7 +248,7 @@ namespace Seagull.City_03.SceneProps {
                     Vector3 unitVector = Vector3.zero;
                     if (insts.Count > 1) unitVector = delta / (insts.Count - 1);
                     Vector3 normal = delta.normalized;
-                    Quaternion rotation = Quaternion.Euler(0, -90, 0); // 绕 Y 轴逆时针旋转 90 度
+                    Quaternion rotation = Quaternion.Euler(0, -90, 0); 
                     normal = rotation * normal;
                     for (int i = 0; i < insts.Count; i++) {
                         if (!insts[i]) continue;
@@ -267,7 +267,7 @@ namespace Seagull.City_03.SceneProps {
                 Vector3 unitVector = Vector3.zero;
                 if (insts.Count > 1) unitVector = delta / (insts.Count - 1);
                 Vector3 normal = delta.normalized;
-                Quaternion rotation = Quaternion.Euler(0, -90, 0); // 绕 Y 轴逆时针旋转 90 度
+                Quaternion rotation = Quaternion.Euler(0, -90, 0); 
                 normal = rotation * normal;
                 for (int i = 0; i < insts.Count; i++) {
                     float x = i / (insts.Count - 1f);
@@ -310,15 +310,12 @@ namespace Seagull.City_03.SceneProps {
         }
         
         private void OnDrawGizmos() {
-            // 设置 Gizmos 的颜色
             Gizmos.color = new Color(1, 0, 0, 0.5f);
         
-            // 绘制 pos1 和 pos2 的球体表示
             Gizmos.DrawSphere(transform.position + pos1, 0.2f);
             Gizmos.color = new Color(0, 0, 1, 0.5f);
             Gizmos.DrawSphere(transform.position + pos2, 0.2f);
 
-            // 绘制连线
             Gizmos.color = new Color(1, 1, 0, 0.5f);
             Gizmos.DrawLine(transform.position + pos1, transform.position + pos2);
         }
@@ -327,7 +324,6 @@ namespace Seagull.City_03.SceneProps {
             if (curve == null)
                 return 0;
             
-            // 允许整数溢出
             unchecked {
                 int hash = 17;
                 hash = hash * 23 + curve.preWrapMode.GetHashCode();
