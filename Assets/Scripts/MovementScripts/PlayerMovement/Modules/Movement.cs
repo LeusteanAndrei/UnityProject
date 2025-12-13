@@ -97,9 +97,8 @@ public class Movement : MonoBehaviour
         {
             Spin(slipperyLayers.spinSpeed);
         }
-
-        RotateTowards(movementDirection); // rotate the player towards the movement direction
-
+    
+        
         if (dashComponent.startDash)
         {
             // if we need to start a dash, we call the dash function
@@ -110,6 +109,12 @@ public class Movement : MonoBehaviour
         {
             Move();
         }
+    }
+    private void LateUpdate()
+    {
+        var dirToCam = GetDirectionRelativeToCamera(movementDirection);
+        RotateTowards(dirToCam); // rotate the player towards the movement direction
+
     }
 
 

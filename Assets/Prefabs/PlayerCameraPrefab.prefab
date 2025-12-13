@@ -352,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5821584639740837745}
   moveSpeed: 25
-  rotateSpeed: 120
+  rotateSpeed: 360
   sprintSpeed: 50
   glideSpeed: 5
   inAirSpeedMultiplier: 0.3
@@ -571,7 +571,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4571704277001719837}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cd88d086b55d1640a7859836a6a1922, type: 3}
   m_Name: 
@@ -766,15 +766,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5089855
+      value: -4.5089865
       objectReference: {fileID: 0}
     - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.252703
+      value: -8.252704
       objectReference: {fileID: 0}
     - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.767347
+      value: -21.76735
       objectReference: {fileID: 0}
     - target: {fileID: 2293450279023732046, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalRotation.w
