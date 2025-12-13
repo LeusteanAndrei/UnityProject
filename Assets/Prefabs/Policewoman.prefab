@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6983107127052903937}
   m_Layer: 0
   m_Name: Policewoman
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152843358772971484}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.64631206, z: -0, w: 0.76307327}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 64.54, y: 4.38, z: 14.05282}
   m_LocalScale: {x: 2.2064703, y: 3, z: 2.3112304}
   m_ConstrainProportionsScale: 0
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 3016436392360742575}
   - {fileID: 1028337276132136034}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 80.528, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &4134982789473710631
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -94,6 +94,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &8580103741771598891
 CapsuleCollider:
@@ -1493,6 +1494,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &9014784366510919388
 MeshFilter:
