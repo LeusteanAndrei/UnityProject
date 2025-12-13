@@ -351,9 +351,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5821584639740837745}
-  moveSpeed: 25
+  moveSpeed: 10
   rotateSpeed: 360
-  sprintSpeed: 50
+  sprintSpeed: 25
   glideSpeed: 5
   inAirSpeedMultiplier: 0.3
   crouchSpeedMultiplier: 0.3
@@ -846,15 +846,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.3690195
+      value: -4.5089855
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.001527
+      value: -8.252703
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.296185
+      value: -21.767347
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalRotation.w
