@@ -114,7 +114,6 @@ public class Movement : MonoBehaviour
     {
         var dirToCam = GetDirectionRelativeToCamera(movementDirection);
         RotateTowards(dirToCam); // rotate the player towards the movement direction
-
     }
 
 
@@ -194,9 +193,11 @@ public class Movement : MonoBehaviour
 
         Vector3 cameraForward = cameraTransform.forward; // gets the forward direction of the camera
         cameraForward.y = 0; // we only want the direction on the xz plane
+        cameraForward = cameraForward.sqrMagnitude > 0f ? cameraForward.normalized : Vector3.forward;
 
         Vector3 cameraRight = cameraTransform.right; // gets the right direction of the camera
         cameraRight.y = 0;  // we only want the direction on the xz plane
+        cameraRight = cameraRight.sqrMagnitude > 0f ? cameraRight.normalized : Vector3.right;
 
         Vector3 newDir = cameraForward * currentDir.z + cameraRight * currentDir.x;
         // z component = normal forward direction
