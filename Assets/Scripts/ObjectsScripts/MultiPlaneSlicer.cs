@@ -22,6 +22,17 @@ public static class MultiPlaneSlicer
             var next = new List<GameObject>();
             foreach (var obj in work)
             {
+                // Capture pre-slice siblings to identify helper outputs created by the slicer
+                Transform parent = obj.transform.parent;
+                var preSet = new HashSet<int>();
+                if (parent != null)
+                {
+                    for (int i = 0; i < parent.childCount; i++)
+                    {
+                        var c = parent.GetChild(i).gameObject;
+                        preSet.Add(c.GetInstanceID());
+                    }
+                }
                 var hasSkinned = obj.GetComponentInChildren<SkinnedMeshRenderer>() != null;
                 (GameObject, GameObject) sliced;
                 if (hasSkinned)
@@ -35,11 +46,24 @@ public static class MultiPlaneSlicer
 
                 if (sliced.Item1 != null && sliced.Item2 != null)
                 {
-                    var parent = obj.transform.parent;
+                    parent = obj.transform.parent;
                     if (parent != null)
                     {
                         sliced.Item1.transform.SetParent(parent, false);
                         sliced.Item2.transform.SetParent(parent, false);
+
+                        // Remove any newly created inactive helper objects under the same parent not part of the two pieces
+                        for (int i = 0; i < parent.childCount; i++)
+                        {
+                            var childGO = parent.GetChild(i).gameObject;
+                            int id = childGO.GetInstanceID();
+                            if (preSet.Contains(id)) continue; // existed before
+                            if (childGO == sliced.Item1 || childGO == sliced.Item2) continue; // keep the real pieces
+                            if (!childGO.activeSelf)
+                            {
+                                Object.Destroy(childGO);
+                            }
+                        }
                     }
                     obj.SetActive(false);
                     next.Add(sliced.Item1);
@@ -74,6 +98,17 @@ public static class MultiPlaneSlicer
             var next = new List<GameObject>();
             foreach (var obj in work)
             {
+                // Capture pre-slice siblings to identify helper outputs created by the slicer
+                Transform parent = obj.transform.parent;
+                var preSet = new HashSet<int>();
+                if (parent != null)
+                {
+                    for (int i = 0; i < parent.childCount; i++)
+                    {
+                        var c = parent.GetChild(i).gameObject;
+                        preSet.Add(c.GetInstanceID());
+                    }
+                }
                 var hasSkinned = obj.GetComponentInChildren<SkinnedMeshRenderer>() != null;
                 (GameObject, GameObject) sliced;
                 if (hasSkinned)
@@ -87,11 +122,24 @@ public static class MultiPlaneSlicer
 
                 if (sliced.Item1 != null && sliced.Item2 != null)
                 {
-                    var parent = obj.transform.parent;
+                    parent = obj.transform.parent;
                     if (parent != null)
                     {
                         sliced.Item1.transform.SetParent(parent, false);
                         sliced.Item2.transform.SetParent(parent, false);
+
+                        // Remove any newly created inactive helper objects under the same parent not part of the two pieces
+                        for (int i = 0; i < parent.childCount; i++)
+                        {
+                            var childGO = parent.GetChild(i).gameObject;
+                            int id = childGO.GetInstanceID();
+                            if (preSet.Contains(id)) continue;
+                            if (childGO == sliced.Item1 || childGO == sliced.Item2) continue;
+                            if (!childGO.activeSelf)
+                            {
+                                Object.Destroy(childGO);
+                            }
+                        }
                     }
                     obj.SetActive(false);
                     next.Add(sliced.Item1);
