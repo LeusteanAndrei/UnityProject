@@ -43,7 +43,7 @@ public class Collisions : MonoBehaviour
                 if (h == null) continue;
                 if (h.CompareTag("Enemy"))
                 {
-                    Debug.Log($"Enemy at {h.transform.position} distracted by sound");
+                    //Debug.Log($"Enemy at {h.transform.position} distracted by sound");
                     h.GetComponent<EnemyMovement>().GetDistracted(gameObject);
                 }
             }
@@ -74,6 +74,13 @@ public class Collisions : MonoBehaviour
         if(currentDamage >= damageThreshold && !destroyed)
         {
             destroyed = true;
+            GoalObject goalObjectComponent = GetComponent<GoalObject>();
+            if (goalObjectComponent != null)
+            {
+                goalObjectComponent.Mark();
+                goalObjectComponent.showText();
+            }
+
             if (breakObject != null)
             {
                 breakObject.Slice();

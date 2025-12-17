@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Seagull.Interior_I1.SceneProps {
+namespace Seagull.Interior_04E.SceneProps {
     public class PrefabGroup : MonoBehaviour {
         public List<GameObject> prefabs;
         public GameObject getRandomPrefab() {

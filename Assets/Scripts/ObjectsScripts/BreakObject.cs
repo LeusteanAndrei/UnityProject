@@ -6,8 +6,10 @@ public class BreakObject : MonoBehaviour
     public GameObject sliceTarget;
     public Material intersectionMaterial;    
     public Transform[] planeTransforms;
+
     public LayerMask sliceOnLayers = ~0;
     public float minRelativeVelocity = 0.1f;
+
     public float pieceMass = 1f;
     public bool addMeshColliders = true;
     public bool convexColliders = true;
@@ -16,13 +18,15 @@ public class BreakObject : MonoBehaviour
     public float explosionUpwards = 0.2f;
     public ForceMode forceMode = ForceMode.Impulse;
     public bool enableExplosion = true;
+    [Tooltip("Remove colliders cloned from the original before adding new ones.")]
     public bool removeInheritedColliders = true;
+
+    public bool destroyOriginalAfterSlice = true;
     private bool _sliced;
     public bool showPlaneGizmos = true;
     public float gizmoPlaneSize = 0.5f;
     public Color gizmoPlaneColor = new Color(0.2f, 0.8f, 1f, 0.6f);
     public Color gizmoNormalColor = new Color(1f, 0.2f, 0.2f, 0.9f);
-    public bool bakeChildrenIntoSlice = true;
 
     private void Reset()
     {
@@ -45,7 +49,7 @@ public class BreakObject : MonoBehaviour
     public void SliceAndExplodeWithTransforms(Vector3 explosionOrigin)
     {
         if (_sliced) return;
-        var pieces = RunSliceWithBake(() => MultiPlaneSlicer.SliceWithPlaneTransforms(sliceTarget, intersectionMaterial, planeTransforms));
+        var pieces = MultiPlaneSlicer.SliceWithPlaneTransforms(sliceTarget, intersectionMaterial, planeTransforms);
         PostSlice(pieces, explosionOrigin);
     }
 
@@ -56,109 +60,13 @@ public class BreakObject : MonoBehaviour
         List<GameObject> pieces;
         if (planeTransforms != null && planeTransforms.Length > 0)
         {
-            pieces = RunSliceWithBake(() => MultiPlaneSlicer.SliceWithPlaneTransforms(sliceTarget, intersectionMaterial, planeTransforms));
+            pieces = MultiPlaneSlicer.SliceWithPlaneTransforms(sliceTarget, intersectionMaterial, planeTransforms);
         }
         else
         {
-            pieces = RunSliceWithBake(() => MultiPlaneSlicer.SliceWithPlanes(sliceTarget, intersectionMaterial, planes));
+            pieces = MultiPlaneSlicer.SliceWithPlanes(sliceTarget, intersectionMaterial, planes);
         }
         PostSlice(pieces, explosionOrigin);
-    }
-
-    private List<GameObject> RunSliceWithBake(System.Func<List<GameObject>> slicer)
-    {
-        if (!bakeChildrenIntoSlice || sliceTarget == null) return slicer();
-
-        var combinedGO = new GameObject("SliceCombined");
-        combinedGO.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
-        combinedGO.transform.localScale = Vector3.one;
-
-        var mfCombined = combinedGO.AddComponent<MeshFilter>();
-        var mrCombined = combinedGO.AddComponent<MeshRenderer>();
-
-        var meshFilters = sliceTarget.GetComponentsInChildren<MeshFilter>(includeInactive: false);
-        if (meshFilters == null || meshFilters.Length == 0)
-        {
-            Object.Destroy(combinedGO);
-            return slicer();
-        }
-
-        var combines = new List<UnityEngine.CombineInstance>(meshFilters.Length);
-        var materials = new List<Material>();
-
-        var excludeRoots = new HashSet<Transform>();
-        if (planeTransforms != null)
-        {
-            foreach (var pt in planeTransforms)
-            {
-                if (pt == null) continue;
-                excludeRoots.Add(pt);
-            }
-        }
-
-        bool IsUnderExcluded(Transform t)
-        {
-            var cur = t;
-            while (cur != null)
-            {
-                if (excludeRoots.Contains(cur)) return true;
-                cur = cur.parent;
-            }
-            return false;
-        }
-        foreach (var mf in meshFilters)
-        {
-            if (mf.sharedMesh == null) continue;
-            if (IsUnderExcluded(mf.transform)) continue;
-            var ci = new UnityEngine.CombineInstance
-            {
-                mesh = mf.sharedMesh,
-                transform = mf.transform.localToWorldMatrix
-            };
-            combines.Add(ci);
-
-            var mr = mf.GetComponent<MeshRenderer>();
-            if (mr != null)
-            {
-                if (mr.sharedMaterial != null) materials.Add(mr.sharedMaterial);
-            }
-        }
-
-        var combinedMesh = new Mesh();
-        combinedMesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
-        if (combines.Count == 0)
-        {
-            Object.Destroy(combinedGO);
-            return slicer();
-        }
-        combinedMesh.CombineMeshes(combines.ToArray(), mergeSubMeshes: true, useMatrices: true, hasLightmapData: false);
-        combinedMesh.RecalculateBounds();
-        mfCombined.sharedMesh = combinedMesh;
-        if (materials.Count > 0)
-        {
-            mrCombined.sharedMaterial = materials[0];
-        }
-        else
-        {
-            var origMR = sliceTarget.GetComponent<MeshRenderer>();
-            if (origMR != null) mrCombined.sharedMaterial = origMR.sharedMaterial;
-        }
-
-        var originalTarget = sliceTarget;
-        sliceTarget = combinedGO;
-
-        List<GameObject> pieces = null;
-        try
-        {
-            pieces = slicer();
-        }
-        finally
-        {
-            sliceTarget = originalTarget;
-            Object.Destroy(combinedGO);
-        }
-
-        return pieces;
     }
 
     private void PostSlice(List<GameObject> pieces, Vector3 explosionOrigin)
@@ -170,48 +78,21 @@ public class BreakObject : MonoBehaviour
 
         _sliced = true;
 
-        // Disable the original slice target now that pieces were generated.
-        // When baking, the slicer operates on a temporary combined object,
-        // so we must explicitly disable the real original here.
-        if (sliceTarget != null && sliceTarget.activeSelf)
+        if (destroyOriginalAfterSlice)
         {
             sliceTarget.SetActive(false);
         }
-
-        // Create a parent to organize resulting pieces
-        var parent = new GameObject("SlicedPieces");
-        parent.transform.SetPositionAndRotation(sliceTarget.transform.position, sliceTarget.transform.rotation);
-        parent.transform.localScale = sliceTarget.transform.lossyScale;
-
-        for (int i = 0; i < pieces.Count; i++)
-        {
-            var go = pieces[i];
-            if (go == null) continue;
-            go.transform.SetParent(parent.transform, worldPositionStays: true);
-        }
-
-
         foreach (var piece in pieces)
         {
+            Rigidbody rb = null;
 
-            if (!piece.activeSelf) piece.SetActive(true);
-
-            // Inherit basic identity from original target for consistency
-            piece.layer = sliceTarget.layer;
-            piece.tag = sliceTarget.tag;
-
-            var rb = piece.GetComponent<Rigidbody>();
-            if (rb == null)
-            {
-                rb = piece.AddComponent<Rigidbody>();
-            }
-            rb.mass = Mathf.Max(0.0001f, pieceMass);
-
+            // Remove any colliders carried over from Instantiate (e.g., BoxCollider)
             if (removeInheritedColliders)
             {
                 var inherited = piece.GetComponents<Collider>();
                 for (int i = 0; i < inherited.Length; i++)
                 {
+                    // Don't remove MeshCollider if we plan to reuse it, we'll recreate below anyway
                     Object.Destroy(inherited[i]);
                 }
             }
@@ -228,7 +109,6 @@ public class BreakObject : MonoBehaviour
                 rb.AddExplosionForce(explosionForce, explosionOrigin, Mathf.Max(0.01f, explosionRadius), explosionUpwards, forceMode);
             }
         }
-
 
     }
     private void OnDrawGizmosSelected()

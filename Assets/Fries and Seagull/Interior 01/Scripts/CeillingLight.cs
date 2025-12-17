@@ -17,10 +17,6 @@ namespace Seagull.Interior_01 {
         
         [SerializeField] private MeshRenderer lightBoxRenderer;
         
-        private void Awake() {
-            turnOn();
-        }
-        
         public void turnOn() {
             lightBoxRenderer.material.EnableKeyword("_EMISSION");
         }

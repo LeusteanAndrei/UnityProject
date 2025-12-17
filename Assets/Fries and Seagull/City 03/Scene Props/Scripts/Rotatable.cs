@@ -2,10 +2,10 @@
 # if UNITY_EDITOR
 using UnityEditor;
 # endif
-using Seagull.Interior_I1.Inspector;
+using Seagull.Interior_04E.Inspector;
 using UnityEngine;
 
-namespace Seagull.Interior_I1.SceneProps {
+namespace Seagull.Interior_04E.SceneProps {
     public enum Axis {
         x, y, z
     }

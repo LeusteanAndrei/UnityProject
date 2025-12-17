@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 # endif
 using UnityEngine;
 
-namespace Seagull.Interior_I1.SceneProps {
+namespace Seagull.Interior_04E.SceneProps {
     public enum SingleAxisOption {
         X, Y, Z
     }
