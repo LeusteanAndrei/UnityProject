@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Seagull.Interior_I1.Inspector;
+using Seagull.Interior_04E.Inspector;
 # if UNITY_EDITOR
 using UnityEditor;
 # endif
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Seagull.Interior_I1.SceneProps {
+namespace Seagull.Interior_04E.SceneProps {
     [Serializable]
     public class String2GlowLight : KiiValuePair<string, GlowLight> {}
 

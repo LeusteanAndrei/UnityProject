@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e5aaf10a06123e14d9cbdeb3b29a8399
+guid: 2aeea5ee69740014aafde64a93efa61b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -72,13 +72,13 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 0
     normalImportMode: 1
-    tangentImportMode: 3
+    tangentImportMode: 2
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
+    normalSmoothingSource: 3
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -109,9 +109,8 @@ ModelImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 316897
-  packageName: 'Ultimate Interior Package: Funiture, Household Items, Foods - Low
-    Poly Assets'
-  packageVersion: 1.0
+  productId: 308526
+  packageName: City Building Kit - 100 Low Poly City assets
+  packageVersion: 1.1
   assetPath: Assets/Fries and Seagull/City 03/Models/Trash Can 2.fbx
-  uploadId: 751214
+  uploadId: 737367
