@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 177
+  m_VersionIndex: 189
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3202
+  m_VersionIndex: 3214
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1772,10 +1772,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArrowScript
   objectToLookTowards: {fileID: 0}
   player: {fileID: 2138754741654021997}
-  offset: {x: 0, y: 0, z: 0}
+  playerRigidBody: {fileID: 3287574398834782313}
+  offset: {x: -1, y: 1, z: 0}
   speed: 1
+  waitSeconds: 2
+  showSeconds: 2
   Spinner: {fileID: 1525541174642461453}
   Scaler: {fileID: 4268755022435356122}
+  checklist: {fileID: 0}
 --- !u!114 &2327923243154128730
 MonoBehaviour:
   m_ObjectHideFlags: 0
