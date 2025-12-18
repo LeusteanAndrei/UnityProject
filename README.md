@@ -3,7 +3,7 @@ We'd like to receive the feedback on teams.
 
 ### Descriere Joc
 
-Please use Testing Level for testing the game. It contains all the up to date mechanics, without bugs.
+Please use RealLevel2_RealReal for testing the game. It contains all the up to date mechanics, without bugs.
 
 ### Mechanics
 w,a,s,d - moving
