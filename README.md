@@ -3,7 +3,8 @@ We'd like to receive the feedback on teams.
 
 ### Descriere Joc
 
-Please use RealLevel2_RealReal for testing the game. It contains all the up to date mechanics, without bugs.
+Please use RealLevel2_RealReal for testing the game. It contains all the up to date mechanics, without bugs. The user has a list of object which should be broken, after breaking all three, the bus will start moving.
+If the cat stays in place for 2 sec an arrow appears on screen showing the way.
 
 ### Mechanics
 w,a,s,d - moving
