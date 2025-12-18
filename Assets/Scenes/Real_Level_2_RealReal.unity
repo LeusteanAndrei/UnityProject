@@ -882,6 +882,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &73870628
 MeshFilter:
@@ -1701,6 +1702,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &122582281
 MonoBehaviour:
@@ -3109,6 +3111,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &126196806
 MeshFilter:
@@ -3301,6 +3304,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &131587454
 MonoBehaviour:
@@ -4848,6 +4852,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &169422473
 MeshFilter:
@@ -5380,6 +5385,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &217170922
 MonoBehaviour:
@@ -7141,83 +7147,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 642032229}
   m_SourcePrefab: {fileID: 100100000, guid: 2e9cbcf956215164b9eb1e0f029703bd, type: 3}
---- !u!1001 &256892023
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 827365078}
-    m_Modifications:
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 118.06568
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.14045
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 116.53598
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3140656822258070243, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_Name
-      value: Trash Can 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3140656822258070243, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4924510027389022843, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
 --- !u!1001 &265835292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7523,14 +7452,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279057420}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -8477,11 +8406,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8146947722577180889, guid: 75ed50d25f1f407458e9d48c36228c09, type: 3}
---- !u!4 &339430317 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2368341526312462425, guid: 11e72242f385d85429bbeb059241f4da, type: 3}
-  m_PrefabInstance: {fileID: 256892023}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &344545927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9075,6 +8999,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &369290768
 MonoBehaviour:
@@ -11119,6 +11044,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &432224339
 MonoBehaviour:
@@ -12671,6 +12597,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &457490621
 MeshFilter:
@@ -12785,6 +12712,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &459459719
 MeshFilter:
@@ -13811,11 +13739,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcc7d3ec7cdb0344599766c0a3bcfff3, type: 3}
---- !u!4 &568889793 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-  m_PrefabInstance: {fileID: 1576704054}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &576737584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14848,6 +14771,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &669580742
 MeshFilter:
@@ -15090,6 +15014,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &680688328
 MonoBehaviour:
@@ -17049,6 +16974,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &735762142
 MeshFilter:
@@ -17733,8 +17659,6 @@ Transform:
   - {fileID: 1880175430}
   - {fileID: 353556151}
   - {fileID: 1538953287}
-  - {fileID: 568889793}
-  - {fileID: 339430317}
   - {fileID: 869918285}
   - {fileID: 1209424031}
   - {fileID: 290828759}
@@ -18135,6 +18059,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &866726716
 MonoBehaviour:
@@ -19715,6 +19640,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &905219155
 MeshFilter:
@@ -20433,6 +20359,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &997203061
 MeshFilter:
@@ -21371,6 +21298,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1154852583
 MeshFilter:
@@ -22091,6 +22019,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1221069727
 MonoBehaviour:
@@ -23502,6 +23431,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1228654100
 MeshFilter:
@@ -24052,6 +23982,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1266362801
 MeshFilter:
@@ -24263,6 +24194,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1278956103
 MeshFilter:
@@ -25266,6 +25198,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1390945348
 MonoBehaviour:
@@ -26612,6 +26545,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1393117255
 MeshFilter:
@@ -27165,6 +27099,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1497584492
 MeshFilter:
@@ -27785,8 +27720,6 @@ MonoBehaviour:
   fadeSpeed: 2
   rechargeDelay: 2
   rechargeAmount: 10
-  target: {fileID: 1857750363}
-  offset: {x: 25, y: 0, z: 0}
 --- !u!1 &1572684781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8463589540060682297, guid: 2e9cbcf956215164b9eb1e0f029703bd, type: 3}
@@ -27880,83 +27813,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12.360108, y: 1.2971196, z: 12.359985}
   m_Center: {x: 0.0000009536743, y: 0.6485605, z: 0}
---- !u!1001 &1576704054
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 827365078}
-    m_Modifications:
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 126.295685
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -5.246
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 131.38597
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 351907953953570609, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1128691326208517515, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_Name
-      value: Trash Can 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1128691326208517515, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3683102988813523354, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3ac0953e273e30b45acee5881b990945, type: 3}
 --- !u!1001 &1583108053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28834,6 +28690,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1676294209
 MeshFilter:
@@ -29161,6 +29018,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1690243576
 MonoBehaviour:
@@ -30748,6 +30606,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1723297449
 MonoBehaviour:
@@ -33147,7 +33006,6 @@ MonoBehaviour:
   maxGrappleDistance: 15
   ropeExtendSpeed: 80
   stopDistance: 3.1
-  ropeOrigin: {fileID: 0}
   lineOfSightMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -33155,10 +33013,8 @@ MonoBehaviour:
   maxPullDuration: 3
   minPullAcceleration: 100
   maxPullAcceleration: 200
-  bestGrapplePoint: {fileID: 0}
   jointSpring: 125
   jointDamper: 30
-  jointShrinkSpeed: 20
   horizontalImpulseFactor: 0.2
 --- !u!114 &1857750369
 MonoBehaviour:
@@ -33175,6 +33031,7 @@ MonoBehaviour:
   shakeDuration: 0.1
   shakeFrequency: 0.3
   shakeMultiplier: 0.2
+  minimumImpactValue: 0.5
 --- !u!114 &1857750370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33187,13 +33044,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18454c5bb7fbb14482a92631b030cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpeed: 0
   damageThreshold: 9999
+  currentDamage: 0
   soundMultiplier: 0.5
   stunMin: 0.5
   stunMax: 3
   stunScale: 20
+  destroyed: 0
   soundMeter: {fileID: 0}
+  currentSpeed: 0
 --- !u!114 &1857750371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34035,6 +33894,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1907043781
 MeshFilter:
@@ -35341,6 +35201,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2046234961
 MonoBehaviour:
@@ -38125,6 +37986,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2141836133
 MonoBehaviour:
