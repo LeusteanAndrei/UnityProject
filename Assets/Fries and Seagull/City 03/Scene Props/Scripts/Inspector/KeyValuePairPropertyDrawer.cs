@@ -1,6 +1,6 @@
 ﻿
 
-namespace Seagull.Interior_04E.Inspector {
+namespace Seagull.Interior_I1.Inspector {
 # if UNITY_EDITOR
     using UnityEditor;
     using UnityEngine;

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b4eb7ec3791f2b34b938c6b6167fa7a8
+guid: 116f574564772cc48967babb49b274e4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -72,13 +72,13 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 0
     normalImportMode: 1
-    tangentImportMode: 2
+    tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
-    normalSmoothingSource: 3
+    normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -109,8 +109,9 @@ ModelImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 308526
-  packageName: City Building Kit - 100 Low Poly City assets
-  packageVersion: 1.1
+  productId: 316897
+  packageName: 'Ultimate Interior Package: Funiture, Household Items, Foods - Low
+    Poly Assets'
+  packageVersion: 1.0
   assetPath: Assets/Fries and Seagull/City 03/Models/Escalator.fbx
-  uploadId: 737367
+  uploadId: 751214
