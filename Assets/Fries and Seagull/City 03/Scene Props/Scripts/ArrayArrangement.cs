@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Seagull.Interior_04E.SceneProps {
+namespace Seagull.Interior_I1.SceneProps {
     [System.Flags]
     public enum AxisOption {
         None = 0,
