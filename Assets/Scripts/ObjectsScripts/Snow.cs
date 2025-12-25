@@ -6,20 +6,22 @@ public class Snow : MonoBehaviour
     [SerializeField] private float printCooldown = 0.5f;
     [SerializeField] private float lastPrintTime = 0f;
     [SerializeField] private float rotationOffsetDegrees = 0f; // yaw offset to tweak orientation
+    [SerializeField] private float printOffsetX=0f;
+    private bool lastleftFoot = false;
+    private Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rb = GameObject.Find("Player").GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        printCooldown = Mathf.Clamp(0.5f - rb.linearVelocity.magnitude * 0.05f, 0.3f, 1f);
     }
     void OnCollisionStay(Collision collision)
     {
-        Debug.Log("Collision with: " + collision.gameObject.name);
         Collider other = collision.collider;
         if (collision.gameObject.CompareTag("Player") && Time.time - lastPrintTime >= printCooldown)
         {
@@ -43,6 +45,15 @@ public class Snow : MonoBehaviour
                         ? Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg + rotationOffsetDegrees
                         : rotationOffsetDegrees;
                     Quaternion finalRot = Quaternion.Euler(90f, yawDeg, 0f);
+                    if (lastleftFoot)
+                    {
+                        contactPos += other.transform.right * printOffsetX;
+                    }
+                    else
+                    {
+                        contactPos -= other.transform.right * printOffsetX;
+                    }
+                    lastleftFoot = !lastleftFoot;
                     GameObject snowPrint = Instantiate(snowEffect.gameObject, contactPos, finalRot);
                     lastPrintTime = Time.time;
                 }
