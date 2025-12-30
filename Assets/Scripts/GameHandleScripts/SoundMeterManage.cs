@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 public class SoundMeterManage : MonoBehaviour
 {
@@ -51,5 +52,13 @@ public class SoundMeterManage : MonoBehaviour
             //game loss
         }
         timeSinceLastIncrease = 0f;
+    }
+    public void SetCurrentSoundLevel(float level)
+    {
+        this.currentSoundLevel = level;
+    }
+    public float GetCurrentSoundLevel()
+    {
+        return currentSoundLevel;
     }
 }
