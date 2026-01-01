@@ -9,12 +9,15 @@ public class WetMeterManager : MonoBehaviour
     [SerializeField] private float raycastDistance = 5f;
     [SerializeField] private LayerMask raycastMask = ~0; 
     [SerializeField] private Vector3 originOffset = new Vector3(0f, 0.1f, 0f);
-    private Transform player;
+    [SerializeField] private Transform player;
+    [SerializeField]private bool covered = false;
+    public bool campfireNearby = false;
+    public bool inLake = false;
+    public bool underWeather = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         wetMeterValue = 0f;
-        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -27,12 +30,29 @@ public class WetMeterManager : MonoBehaviour
             Debug.DrawRay(origin, Vector3.up * raycastDistance, hit ? Color.green : Color.red);
             if(hit)
             {
-                wetMeterIncrease = 0f;
+                covered = true;
             }
             else
             {
-                wetMeterIncrease = 1f; // Example increase rate when not obstructed
+                covered = false;
             }
+        }
+        wetMeterIncrease = 0f;
+        if (covered)
+        {
+            wetMeterIncrease -= 1f;
+        }
+        else
+        {
+            wetMeterIncrease += 2f;
+        }
+        if (campfireNearby)
+        {
+            wetMeterIncrease -= 3f;
+        }
+        if (inLake)
+        {
+            wetMeterIncrease += 100f;
         }
         wetMeterValue += wetMeterIncrease * Time.deltaTime;
         wetMeterValue = Mathf.Clamp(wetMeterValue, 0f, maxWetMeterValue);
