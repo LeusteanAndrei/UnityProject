@@ -20,9 +20,9 @@ MonoBehaviour:
     rid: 1271843155546996736
   m_OverrideGlobalSceneList: 1
   m_Scenes:
-  - m_enabled: 0
-    m_path: Assets/Scenes/Real_Level_3.unity
   - m_enabled: 1
+    m_path: Assets/Scenes/Real_Level_3.unity
+  - m_enabled: 0
     m_path: Assets/Scenes/Real_Level_2_RealReal.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
