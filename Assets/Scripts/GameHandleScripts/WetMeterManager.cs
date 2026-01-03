@@ -44,7 +44,7 @@ public class WetMeterManager : MonoBehaviour
         }
         else
         {
-            wetMeterIncrease += 2f;
+            wetMeterIncrease += 0f;
         }
         if (campfireNearby)
         {
@@ -53,6 +53,10 @@ public class WetMeterManager : MonoBehaviour
         if (inLake)
         {
             wetMeterIncrease += 100f;
+        }
+        if (underWeather)
+        {
+            wetMeterIncrease += 3f;
         }
         wetMeterValue += wetMeterIncrease * Time.deltaTime;
         wetMeterValue = Mathf.Clamp(wetMeterValue, 0f, maxWetMeterValue);

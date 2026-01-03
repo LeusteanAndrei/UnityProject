@@ -5,6 +5,7 @@ public class ModifyWet : MonoBehaviour
     [SerializeField] private string type;
     [SerializeField] private GameObject dropletEffect;
     [SerializeField] private WetMeterManager wetMeterManager;
+    [SerializeField] private float duration;
     void Start()
     {
         if(wetMeterManager == null)
@@ -14,7 +15,6 @@ public class ModifyWet : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Player"))
         {
             Debug.Log("Trigger entered by " + other.name);
@@ -23,7 +23,7 @@ public class ModifyWet : MonoBehaviour
                 if (type == "Campfire")
                 wetMeterManager.campfireNearby = true;
                 else if (type == "Lake"){
-                wetMeterManager.inLake = true;
+                duration = 0f;
                 Debug.Log("Player entered lake");
                 if(dropletEffect != null){
                     Instantiate(dropletEffect, other.transform.position, Quaternion.identity);
@@ -33,8 +33,31 @@ public class ModifyWet : MonoBehaviour
                 wetMeterManager.underWeather = true;
             }
         }
+        else if(other.GetComponent<Fish>() != null && type == "Lake")
+        {
+            Fish fish = other.GetComponent<Fish>();
+            fish.SetMarked();
+        }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && type == "Lake")
+        {
+            duration += Time.deltaTime;
+            if (type == "Lake" && duration >= 0.75f)
+            {
+                if (wetMeterManager != null)
+                {
+                    wetMeterManager.inLake = true;
+                }
+                duration = 0f;
+                if(dropletEffect != null){
+                    Instantiate(dropletEffect, other.transform.position, Quaternion.identity);
+                }
+            }
+        }
+    }
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
