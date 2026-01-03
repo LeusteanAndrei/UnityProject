@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ca22afa6681c67b41a83ba17ea999b28
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastleInterior/Door_Single.prefab
+  uploadId: 480580

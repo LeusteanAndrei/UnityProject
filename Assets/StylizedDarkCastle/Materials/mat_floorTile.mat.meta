@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7a80b38c04ce90f468c9bb334c3f8ea1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Materials/mat_floorTile.mat
+  uploadId: 480580
