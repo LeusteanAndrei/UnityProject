@@ -2,22 +2,23 @@ using UnityEngine;
 using System.Collections.Generic;
 public class Collisions : MonoBehaviour
 {
-    [Header("Sound settings")]
     [SerializeField] private float damageThreshold;
     [SerializeField] private float currentDamage;
     [SerializeField] private float soundMultiplier = 1f;
     [SerializeField] private float stunMin = 0.5f;
     [SerializeField] private float stunMax = 3f;
-    [SerializeField] private float stunScale = 20f; // speed*multiplier value that yields max stun
+    [SerializeField] private float stunScale = 20f;
     [SerializeField] private bool destroyed = false;
     
     [HideInInspector] public SoundMeterManage soundMeter;
     [HideInInspector] public float currentSpeed;
+    private BreakObject breakObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         soundMeter = GameObject.Find("GameManager").GetComponent<SoundMeterManage>();
+        breakObject = GetComponent<BreakObject>();
     }
     // Update is called once per frame
     void Update()
@@ -42,7 +43,7 @@ public class Collisions : MonoBehaviour
                 if (h == null) continue;
                 if (h.CompareTag("Enemy"))
                 {
-                    Debug.Log($"Enemy at {h.transform.position} distracted by sound");
+                    //Debug.Log($"Enemy at {h.transform.position} distracted by sound");
                     h.GetComponent<EnemyMovement>().GetDistracted(gameObject);
                 }
             }
@@ -70,10 +71,20 @@ public class Collisions : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentDamage += damage;
-        if(currentDamage >= damageThreshold)
+        if(currentDamage >= damageThreshold && !destroyed)
         {
             destroyed = true;
-            Debug.Log("Object destroyed due to damage");
+            GoalObject goalObjectComponent = GetComponent<GoalObject>();
+            if (goalObjectComponent != null)
+            {
+                goalObjectComponent.Mark();
+                goalObjectComponent.showText();
+            }
+
+            if (breakObject != null)
+            {
+                breakObject.Slice();
+            }
         }
     }
     public bool IsDestroyed()

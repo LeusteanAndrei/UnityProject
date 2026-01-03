@@ -7,7 +7,7 @@ using UnityEditor.SceneManagement;
 # endif
 using UnityEngine;
 
-namespace Seagull.City_03.SceneProps {
+namespace Seagull.Interior_I1.SceneProps {
     public enum SingleAxisOption {
         X, Y, Z
     }
@@ -155,15 +155,13 @@ namespace Seagull.City_03.SceneProps {
             
             Vector3 delta = pos2 - pos1;
             Vector3 normal = delta.normalized;
-            Quaternion rotation = Quaternion.Euler(0, -90, 0); // 绕 Y 轴逆时针旋转 90 度
+            Quaternion rotation = Quaternion.Euler(0, -90, 0);
             Vector3 rotatedNormal = rotation * normal;
             while (Mathf.Abs(diff) > tolerance) {
                 i++;
                 if (i >= 100) break;
                 
-                // 意味着 Distance 比 实际长度 要长，那么就要往回看
                 if (diff > 0) { x -= step; step /= 2f; }
-                // 意味着 Distance 比 实际长度 要短，那么就要往后看
                 else { x += step; step /= 2; }
                 
                 float y = pathCurve.Evaluate(x);
@@ -332,7 +330,7 @@ namespace Seagull.City_03.SceneProps {
                 
                 Vector3 delta = pos2 - pos1;
                 Vector3 normal = delta.normalized;
-                Quaternion rotation = Quaternion.Euler(0, -90, 0); // 绕 Y 轴逆时针旋转 90 度
+                Quaternion rotation = Quaternion.Euler(0, -90, 0); 
                 Vector3 rotatedNormal = rotation * normal;
                 float y = curve.Evaluate(currentTime);
                 Vector3 currentPoint = pathStart + delta * currentTime + rotatedNormal * y;
@@ -345,15 +343,10 @@ namespace Seagull.City_03.SceneProps {
         }
 
         private void OnDrawGizmos() {
-            // 设置 Gizmos 的颜色
             Gizmos.color = new Color(1, 0, 0, 0.5f);
-        
-            // 绘制 pos1 和 pos2 的球体表示
             Gizmos.DrawSphere(transform.position + pos1, 0.2f);
             Gizmos.color = new Color(0, 0, 1, 0.5f);
             Gizmos.DrawSphere(transform.position + pos2, 0.2f);
-
-            // 绘制连线
             Gizmos.color = new Color(1, 1, 0, 0.5f);
             Gizmos.DrawLine(transform.position + pos1, transform.position + pos2);
         }
