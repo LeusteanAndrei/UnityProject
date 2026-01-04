@@ -295,6 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2138754741654021997}
   - component: {fileID: 3287574398834782313}
+  - component: {fileID: 8175019636072547683}
   - component: {fileID: 4172371950963455344}
   - component: {fileID: 3768733091063390303}
   - component: {fileID: 6485662289627225144}
@@ -358,6 +359,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8175019636072547683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571704277001719837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bcbfb5ff6d38e340b1054fef3c956b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SavePlayerScript
 --- !u!114 &4172371950963455344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +403,7 @@ MonoBehaviour:
   inAirSpeedMultiplier: 0.3
   crouchSpeedMultiplier: 0.3
   staminaSprintDrainCost: 15
+  uphillForceMultiplier: 30
   turnSmoothness: 0.3
   slipperyLayers:
     layers:
@@ -402,6 +416,9 @@ MonoBehaviour:
   cameraTransform: {fileID: 3216123603636724670}
   isGrounded: 0
   currentLayerIndex: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &6485662289627225144
 MonoBehaviour:
   m_ObjectHideFlags: 0
