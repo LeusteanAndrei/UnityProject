@@ -1,5 +1,15 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using UnityEngine;
+
+
+[System.Serializable]
+public class EnemyData
+{
+    public int enemyId;
+    public float[] enemyPoz;
+    public int currentPathPoint = 0;
+}
+
 
 [System.Serializable]
 public class GameData 
@@ -9,6 +19,8 @@ public class GameData
 
     public float[] playerPosition;
     public int[] brokenObjectIds;
+
+    public EnemyData[] enemyData = new EnemyData[0];
 
     public GameData()
     {
@@ -21,18 +33,6 @@ public class GameData
     {
         this.soundMeterLevel = soundMeterLevel;
     }
-
-
-    //public void addBrokenObjectId(int newId)
-    //{
-    //    int[] oldIds = new int[brokenObjectIds.Length + 1];
-    //    for (int i = 0; i < brokenObjectIds.Length; i++)
-    //    {
-    //        oldIds[i] = brokenObjectIds[i];
-    //    }
-    //    oldIds[oldIds.Length-1] = newId;
-    //    brokenObjectIds = oldIds;
-    //}
 
     public void AddBrokenObjectId(int newId)
     {
@@ -53,4 +53,35 @@ public class GameData
         brokenObjectIds = newArray;
 
     }
+
+
+    public void AddEnemyData(EnemyData newEnemyData)
+    {
+        if (enemyData == null)
+        {
+            enemyData = new EnemyData[] { newEnemyData };
+            return;
+        }
+
+        for (int i = 0; i < enemyData.Length; i++)
+        {
+            if (enemyData[i].enemyId == newEnemyData.enemyId)
+            {
+                enemyData[i] = newEnemyData;
+                return;
+            }
+        }
+        Debug.Log("EnemyData: " +  newEnemyData.enemyId );
+
+        EnemyData[] newArray = new EnemyData[enemyData.Length + 1];
+
+        for (int i = 0; i < enemyData.Length; i++)
+        {
+            newArray[i] = enemyData[i];
+        }
+
+        newArray[newArray.Length - 1] = newEnemyData;
+        enemyData = newArray;
+    }
+
 }
