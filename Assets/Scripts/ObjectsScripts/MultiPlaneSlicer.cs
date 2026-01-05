@@ -26,7 +26,24 @@ public static class MultiPlaneSlicer
                 (GameObject, GameObject) sliced;
                 if (hasSkinned)
                 {
-                    sliced = skinnedMeshSlicer.Slice(obj, 0, 1, Get3PointsOnPlane(plane), intersectionMaterial);
+                    var (smrIndex, rootIndex) = ResolveSkinnedIndices(obj);
+                    if (smrIndex < 0)
+                    {
+                        // Fallback to non-sliced if no valid SMR found
+                        sliced = (null, null);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            sliced = skinnedMeshSlicer.Slice(obj, smrIndex, rootIndex, Get3PointsOnPlane(plane), intersectionMaterial);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            Debug.LogError($"MultiPlaneSlicer: Skinned slicing failed for '{obj.name}' (smrIndex={smrIndex}, rootIndex={rootIndex}): {ex.Message}");
+                            sliced = (null, null);
+                        }
+                    }
                 }
                 else
                 {
@@ -78,7 +95,23 @@ public static class MultiPlaneSlicer
                 (GameObject, GameObject) sliced;
                 if (hasSkinned)
                 {
-                    sliced = await skinnedMeshSlicer.SliceAsync(obj, 0, 1, Get3PointsOnPlane(plane), intersectionMaterial);
+                    var (smrIndex, rootIndex) = ResolveSkinnedIndices(obj);
+                    if (smrIndex < 0)
+                    {
+                        sliced = (null, null);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            sliced = await skinnedMeshSlicer.SliceAsync(obj, smrIndex, rootIndex, Get3PointsOnPlane(plane), intersectionMaterial);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            Debug.LogError($"MultiPlaneSlicer: Skinned slicing failed for '{obj.name}' (smrIndex={smrIndex}, rootIndex={rootIndex}): {ex.Message}");
+                            sliced = (null, null);
+                        }
+                    }
                 }
                 else
                 {
@@ -156,5 +189,52 @@ public static class MultiPlaneSlicer
         }
         Vector3 yAxis = Vector3.Cross(p.normal, xAxis);
         return (-p.distance * p.normal, -p.distance * p.normal + xAxis, -p.distance * p.normal + yAxis);
+    }
+
+    private static (int smrIndex, int rootIndex) ResolveSkinnedIndices(GameObject obj)
+    {
+        var smrs = obj.GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        if (smrs == null || smrs.Length == 0)
+        {
+            return (-1, -1);
+        }
+
+        // Choose the first SMR with a valid sharedMesh and bones
+        int chosenSmr = -1;
+        for (int i = 0; i < smrs.Length; i++)
+        {
+            var smr = smrs[i];
+            if (smr != null && smr.sharedMesh != null && smr.bones != null && smr.bones.Length > 0)
+            {
+                chosenSmr = i;
+                break;
+            }
+        }
+        if (chosenSmr < 0)
+        {
+            // fallback to first available
+            chosenSmr = 0;
+        }
+
+        var targetSmr = smrs[chosenSmr];
+        int rootIndex = 0;
+        if (targetSmr != null)
+        {
+            var bones = targetSmr.bones;
+            var root = targetSmr.rootBone;
+            if (bones != null && bones.Length > 0 && root != null)
+            {
+                for (int i = 0; i < bones.Length; i++)
+                {
+                    if (bones[i] == root)
+                    {
+                        rootIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return (chosenSmr, rootIndex);
     }
 }

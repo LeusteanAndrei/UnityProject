@@ -18,7 +18,6 @@ public class BreakObject : MonoBehaviour
     public float explosionUpwards = 0.2f;
     public ForceMode forceMode = ForceMode.Impulse;
     public bool enableExplosion = true;
-    [Tooltip("Remove colliders cloned from the original before adding new ones.")]
     public bool removeInheritedColliders = true;
 
     public bool destroyOriginalAfterSlice = true;
@@ -92,7 +91,8 @@ public class BreakObject : MonoBehaviour
                 var inherited = piece.GetComponents<Collider>();
                 for (int i = 0; i < inherited.Length; i++)
                 {
-                    // Don't remove MeshCollider if we plan to reuse it, we'll recreate below anyway
+                    // Keep MeshCollider so we can reconfigure it for the sliced mesh
+                    if (inherited[i] is MeshCollider) continue;
                     Object.Destroy(inherited[i]);
                 }
             }
@@ -101,6 +101,12 @@ public class BreakObject : MonoBehaviour
             {
                 var mc = piece.GetComponent<MeshCollider>();
                 if (mc == null) mc = piece.AddComponent<MeshCollider>();
+                // Ensure collider uses the sliced mesh
+                var mf = piece.GetComponent<MeshFilter>();
+                if (mf != null)
+                {
+                    mc.sharedMesh = mf.sharedMesh;
+                }
                 mc.convex = convexColliders;
             }
 

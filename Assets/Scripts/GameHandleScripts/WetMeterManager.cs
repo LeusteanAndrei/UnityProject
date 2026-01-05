@@ -14,6 +14,7 @@ public class WetMeterManager : MonoBehaviour
     public bool campfireNearby = false;
     public bool inLake = false;
     public bool underWeather = false;
+    public bool inPuddle = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -57,6 +58,10 @@ public class WetMeterManager : MonoBehaviour
         if (underWeather)
         {
             wetMeterIncrease += 3f;
+        }
+        if (inPuddle)
+        {
+            wetMeterIncrease += 1f;
         }
         wetMeterValue += wetMeterIncrease * Time.deltaTime;
         wetMeterValue = Mathf.Clamp(wetMeterValue, 0f, maxWetMeterValue);

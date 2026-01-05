@@ -6,6 +6,7 @@ public class Puddle : MonoBehaviour
     [SerializeField] private float splashCooldown = 0.5f;
     [SerializeField] private float lastSplashTime = 0f;
     [SerializeField] private LayerMask puddleLayerMask = ~0; 
+    [SerializeField] private float splashHeight = 0.5f;
     void Start()
     {
         wetMeterManager = FindObjectOfType<WetMeterManager>();
@@ -20,7 +21,7 @@ public class Puddle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            wetMeterManager.wetMeterIncrease += 1f;
+            wetMeterManager.inPuddle = true;
         }
     }
     private void OnTriggerStay(Collider other)
@@ -36,7 +37,7 @@ public class Puddle : MonoBehaviour
                 if(splashEffect != null)
                 {
                     
-                    Instantiate(splashEffect.gameObject, other.ClosestPoint(transform.position), Quaternion.identity);
+                    Instantiate(splashEffect.gameObject, new Vector3(other.transform.position.x,transform.position.y + splashHeight, other.transform.position.z), Quaternion.identity);
                     lastSplashTime = Time.time;
                 }
             }
@@ -47,7 +48,7 @@ public class Puddle : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            wetMeterManager.wetMeterIncrease -= 1f;
+            wetMeterManager.inPuddle = false;
         }
     }
 }
