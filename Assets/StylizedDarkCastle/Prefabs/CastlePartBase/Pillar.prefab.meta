@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 22c969c2b46aa554f85beea6c71d2741
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/Pillar.prefab
+  uploadId: 480580

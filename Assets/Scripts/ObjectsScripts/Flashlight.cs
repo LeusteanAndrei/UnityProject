@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.UI.Image;
 public class Flashlight : MonoBehaviour
 {
     [SerializeField] private float loseTime;
@@ -7,6 +8,11 @@ public class Flashlight : MonoBehaviour
     [SerializeField] private bool isPlayerInLight;
     [SerializeField] private Image DetectionMark;
     [SerializeField] private Image DetectionFillImage;
+    [SerializeField] private Transform LightOrigin;
+
+    [SerializeField] private LayerMask raycastMask;
+
+    private GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +26,7 @@ public class Flashlight : MonoBehaviour
         {
             DetectionMark.enabled = false;
         }
+        player = GameObject.FindGameObjectWithTag("Player");
 
     }
 
@@ -58,14 +65,14 @@ public class Flashlight : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && CanSeePLayer(player))
         {
             isPlayerInLight = true;
         }
     }
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && CanSeePLayer(player))
         {
             currentTime += Time.deltaTime;
             isPlayerInLight = true;
@@ -77,5 +84,26 @@ public class Flashlight : MonoBehaviour
         {
             isPlayerInLight = false;
         }
+    }
+
+
+    private bool CanSeePLayer(GameObject player)
+    {
+        Vector3 target = player.transform.position;
+        Vector3 direction = target - LightOrigin.position;
+        float distance = direction.magnitude;
+
+        Ray ray = new Ray(LightOrigin.position, direction.normalized);
+        if (Physics.Raycast(ray, out RaycastHit hit, distance, raycastMask))
+        {
+
+
+            Color rayColor = hit.collider.CompareTag("Player") ? Color.green : Color.red;
+            Debug.DrawRay(LightOrigin.position, direction.normalized * hit.distance, rayColor);
+            return hit.collider.CompareTag("Player");
+        }
+
+        Debug.DrawRay(LightOrigin.position, direction.normalized * distance, Color.yellow);
+        return false;
     }
 }

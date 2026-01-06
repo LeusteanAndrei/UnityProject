@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c76a9ea2524c5bf46852eb5793f02ee9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartsRooms/Wall_Battlements.prefab
+  uploadId: 480580

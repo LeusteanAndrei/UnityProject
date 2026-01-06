@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 91d0bc1a036c4114d8fe2fd542dfb7a7
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Materials/mat_brick.mat
+  uploadId: 480580

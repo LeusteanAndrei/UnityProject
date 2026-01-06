@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1366ad4035282e74d94b1a5b14eb00c5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Materials/mat_interior.mat
+  uploadId: 480580

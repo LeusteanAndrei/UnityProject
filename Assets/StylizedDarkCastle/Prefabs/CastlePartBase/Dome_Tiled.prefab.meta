@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ee12c77dab9500f42867b54ba5963745
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/Dome_Tiled.prefab
+  uploadId: 480580

@@ -35,6 +35,16 @@ public class GameDataManager : MonoBehaviour
         this.fileHandler = new FileHandler(Application.persistentDataPath, fileName);
     }
 
+    private void Update()
+    {
+        if ((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+       && Input.GetKeyDown(KeyCode.S))
+        {
+            Debug.Log("Ctrl+S pressed! Saving data...");
+            SaveGame();
+        }
+    }
+
     public void NewGame()
     {
         this.gameData = new GameData();
@@ -67,7 +77,7 @@ public class GameDataManager : MonoBehaviour
         saveObjects = FindAllSaveObjects();
         for (int i = 0; i < saveObjects.Count; i++)
         {
-            saveObjects[i].LoadData(gameData);
+            saveObjects[i].SaveData(gameData);
         }
 
         fileHandler.Save(this.gameData);
