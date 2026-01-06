@@ -29,19 +29,26 @@ public class WetMeterManager : MonoBehaviour
             Vector3 origin = player.position + originOffset;
             bool hit = Physics.Raycast(origin, Vector3.up, out RaycastHit hitInfo, raycastDistance, raycastMask, QueryTriggerInteraction.Ignore);
             Debug.DrawRay(origin, Vector3.up * raycastDistance, hit ? Color.green : Color.red);
-            if(hit)
+            if(hit && hitInfo.collider.CompareTag("Weather"))
+            {
+                covered = false;
+                underWeather = true;
+            }
+            else if(hit)
             {
                 covered = true;
+                underWeather = false;
             }
             else
             {
                 covered = false;
+                underWeather = false;
             }
         }
         wetMeterIncrease = 0f;
         if (covered)
         {
-            wetMeterIncrease -= 1f;
+            wetMeterIncrease -= 2f;
         }
         else
         {
@@ -49,13 +56,13 @@ public class WetMeterManager : MonoBehaviour
         }
         if (campfireNearby)
         {
-            wetMeterIncrease -= 3f;
+            wetMeterIncrease -= 5f;
         }
         if (inLake)
         {
             wetMeterIncrease += 100f;
         }
-        if (underWeather)
+        if (underWeather && !covered)
         {
             wetMeterIncrease += 3f;
         }

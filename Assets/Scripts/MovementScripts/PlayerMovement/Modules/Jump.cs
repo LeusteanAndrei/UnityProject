@@ -15,7 +15,7 @@ public class Jump : MonoBehaviour
     Rigidbody rb; 
     Movement movementComponent; // the movement component ( class ) of the player
     float currentHoldTime = 0; // the current holdTime of the jump button
-    int nrJump = 0; // the number of jumps the player has done ( resets when touching the ground )
+    public int nrJump = 0; // the number of jumps the player has done ( resets when touching the ground )
     private float jumpStartPosition = 0f; // the current height of the jump
 
     InputAction jumpAction; // input action for the jump

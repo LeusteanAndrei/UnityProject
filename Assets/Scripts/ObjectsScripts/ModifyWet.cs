@@ -17,7 +17,6 @@ public class ModifyWet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Trigger entered by " + other.name);
             if (wetMeterManager != null)
             {
                 if (type == "Campfire")
