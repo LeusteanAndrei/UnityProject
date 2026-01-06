@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0215d6fc0ae90674eb821c66aa709b50
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/Wall_Door_Floor_Right.prefab
+  uploadId: 480580

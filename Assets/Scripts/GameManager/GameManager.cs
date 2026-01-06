@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
         Instance.gameOverCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        //gameCanvas.enabled = false;
     }
 
     private IEnumerator LoadSceneSequence(string targetSceneName)

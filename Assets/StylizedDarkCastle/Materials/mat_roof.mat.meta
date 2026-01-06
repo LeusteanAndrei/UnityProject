@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0833afb36672dd74eb3b7e39c0af2906
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Materials/mat_roof.mat
+  uploadId: 480580

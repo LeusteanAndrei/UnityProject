@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a621a0d090643034d80b25ee4c905d7d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/Wall_ArrowSlit.prefab
+  uploadId: 480580
