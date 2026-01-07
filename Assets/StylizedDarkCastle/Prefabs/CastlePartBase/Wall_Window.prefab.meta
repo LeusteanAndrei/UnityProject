@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 71fa7b29265bb5f4fad5f8be5eb88d28
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/Wall_Window.prefab
+  uploadId: 480580

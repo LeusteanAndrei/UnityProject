@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: da886acf87b4e9145b19cd00267b54c0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/ArchTiled.prefab
+  uploadId: 480580

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5b8050752942e5347bdf47d7d79e53d5
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/Wall_Gate.prefab
+  uploadId: 480580

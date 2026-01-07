@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4a7467acdad91c6469f10e58193aa78e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/Battlement_Corner.prefab
+  uploadId: 480580

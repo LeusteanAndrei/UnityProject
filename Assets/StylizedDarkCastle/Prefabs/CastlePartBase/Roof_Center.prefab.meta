@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b245cc8d64501474691ba366430667e2
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/Roof_Center.prefab
+  uploadId: 480580

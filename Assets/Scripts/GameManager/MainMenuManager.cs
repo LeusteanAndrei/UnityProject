@@ -8,7 +8,25 @@ public class MainMenuManager : MonoBehaviour
     public string mainGameSceneName = "Level 2";
     public string loadingSceneName = "Loading Screen";
     public string mainMenuSceneName = "Main Menu";
+
+
     private LoadingScreenManager currentLoadingScreenManager;
+    private string pendingSceneName;
+    private bool isLoadGame = false;
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         //if (Instance == null)
@@ -26,11 +44,33 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("New Game started...");
         LoadTargetScene(mainGameSceneName);
+        //GameDataManager.Instance.NewGame();
+        //GameDataManager.Instance.gameData.levelName = mainGameSceneName;
         //SceneManager.LoadScene(mainGameSceneName);
     }
+
+    public void LoadGame()
+    {
+        
+        GameData gameData = GameDataManager.Instance.fileHandler.Load();
+        Debug.Log(gameData.levelName);
+        if (gameData != null)
+        {
+            Debug.Log("Loading Game");
+            isLoadGame = true;
+            LoadTargetScene(gameData.levelName);
+            //GameDataManager.Instance.LoadGame();
+        }
+        else
+        {
+            Debug.Log("No save found");
+        }
+    }
+
     public void LoadTargetScene(string targetSceneName)
     {
         Debug.Log($"Requesting load sequence for scene: {targetSceneName}");
+        pendingSceneName = targetSceneName;
         StartCoroutine(LoadSceneSequence(targetSceneName));
     }
     public void Quit()
@@ -83,6 +123,55 @@ public class MainMenuManager : MonoBehaviour
         }
 
         // Unload loading scene
-        yield return SceneManager.UnloadSceneAsync(loadingSceneName);
+        //yield return SceneManager.UnloadSceneAsync(loadingSceneName);
+        Scene loadingScene = SceneManager.GetSceneByName(loadingSceneName);
+        if (loadingScene.IsValid() && loadingScene.isLoaded)
+        {
+            yield return SceneManager.UnloadSceneAsync(loadingScene);
+            Debug.Log("Loading scene unloaded successfully");
+        }
+        else
+        {
+            Debug.LogWarning("Loading scene is not valid or not loaded, cannot unload");
+        }
     }
+
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded called: " + scene.name);
+        Debug.Log("Pending scene: " + pendingSceneName);
+
+        if (scene.name != pendingSceneName)
+        {
+            Debug.Log("Scene does not match pendingSceneName, skipping");
+            return;
+        }
+
+        Debug.Log("Scene matches pendingSceneName, starting coroutine");
+        StartCoroutine(ApplyGameDataAfterStart());
+    }
+
+
+    private IEnumerator ApplyGameDataAfterStart()
+    {
+        // Wait one frame so Start() runs on all objects
+        yield return null;
+
+        if (isLoadGame)
+        {
+            Debug.Log("load Game");
+            GameDataManager.Instance.LoadGame();
+            Debug.Log(GameDataManager.Instance.gameData.soundMeterLevel);
+        }
+        else
+        {
+            GameDataManager.Instance.NewGame();
+            GameDataManager.Instance.gameData.levelName = pendingSceneName;
+        }
+
+        pendingSceneName = null;
+    }
+
+
 }
