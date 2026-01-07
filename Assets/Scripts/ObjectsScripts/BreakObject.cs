@@ -19,6 +19,9 @@ public class BreakObject : MonoBehaviour
     public ForceMode forceMode = ForceMode.Impulse;
     public bool enableExplosion = true;
     public bool removeInheritedColliders = true;
+    public bool groupPiecesUnderParent = true;
+    public string piecesParentName = "Pieces";
+    public Transform piecesParentOverride;
 
     public bool destroyOriginalAfterSlice = true;
     private bool _sliced;
@@ -81,6 +84,31 @@ public class BreakObject : MonoBehaviour
         {
             sliceTarget.SetActive(false);
         }
+
+        // Create or resolve the parent container for sliced pieces
+        Transform parentForPieces = null;
+        if (groupPiecesUnderParent)
+        {
+            var originalTransform = sliceTarget != null ? sliceTarget.transform : transform;
+            parentForPieces = piecesParentOverride;
+            // Ensure the parent is NOT under the original object
+            if (parentForPieces != null && (parentForPieces == originalTransform || parentForPieces.IsChildOf(originalTransform)))
+            {
+                parentForPieces = null; // ignore override if it makes the container a child of the original
+            }
+
+            if (parentForPieces == null)
+            {
+                string nameBase = sliceTarget != null ? sliceTarget.name : name;
+                string containerName = string.IsNullOrEmpty(piecesParentName) ? (nameBase + "_Pieces") : piecesParentName;
+                var containerGO = new GameObject(containerName);
+                parentForPieces = containerGO.transform;
+                // Place container at scene root (no parent)
+                parentForPieces.SetParent(null, false);
+                parentForPieces.position = originalTransform.position;
+                parentForPieces.rotation = originalTransform.rotation;
+            }
+        }
         foreach (var piece in pieces)
         {
             Rigidbody rb = null;
@@ -108,6 +136,12 @@ public class BreakObject : MonoBehaviour
                     mc.sharedMesh = mf.sharedMesh;
                 }
                 mc.convex = convexColliders;
+            }
+
+            // Parent the piece under the container, preserving world transforms
+            if (parentForPieces != null)
+            {
+                piece.transform.SetParent(parentForPieces, true);
             }
 
             if (rb != null && enableExplosion)

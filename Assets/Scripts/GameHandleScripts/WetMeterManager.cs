@@ -15,6 +15,7 @@ public class WetMeterManager : MonoBehaviour
     public bool inLake = false;
     public bool underWeather = false;
     public bool inPuddle = false;
+    public bool harshWeather = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -65,6 +66,10 @@ public class WetMeterManager : MonoBehaviour
         if (underWeather && !covered)
         {
             wetMeterIncrease += 3f;
+            if (harshWeather)
+            {
+                wetMeterIncrease += 3f;
+            }
         }
         if (inPuddle)
         {
