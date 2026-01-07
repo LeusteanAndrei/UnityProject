@@ -263,15 +263,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18454c5bb7fbb14482a92631b030cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpeed: 0
   damageThreshold: 10
-  currentDamage: 0
   soundMultiplier: 1
   stunMin: 0.5
   stunMax: 3
   stunScale: 20
-  destroyed: 0
   soundMeter: {fileID: 0}
-  currentSpeed: 0
 --- !u!54 &227353076
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -367,7 +365,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &227353079
 MeshFilter:
@@ -407,7 +404,6 @@ MonoBehaviour:
   shakeDuration: 0.1
   shakeFrequency: 0.3
   shakeMultiplier: 0.2
-  minimumImpactValue: 0.5
 --- !u!208 &227353082
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -526,7 +522,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &262811177
 MeshFilter:
@@ -688,15 +683,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18454c5bb7fbb14482a92631b030cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpeed: 0
   damageThreshold: 9999
-  currentDamage: 0
   soundMultiplier: 0.5
   stunMin: 0.5
   stunMax: 3
   stunScale: 20
-  destroyed: 0
   soundMeter: {fileID: 0}
-  currentSpeed: 0
 --- !u!114 &382222835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,8 +826,6 @@ Transform:
   - {fileID: 79066049}
   - {fileID: 417506569}
   - {fileID: 617928356}
-  - {fileID: 847008627}
-  - {fileID: 1817909198}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &382222842
@@ -852,7 +843,6 @@ MonoBehaviour:
   shakeDuration: 0.1
   shakeFrequency: 0.3
   shakeMultiplier: 0.2
-  minimumImpactValue: 0.5
 --- !u!114 &382222843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -951,6 +941,7 @@ MonoBehaviour:
   maxGrappleDistance: 15
   ropeExtendSpeed: 80
   stopDistance: 3.1
+  ropeOrigin: {fileID: 0}
   lineOfSightMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -958,8 +949,10 @@ MonoBehaviour:
   maxPullDuration: 3
   minPullAcceleration: 100
   maxPullAcceleration: 200
+  bestGrapplePoint: {fileID: 0}
   jointSpring: 125
   jointDamper: 30
+  jointShrinkSpeed: 20
   horizontalImpulseFactor: 0.2
 --- !u!114 &382222845
 MonoBehaviour:
@@ -1035,14 +1028,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize2D: {x: 10, y: 10}
+  m_CookieSize: 10
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -1240,7 +1233,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &417506572
 MeshFilter:
@@ -1383,6 +1375,8 @@ MonoBehaviour:
   fadeSpeed: 2
   rechargeDelay: 2
   rechargeAmount: 10
+  target: {fileID: 382222841}
+  offset: {x: 25, y: 0, z: 0}
 --- !u!224 &432288532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1539,7 +1533,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &476557126
 MeshFilter:
@@ -1678,7 +1671,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &617928360
 MeshFilter:
@@ -1853,7 +1845,6 @@ MonoBehaviour:
   shakeDuration: 0.1
   shakeFrequency: 0.3
   shakeMultiplier: 0.2
-  minimumImpactValue: 0.5
 --- !u!114 &646622608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1866,15 +1857,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18454c5bb7fbb14482a92631b030cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpeed: 0
   damageThreshold: 10
-  currentDamage: 0
   soundMultiplier: 1
   stunMin: 0.5
   stunMax: 3
   stunScale: 20
-  destroyed: 0
   soundMeter: {fileID: 0}
-  currentSpeed: 0
 --- !u!54 &646622609
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1970,7 +1959,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &646622612
 MeshFilter:
@@ -2290,7 +2278,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &770784171
 MeshFilter:
@@ -2548,7 +2535,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &847008630
 MeshFilter:
@@ -2660,7 +2646,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &936815307
 MeshFilter:
@@ -2772,7 +2757,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &955470153
 MeshFilter:
@@ -3131,7 +3115,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1333407110
 MeshFilter:
@@ -3256,7 +3239,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1410426100
 MeshFilter:
@@ -3671,7 +3653,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1684545264
 MeshFilter:
@@ -4349,7 +4330,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1890225019
 MeshFilter:
@@ -4621,7 +4601,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &2124426224
 MeshFilter:

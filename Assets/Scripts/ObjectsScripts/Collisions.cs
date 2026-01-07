@@ -8,7 +8,7 @@ public class Collisions : MonoBehaviour
     [SerializeField] private float stunMin = 0.5f;
     [SerializeField] private float stunMax = 3f;
     [SerializeField] private float stunScale = 20f;
-    [SerializeField] public bool destroyed = false;
+    [SerializeField] private bool destroyed = false;
     
     [HideInInspector] public SoundMeterManage soundMeter;
     [HideInInspector] public float currentSpeed;

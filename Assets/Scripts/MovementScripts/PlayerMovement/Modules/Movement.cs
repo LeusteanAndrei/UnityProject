@@ -1,8 +1,5 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.Splines;
-using static UnityEngine.UI.Image;
 
 public class Movement : MonoBehaviour
 {
@@ -17,7 +14,6 @@ public class Movement : MonoBehaviour
     [SerializeField] private float inAirSpeedMultiplier = 0.5f;
     [SerializeField] private float crouchSpeedMultiplier = 0.3f;
     [SerializeField] private float staminaSprintDrainCost = 20f;
-    [SerializeField] private float uphillForceMultiplier = 30f;
     [Range(0f, 1f)]
     [SerializeField] private float turnSmoothness = 0.3f; // variable which controls how smooth the character turns
 
@@ -54,9 +50,6 @@ public class Movement : MonoBehaviour
     private bool isSliding = false;
     private Vector3 slideDirection;
 
-
-    private Vector3 groundNormal = Vector3.up;
-    [SerializeField] private LayerMask groundMask;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -98,7 +91,6 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CheckGroundNormal();
         movementDirection = GetDirectionRelativeToCamera(movementDirection); // get the movement direction relative to the camera
 
         if (isSliding)
@@ -180,11 +172,6 @@ public class Movement : MonoBehaviour
 
         if (onSlipperyLayer)
             smoothness = slipperyLayers.turnSmoothness;
-
-        float slopeAngle = Vector3.Angle(groundNormal, Vector3.up);
-        bool isUphill = Vector3.Dot(movementDirection, Vector3.ProjectOnPlane(Vector3.up, groundNormal).normalized) > 0;
-        if (isUphill)
-            speed *= uphillForceMultiplier;
 
         Vector3 desiredVelocity = movementDirection * speed; // the desired velocity
         Vector3 velocityChange = desiredVelocity - new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z); // how much we need to change the velocity to reach the desired velocity
@@ -317,22 +304,6 @@ public class Movement : MonoBehaviour
     public bool GetIsGrounded()
     {
         return isGrounded;
-    }
-
-
-    private void CheckGroundNormal()
-    {
-        RaycastHit hit;
-        float rayLength = 1.5f;
-        Vector3 origin = transform.position + Vector3.up * 0.5f;
-        if (Physics.Raycast(origin, Vector3.down, out hit, rayLength, groundMask))
-        {
-            groundNormal = hit.normal;
-        }
-        else
-        {
-            groundNormal = Vector3.up;
-        }
     }
 
 }

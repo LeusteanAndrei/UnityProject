@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameOverCanvas;
-    [SerializeField] private Canvas gameCanvas;
 
     public string mainGameSceneName = "Level 2";
     public string loadingSceneName = "Loading Screen";
@@ -61,14 +60,12 @@ public class GameManager : MonoBehaviour
             // Allow clicking UI
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            gameCanvas.enabled  = false;
         }
         else
         {
             // Restore gameplay mode (camera scripts expect this)
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            gameCanvas.enabled = true;
         }
     }
 
@@ -76,7 +73,6 @@ public class GameManager : MonoBehaviour
     {
         isPaused = false;
         pauseMenu.SetActive(false);
-        gameCanvas.enabled = true;
 
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
@@ -114,7 +110,6 @@ public class GameManager : MonoBehaviour
         Instance.gameOverCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        //gameCanvas.enabled = false;
     }
 
     private IEnumerator LoadSceneSequence(string targetSceneName)
