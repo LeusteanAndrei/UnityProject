@@ -13,6 +13,7 @@ public class FallingShake : MonoBehaviour
 
     private bool falling = false; // checks wether the object is falling
     Rigidbody rb;
+    float currentSpeed;
 
 
     private float previousVelocity;
@@ -25,6 +26,8 @@ public class FallingShake : MonoBehaviour
 
     private void Update()
     {
+
+        currentSpeed = rb.linearVelocity.magnitude;
         currentVelocity = rb.linearVelocity.y; // set the new velocity
 
         falling = rb.linearVelocity.y < 0; // set the falling variable
@@ -38,6 +41,14 @@ public class FallingShake : MonoBehaviour
         // if we collisioned with something, check wether we should shake
 
         if (!falling) return;  // if we didn't fall no shake
+
+        if (collision.gameObject.GetComponent<Surface>() != null)
+        {
+            Surface surface = collision.gameObject.GetComponent<Surface>();
+            float loudness = currentSpeed * surface.GetHardness();
+            int audioIncrease = Mathf.CeilToInt(loudness / 10f);
+            SoundFxManager.instance.PlaySoundFXClip(SoundFxManager.instance.fallSound, transform, SoundFxManager.instance.effectVolume * audioIncrease/5);
+        }
 
         float impact = collision.impulse.magnitude; // get the magnitude of the impulse
 
