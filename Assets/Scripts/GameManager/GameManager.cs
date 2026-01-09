@@ -101,6 +101,16 @@ public class GameManager : MonoBehaviour
         LoadTargetScene(mainMenuSceneName);
     }
 
+    public void OpenSettings()
+    {
+        // Tell the Settings menu: "I am coming from the Game"
+        SettingsMenu.previousSceneName = SceneManager.GetActiveScene().name;
+
+        // IMPORTANT: If you want to keep your game progress, 
+        // you should load the settings "Additively" so the game keeps running in the background.
+        SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+    }
+
     public void Quit()
     {
         Application.Quit();
