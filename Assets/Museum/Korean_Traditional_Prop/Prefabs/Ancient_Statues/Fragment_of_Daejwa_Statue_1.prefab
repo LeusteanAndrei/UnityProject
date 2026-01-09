@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7652234242090158597
 Transform:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2896
+  m_VersionIndex: 2905
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -516,6 +516,7 @@ GameObject:
   - component: {fileID: 5695352799794624735}
   - component: {fileID: 8693687427363501946}
   - component: {fileID: 6864288400880894896}
+  - component: {fileID: 6903719886972888395}
   m_Layer: 0
   m_Name: Fragment_of_Daejwa_Statue_1
   m_TagString: Untagged
@@ -596,3 +597,25 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6903719886972888395
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918535106479039077}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3396927923251511046, guid: 33767360c1c02e147ae0993448d18844, type: 3}
