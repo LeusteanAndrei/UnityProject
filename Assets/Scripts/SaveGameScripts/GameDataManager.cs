@@ -33,6 +33,8 @@ public class GameDataManager : MonoBehaviour
     {
         Debug.Log(Application.persistentDataPath);
         this.fileHandler = new FileHandler(Application.persistentDataPath, fileName);
+        LoadGameInMenu();
+        SoundFxManager.instance.effectVolume = gameData.volume;
     }
 
     private void Update()
@@ -50,6 +52,17 @@ public class GameDataManager : MonoBehaviour
         this.gameData = new GameData();
         saveObjects = FindAllSaveObjects();
         SaveGame();
+    }
+
+    public void LoadGameInMenu()
+    {
+        this.gameData = fileHandler.Load();
+        if (this.gameData == null)
+        {
+            Debug.Log("No game data found! - Load Game");
+            NewGame();
+            return;
+        }
     }
 
     public void LoadGame()

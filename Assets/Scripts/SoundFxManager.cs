@@ -8,7 +8,6 @@ public class SoundFxManager : MonoBehaviour
 
     [Header("Sound info")]
     [SerializeField] public float effectVolume;
-    [SerializeField] public float musicVolume;
     [SerializeField] public AudioSource soundFXObject;
 
     [Header("Sound clips")]
@@ -21,6 +20,7 @@ public class SoundFxManager : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(gameObject);
     }
 
 

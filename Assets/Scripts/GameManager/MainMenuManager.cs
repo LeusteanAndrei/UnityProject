@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
     private LoadingScreenManager currentLoadingScreenManager;
     private string pendingSceneName;
-    private bool isLoadGame = false;
+    public bool isLoadGame = false;
 
     private void OnEnable()
     {
