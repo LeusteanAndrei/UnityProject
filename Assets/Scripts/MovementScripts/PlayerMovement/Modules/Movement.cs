@@ -57,6 +57,7 @@ public class Movement : MonoBehaviour
 
     private Vector3 groundNormal = Vector3.up;
     [SerializeField] private LayerMask groundMask;
+    private WallClimb wallClimb;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -77,6 +78,7 @@ public class Movement : MonoBehaviour
         grapplingComponent = GetComponent<Grappling>();
         glideComponent = GetComponent<Glide>();
         staminaBar = GetComponent<Stamina>().staminaBar;
+        wallClimb = GetComponent<WallClimb>();  
     }
 
     private void Update()
@@ -120,9 +122,11 @@ public class Movement : MonoBehaviour
     }
     private void LateUpdate()
     {
-        var dirToCam = GetDirectionRelativeToCamera(movementDirection);
-        RotateTowards(dirToCam); // rotate the player towards the movement direction
-
+        if (wallClimb == null || wallClimb.isClimbing == false)
+        {
+            var dirToCam = GetDirectionRelativeToCamera(movementDirection);
+            RotateTowards(dirToCam); // rotate the player towards the movement direction
+        }
     }
 
 
