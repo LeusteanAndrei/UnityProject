@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 90866767}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1186585228}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: OpenLevelMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &90866767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1515,6 +1527,7 @@ MonoBehaviour:
   mainGameSceneName: Level 1
   loadingSceneName: Loading Screen
   mainMenuSceneName: Main Menu
+  isLoadGame: 0
   mainMenu: {fileID: 176909812}
 --- !u!114 &1186585229
 MonoBehaviour:
