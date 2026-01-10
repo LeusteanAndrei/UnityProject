@@ -116,7 +116,8 @@ public class SettingsMenu : MonoBehaviour
         GameDataManager.Instance.gameData.resolutionHeight = resolutions[resolutionDropdown.value].height;
 
         SoundFxManager.instance.effectVolume = volumeSlider.value;
-
+        //Screen.fullScreen = fullscreenToggle.isOn;
+        Screen.SetResolution(resolutions[resolutionDropdown.value].width, resolutions[resolutionDropdown.value].height, fullscreenToggle.isOn);
         GameDataManager.Instance.SaveGame();
     }
 
