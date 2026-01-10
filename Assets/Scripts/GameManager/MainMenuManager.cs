@@ -83,6 +83,14 @@ public class MainMenuManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
+    public void OpenSettings()
+    {
+        // Tell the Settings menu: "I am coming from the Main Menu"
+        SettingsMenu.previousSceneName = "Main Menu";
+
+        SceneManager.LoadScene("Settings");
+    }
     private IEnumerator LoadSceneSequence(string targetSceneName)
     {
         // Load loading screen additively
