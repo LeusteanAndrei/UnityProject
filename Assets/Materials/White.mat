@@ -22,11 +22,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: White
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_Parent: {fileID: 2100000, guid: 4d290c9bf5eb71840afa54fdbbdc2d40, type: 2}
+  m_Parent: {fileID: 2100000, guid: d6ae3bef17eba094f86e66799d2b2ac6, type: 2}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _NORMALMAP
-  - _OCCLUSIONMAP
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
