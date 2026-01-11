@@ -8,6 +8,7 @@ public class ShowAnnouncement : MonoBehaviour
     public GameObject announcementBoard;
     public TextMeshProUGUI announcementText;
 
+
     float showTimer = 0.0f;
     bool showing = false;
 
