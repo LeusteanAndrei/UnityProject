@@ -17,6 +17,8 @@ public class GameDataManager : MonoBehaviour
     public List<ISaveGame> saveObjects;
     public FileHandler fileHandler;
 
+    public bool loadedFromSaveFile = true;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -33,6 +35,8 @@ public class GameDataManager : MonoBehaviour
     {
         Debug.Log(Application.persistentDataPath);
         this.fileHandler = new FileHandler(Application.persistentDataPath, fileName);
+        LoadGameInMenu();
+        SoundFxManager.instance.effectVolume = gameData.volume;
     }
 
     private void Update()
@@ -52,8 +56,21 @@ public class GameDataManager : MonoBehaviour
         SaveGame();
     }
 
-    public void LoadGame()
+    public void LoadGameInMenu()
     {
+        this.gameData = fileHandler.Load();
+        if (this.gameData == null)
+        {
+            Debug.Log("No game data found! - Load Game");
+            NewGame();
+            return;
+        }
+    }
+
+    public void LoadGame(bool loadingFromSavefile = true)
+    {
+        if (loadingFromSavefile == false) return;
+
         this.gameData = fileHandler.Load();
         if (this.gameData == null)
         {
@@ -74,6 +91,8 @@ public class GameDataManager : MonoBehaviour
 
     public void SaveGame()
     {
+        if (!loadedFromSaveFile) return;
+
         saveObjects = FindAllSaveObjects();
         for (int i = 0; i < saveObjects.Count; i++)
         {
