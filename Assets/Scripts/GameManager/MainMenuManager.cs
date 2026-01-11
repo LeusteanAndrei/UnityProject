@@ -91,6 +91,10 @@ public class MainMenuManager : MonoBehaviour
 
         SceneManager.LoadScene("Settings");
     }
+    public void OpenLevelMenu()
+    {
+        SceneManager.LoadScene("Level Menu");
+    }
     private IEnumerator LoadSceneSequence(string targetSceneName)
     {
         // Load loading screen additively
