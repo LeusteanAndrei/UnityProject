@@ -19,6 +19,7 @@ public class GameDataManager : MonoBehaviour
 
     public bool loadedFromSaveFile = true;
 
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -67,11 +68,18 @@ public class GameDataManager : MonoBehaviour
         }
     }
 
-    public void LoadGame(bool loadingFromSavefile = true)
+    public void LoadGame()
     {
-        if (loadingFromSavefile == false) return;
+
+        if (loadedFromSaveFile)
+            Debug.Log("loading from save file");
+        else
+            Debug.Log("NOT loading from save file");
+        if (loadedFromSaveFile == false) return;
 
         this.gameData = fileHandler.Load();
+        if (gameData.playerPosition == null) return;
+
         if (this.gameData == null)
         {
             Debug.Log("No game data found! - Load Game");
@@ -89,9 +97,15 @@ public class GameDataManager : MonoBehaviour
 
     }
 
+    
+
     public void SaveGame()
     {
-        if (!loadedFromSaveFile) return;
+        if (loadedFromSaveFile)
+            Debug.Log("saving to save file");
+        else
+            Debug.Log("NOt saving to save file");
+        if (loadedFromSaveFile == false) return;
 
         saveObjects = FindAllSaveObjects();
         for (int i = 0; i < saveObjects.Count; i++)

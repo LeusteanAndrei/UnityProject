@@ -16,10 +16,12 @@ public class SoundFxManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if(instance != null && instance !=this)
         {
-            instance = this;
+            Destroy(gameObject);
+            return;
         }
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 

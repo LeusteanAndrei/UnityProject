@@ -19,9 +19,28 @@ public class ChangeLevelScript : MonoBehaviour
     {
         if (timer >=loadTime)
         {
-            LoadScene(stageToLoad);
+            FinishedLevel();
         }
         FillShader();
+    }
+
+
+
+    void FinishedLevel()
+    {
+
+        GameManager.Instance.NextLevelName = stageToLoad;
+        GameManager.Instance.ShowFinalScreen();
+        Debug.Log("Finished " + SceneManager.GetActiveScene().name);
+
+        if (GameDataManager.Instance.loadedFromSaveFile == true)
+        {
+            GameDataManager.Instance.gameData.resetValues();
+            GameDataManager.Instance.gameData.levelName = stageToLoad;
+            GameDataManager.Instance.gameData.AddCompletedLevel(SceneManager.GetActiveScene().name);
+
+            GameDataManager.Instance.fileHandler.Save(GameDataManager.Instance.gameData);
+        }
     }
 
     void FillShader()
@@ -32,10 +51,6 @@ public class ChangeLevelScript : MonoBehaviour
 
     }
 
-    void LoadScene(string stageToLoad)
-    {
-        SceneManager.LoadScene(stageToLoad);
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
