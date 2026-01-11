@@ -15,7 +15,7 @@ public class EnemyData
 [System.Serializable]
 public class GameData 
 {
-    public string[] completedLevels = { "Level 1" };
+    public string[] completedLevels = { };
     public bool fullscreen = true;
     public float volume = 1.0f;
     public int resolutionWidth, resolutionHeight;
@@ -28,6 +28,15 @@ public class GameData
     public int[] brokenObjectIds;
 
     public EnemyData[] enemyData = new EnemyData[0];
+
+
+    public void resetValues()
+    {
+        soundMeterLevel = 0.0f;
+        playerPosition = null;
+        brokenObjectIds = null;
+        enemyData = null;
+    }
 
     public GameData()
     {
@@ -89,6 +98,28 @@ public class GameData
 
         newArray[newArray.Length - 1] = newEnemyData;
         enemyData = newArray;
+    }
+
+    public void AddCompletedLevel(string level)
+    {
+
+        for(int i=0;i<completedLevels.Length;i++)
+        {
+            if (completedLevels[i] == level)
+                return;
+        }
+        
+        
+        string[] newLevels = new string[completedLevels.Length + 1];
+
+        for (int i = 0; i < completedLevels.Length; i++)
+        {
+            newLevels[i] = completedLevels[i];
+        }
+
+        newLevels[completedLevels.Length] = level;
+
+        completedLevels = newLevels;
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    //public static MainMenuManager Instance;
+    public static MainMenuManager Instance;
     public string mainGameSceneName = "Level 2";
     public string loadingSceneName = "Loading Screen";
     public string mainMenuSceneName = "Main Menu";
@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
     private LoadingScreenManager currentLoadingScreenManager;
     private string pendingSceneName;
-    public bool isLoadGame = false;
+    public bool isNewGame = false;
 
     private void OnEnable()
     {
@@ -25,18 +25,16 @@ public class MainMenuManager : MonoBehaviour
     }
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
     }
     private void Start()
     {
-        //if (Instance == null)
-        //{
-        //    Instance = this;
-        //}
-        //else
-        //{
-        //    Destroy(gameObject);
-        //}
+        if (Instance != null && Instance!=this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     [SerializeField]
     private GameObject mainMenu;
@@ -44,22 +42,35 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("New Game started...");
         LoadTargetScene(mainGameSceneName);
+        isNewGame = true;
         //GameDataManager.Instance.NewGame();
         //GameDataManager.Instance.gameData.levelName = mainGameSceneName;
         //SceneManager.LoadScene(mainGameSceneName);
     }
 
-    public void LoadGame()
+    public void LoadGame(bool fromSaveFile = true, string levelName = null)
     {
         
         GameData gameData = GameDataManager.Instance.fileHandler.Load();
-        Debug.Log(gameData.levelName);
+        GameDataManager.Instance.loadedFromSaveFile = fromSaveFile;
+        
+
+        //Debug.Log(gameData.levelName);
         if (gameData != null)
         {
-            Debug.Log("Loading Game");
-            isLoadGame = true;
-            LoadTargetScene(gameData.levelName);
-            //GameDataManager.Instance.LoadGame();
+            string sceneToLoad = gameData.levelName;
+            if(fromSaveFile == false)
+            {
+                sceneToLoad = levelName;
+            }
+
+            Debug.Log("Loading Game ");
+            if (fromSaveFile) 
+                Debug.Log("Loading from save file");
+            isNewGame = false;
+
+
+            LoadTargetScene(sceneToLoad);
         }
         else
         {
@@ -167,14 +178,12 @@ public class MainMenuManager : MonoBehaviour
 
     private IEnumerator ApplyGameDataAfterStart()
     {
-        // Wait one frame so Start() runs on all objects
         yield return null;
 
-        if (isLoadGame)
+        if (!isNewGame)
         {
             Debug.Log("load Game");
             GameDataManager.Instance.LoadGame();
-            Debug.Log(GameDataManager.Instance.gameData.soundMeterLevel);
         }
         else
         {

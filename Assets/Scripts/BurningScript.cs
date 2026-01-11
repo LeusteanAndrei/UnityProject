@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class BurningScript : MonoBehaviour
@@ -29,7 +27,7 @@ public class BurningScript : MonoBehaviour
     {
         if (shouldBurn)
         {
-            if (timer != 0)
+            if (timer >= 0)
             {
                 timer -= Time.deltaTime;
             }
@@ -66,10 +64,8 @@ public class BurningScript : MonoBehaviour
 
         burningIntensity += burnIncreaseRate * Time.deltaTime;
 
-        // Clamp to maximum
         burningIntensity = Mathf.Min(burningIntensity, maxIntensity);
 
-        // Adjust particle emission based on intensity
         if (fireInstance != null)
         {
             var emission = fireInstance.emission;
