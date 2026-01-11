@@ -1,5 +1,6 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 [System.Serializable]
@@ -14,6 +15,12 @@ public class EnemyData
 [System.Serializable]
 public class GameData 
 {
+    public string[] completedLevels = { "Level 1" };
+    public bool fullscreen = true;
+    public float volume = 1.0f;
+    public int resolutionWidth, resolutionHeight;
+
+
     public string levelName;
     public float soundMeterLevel;
 

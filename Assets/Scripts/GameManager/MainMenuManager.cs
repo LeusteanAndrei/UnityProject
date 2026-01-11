@@ -12,7 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
     private LoadingScreenManager currentLoadingScreenManager;
     private string pendingSceneName;
-    private bool isLoadGame = false;
+    public bool isLoadGame = false;
 
     private void OnEnable()
     {
@@ -82,6 +82,18 @@ public class MainMenuManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    public void OpenSettings()
+    {
+        // Tell the Settings menu: "I am coming from the Main Menu"
+        SettingsMenu.previousSceneName = "Main Menu";
+
+        SceneManager.LoadScene("Settings");
+    }
+    public void OpenLevelMenu()
+    {
+        SceneManager.LoadScene("Level Menu");
     }
     private IEnumerator LoadSceneSequence(string targetSceneName)
     {

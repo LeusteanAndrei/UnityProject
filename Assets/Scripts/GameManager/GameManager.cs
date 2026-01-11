@@ -61,14 +61,14 @@ public class GameManager : MonoBehaviour
             // Allow clicking UI
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            gameCanvas.enabled  = false;
+            gameCanvas.gameObject.SetActive(false); 
         }
         else
         {
             // Restore gameplay mode (camera scripts expect this)
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            gameCanvas.enabled = true;
+            gameCanvas.gameObject.SetActive(true); 
         }
     }
 
@@ -99,6 +99,16 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         LoadTargetScene(mainMenuSceneName);
+    }
+
+    public void OpenSettings()
+    {
+        // Tell the Settings menu: "I am coming from the Game"
+        SettingsMenu.previousSceneName = SceneManager.GetActiveScene().name;
+
+        // IMPORTANT: If you want to keep your game progress, 
+        // you should load the settings "Additively" so the game keeps running in the background.
+        SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
     }
 
     public void Quit()

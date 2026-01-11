@@ -1758,7 +1758,7 @@ MonoBehaviour:
   LightOrigin: {fileID: 9150324678286022719}
   raycastMask:
     serializedVersion: 2
-    m_Bits: 127
+    m_Bits: 4294967295
 --- !u!1 &7951490198684388096
 GameObject:
   m_ObjectHideFlags: 0
