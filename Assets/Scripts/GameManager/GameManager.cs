@@ -61,14 +61,14 @@ public class GameManager : MonoBehaviour
             // Allow clicking UI
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            gameCanvas.enabled  = false;
+            gameCanvas.gameObject.SetActive(false); 
         }
         else
         {
             // Restore gameplay mode (camera scripts expect this)
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            gameCanvas.enabled = true;
+            gameCanvas.gameObject.SetActive(true); 
         }
     }
 

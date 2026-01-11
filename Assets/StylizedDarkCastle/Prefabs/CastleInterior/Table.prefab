@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 320593371043073824}
   - component: {fileID: 3530498717568035722}
   - component: {fileID: 2561709535743910544}
+  - component: {fileID: 9221172377830611373}
+  - component: {fileID: 497780170121637206}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -107,9 +109,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 4.8, y: 1.3241417, z: 2.4}
   m_Center: {x: 0, y: 0.6579293, z: -0.00000023841858}
@@ -132,6 +134,52 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: fbabcadf725be0f4ab4302605671a2b1, type: 3}
+--- !u!114 &9221172377830611373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530498717568035723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acec6cbac484d7349b7c94c0ab62ea88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BurningScript
+  shouldBurn: 0
+  burningIntensity: 0
+  fireParticlesPrefab: {fileID: 0}
+  burnIncreaseRate: 1
+  maxIntensity: 10
+  spreadThreshold: 3
+  isBurning: 0
+--- !u!54 &497780170121637206
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530498717568035723}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

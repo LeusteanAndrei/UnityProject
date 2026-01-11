@@ -64,7 +64,7 @@ public class FallingShake : MonoBehaviour
             Surface surface = collision.gameObject.GetComponent<Surface>();
             float loudness = currentSpeed * surface.GetHardness();
             int audioIncrease = Mathf.CeilToInt(loudness / 10f);
-            SoundFxManager.instance.PlaySoundFXClip(SoundFxManager.instance.fallSound, transform, SoundFxManager.instance.effectVolume * audioIncrease/5);
+            SoundFxManager.instance.PlaySoundFXClip(SoundFxManager.instance.fallSound, transform, SoundFxManager.instance.effectVolume * audioIncrease/10);
         }
 
         if (impact < minimumImpactValue) return;

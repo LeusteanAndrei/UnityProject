@@ -21,6 +21,15 @@ public class ChangeLevelScript : MonoBehaviour
         {
             LoadScene(stageToLoad);
         }
+        FillShader();
+    }
+
+    void FillShader()
+    {
+        float timeNormal = timer / loadTime;
+        float fillValue = timeNormal * 2 - 1 - 0.1f;
+        GetComponent<Renderer>().material.SetFloat("_fillValue", fillValue);
+
     }
 
     void LoadScene(string stageToLoad)
