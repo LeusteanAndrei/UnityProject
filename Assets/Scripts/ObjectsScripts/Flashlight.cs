@@ -13,6 +13,7 @@ public class Flashlight : MonoBehaviour
     [SerializeField] private LayerMask raycastMask;
 
     private GameObject player;
+    private EnemyMovement enemyScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,7 +28,7 @@ public class Flashlight : MonoBehaviour
             DetectionMark.enabled = false;
         }
         player = GameObject.FindGameObjectWithTag("Player");
-
+        enemyScript = transform.parent.GetComponent<EnemyMovement>();    
     }
 
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class Flashlight : MonoBehaviour
         if(currentTime>loseTime)
         {
             Debug.Log("GameOver");
-            GameManager.GameOver();
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().GameOver();
         }
         if(!isPlayerInLight && currentTime>0f)
         {
@@ -68,6 +69,8 @@ public class Flashlight : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && CanSeePLayer(player))
         {
             isPlayerInLight = true;
+            if (enemyScript != null)
+                enemyScript.GetDistracted(player);
         }
     }
     void OnTriggerStay(Collider other)
@@ -76,6 +79,8 @@ public class Flashlight : MonoBehaviour
         {
             currentTime += Time.deltaTime;
             isPlayerInLight = true;
+            if (enemyScript != null)
+                enemyScript.GetDistracted(player);
         }
     }
     void OnTriggerExit(Collider other)
@@ -104,6 +109,6 @@ public class Flashlight : MonoBehaviour
         }
 
         Debug.DrawRay(LightOrigin.position, direction.normalized * distance, Color.yellow);
-        return false;
+        return true;
     }
 }

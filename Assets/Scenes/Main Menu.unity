@@ -202,8 +202,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1186585228}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+      - m_Target: {fileID: 1048224217}
+        m_TargetAssemblyTypeName: menuControl, Assembly-CSharp
         m_MethodName: OpenLevelMenu
         m_Mode: 1
         m_Arguments:
@@ -691,6 +691,7 @@ MonoBehaviour:
     playerPosition: []
     brokenObjectIds: 
     enemyData: []
+  loadedFromSaveFile: 1
 --- !u!4 &385756024
 Transform:
   m_ObjectHideFlags: 0
@@ -1005,17 +1006,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1186585228}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+      - m_Target: {fileID: 1048224217}
+        m_TargetAssemblyTypeName: menuControl, Assembly-CSharp
         m_MethodName: LoadGame
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &523974377
 MonoBehaviour:
@@ -1213,8 +1214,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1186585228}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+      - m_Target: {fileID: 1048224217}
+        m_TargetAssemblyTypeName: menuControl, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
@@ -1475,6 +1476,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037876562}
   m_CullTransparentMesh: 1
+--- !u!1 &1048224216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1048224218}
+  - component: {fileID: 1048224217}
+  m_Layer: 0
+  m_Name: menuControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1048224217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048224216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348e2df97121fcf47bd10005841fac8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::menuControl
+--- !u!4 &1048224218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048224216}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 84.6889, y: 4.2070923, z: 141.94353}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1186585226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,9 +1530,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1186585227}
   - component: {fileID: 1186585228}
-  - component: {fileID: 1186585229}
   m_Layer: 5
-  m_Name: menuControl
+  m_Name: MenuManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1527,23 +1571,8 @@ MonoBehaviour:
   mainGameSceneName: Level 1
   loadingSceneName: Loading Screen
   mainMenuSceneName: Main Menu
-  isLoadGame: 0
+  isNewGame: 0
   mainMenu: {fileID: 176909812}
---- !u!114 &1186585229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1186585226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e837acbbe7802f349bb3e17f1afd6cbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SoundFxManager
-  effectVolume: 0
-  soundFXObject: {fileID: 0}
-  fallSound: {fileID: 0}
 --- !u!1 &1220370041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,9 +1656,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1186585228}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: OpenSettings
+      - m_Target: {fileID: 1048224217}
+        m_TargetAssemblyTypeName: menuControl, Assembly-CSharp
+        m_MethodName: Settings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1760,9 +1789,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1186585228}
-        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
-        m_MethodName: Quit
+      - m_Target: {fileID: 1048224217}
+        m_TargetAssemblyTypeName: menuControl, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2402,6 +2431,7 @@ SceneRoots:
   - {fileID: 1827351086}
   - {fileID: 2099133414}
   - {fileID: 344503248}
+  - {fileID: 1048224218}
   - {fileID: 406772269}
   - {fileID: 385756024}
   - {fileID: 1186585227}

@@ -38,7 +38,6 @@ public class SaveBrokenObject : MonoBehaviour, ISaveGame
     {
         if (collisions.IsDestroyed())
         {
-            Debug.Log("destroyed");
             data.AddBrokenObjectId(objectId);
         }
     }

@@ -3880,6 +3880,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 642032230}
   m_SourcePrefab: {fileID: 100100000, guid: 2e9cbcf956215164b9eb1e0f029703bd, type: 3}
+--- !u!1 &253426308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1122858594543240738, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+  m_PrefabInstance: {fileID: 2040670803741976715}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &260609121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11133,11 +11138,6 @@ MeshFilter:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1152843358772971484, guid: f42202f35fb0e754ba03c0334d59c926, type: 3}
   m_PrefabInstance: {fileID: 229905187}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &672974920 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 803487876004612147, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
-  m_PrefabInstance: {fileID: 2040670803741976715}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &673543474
 GameObject:
@@ -22903,17 +22903,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2181435743201894622, guid: ebeebb1d16aa2cb4094aebd7ac3ef2d8, type: 3}
   m_PrefabInstance: {fileID: 476173136}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1571269086 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 716122620717956670, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
-  m_PrefabInstance: {fileID: 2040670803741976715}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71d002a891573ea4ca8846b948cfb98a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StaminaBarScript
 --- !u!1 &1571379609 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5420919020187546275, guid: 6ba3f588032f0e74993381f915c4ee6e, type: 3}
@@ -26760,7 +26749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22725857b5066d74eb6e9424be7e1afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stamina
-  staminaBar: {fileID: 1571269086}
+  staminaBar: {fileID: 0}
 --- !u!114 &1857750366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32034,6 +32023,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1295013392041476545, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -831.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295013392041476545, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 394
+      objectReference: {fileID: 0}
     - target: {fileID: 1416881124699549014, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
@@ -32086,10 +32083,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameScripts
       objectReference: {fileID: 0}
+    - target: {fileID: 5878573051061597315, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5878573051061597315, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6949005432589042951, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
       propertyPath: gameOverCanvas
       value: 
-      objectReference: {fileID: 672974920}
+      objectReference: {fileID: 253426308}
     - target: {fileID: 8688407123306455379, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
