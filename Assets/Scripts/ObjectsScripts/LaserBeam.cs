@@ -9,6 +9,7 @@ public class LaserBeam : MonoBehaviour
     [SerializeField] private float thickness = 0.1f;
     private LineRenderer lr;
     private CapsuleCollider capsule;
+    private GameManager gameManager;
 
     public void Initialize(Transform a, Transform b, float laserThickness = 0.1f)
     {
@@ -23,6 +24,7 @@ public class LaserBeam : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         capsule = GetComponent<CapsuleCollider>();
+        gameManager = GetComponent<GameManager>();
         Setup();
     }
 
@@ -73,7 +75,7 @@ public class LaserBeam : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Laser");
+        gameManager.GameOver();
     }
 
     private void OnTriggerStay(Collider other)
