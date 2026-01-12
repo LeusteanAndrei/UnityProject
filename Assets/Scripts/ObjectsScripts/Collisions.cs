@@ -13,12 +13,14 @@ public class Collisions : MonoBehaviour
     [HideInInspector] public SoundMeterManage soundMeter;
     [HideInInspector] public float currentSpeed;
     private BreakObject breakObject;
+    private bool enemyToSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         soundMeter = GameObject.Find("GameManager").GetComponent<SoundMeterManage>();
         breakObject = GetComponent<BreakObject>();
+        enemyToSound = soundMeter.GetEnemyToSound();
     }
     // Update is called once per frame
     void Update()
@@ -43,8 +45,16 @@ public class Collisions : MonoBehaviour
                 if (h == null) continue;
                 if (h.CompareTag("Enemy"))
                 {
-                    //Debug.Log($"Enemy at {h.transform.position} distracted by sound");
-                    h.GetComponent<EnemyMovement>().GetDistracted(gameObject);
+                    if (enemyToSound && destroyed)
+                    {
+                        h.GetComponent<EnemyMovement>().GoToSound(gameObject);
+                    }
+
+                    else
+                    {
+                        //Debug.Log($"Enemy at {h.transform.position} distracted by sound");
+                        h.GetComponent<EnemyMovement>().GetDistracted(gameObject);
+                    }
                 }
             }
             if(other.gameObject.GetComponent<Collisions>() != null)

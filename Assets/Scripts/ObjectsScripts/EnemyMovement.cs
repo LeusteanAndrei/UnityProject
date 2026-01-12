@@ -116,6 +116,20 @@ public class EnemyMovement : MonoBehaviour
                 agent.SetDestination(CurrentTarget.transform.position);
             }
         }
+        // 5. GO TO SOUND LOGIC
+        else if (CurrentAction == "GoToSound")
+        {
+            if (CurrentTarget != null)
+            {
+                Vector3 toTarget = CurrentTarget.transform.position - transform.position;
+                toTarget.y = 0f;
+                if (toTarget.sqrMagnitude > 0.0001f)
+                {
+                    Quaternion targetRot = Quaternion.LookRotation(toTarget.normalized, Vector3.up);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Mathf.Clamp01(Time.deltaTime / rotationLerpDuration));
+                }
+            }
+        }
     }
 
     void StartWaiting()
@@ -171,6 +185,17 @@ public class EnemyMovement : MonoBehaviour
             CurrentAction = "Stunned";
             stunnedTimer = duration;
             agent.SetDestination(transform.position);
+        }
+    }
+
+    public void GoToSound(GameObject soundOrigin)
+    {
+        // Allow distraction even if she is waiting
+        if (CurrentAction != "Distracted" && CurrentAction != "Stunned")
+        {
+            CurrentAction = "Move";
+            CurrentTarget = soundOrigin;
+            agent.SetDestination(soundOrigin.transform.position);
         }
     }
 }

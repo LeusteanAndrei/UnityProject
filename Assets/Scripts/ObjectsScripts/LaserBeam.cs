@@ -73,6 +73,7 @@ public class LaserBeam : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Laser");
     }
 
     private void OnTriggerStay(Collider other)
