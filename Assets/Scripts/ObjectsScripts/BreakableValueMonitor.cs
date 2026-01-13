@@ -7,20 +7,28 @@ public class BreakableValueMonitor : MonoBehaviour
     public int value = 1000; // cât valorează obiectul când e spart
 
     private bool counted = false;
-    private BreakObject breakObject;
 
+    private BreakObject breakObject;
+    private Collisions colission;
     private void Awake()
     {
         breakObject = GetComponent<BreakObject>();
+        colission = GetComponent<Collisions>();
         if (breakObject == null)
         {
             Debug.LogError("BreakObject lipsește de pe obiect!");
         }
     }
 
+
     private void OnEnable()
     {
         counted = false; // resetăm dacă obiectul e reactivat
+       
+    }
+
+    private void Update()
+    {
     }
 
     // private void OnDisable()
@@ -38,6 +46,7 @@ public class BreakableValueMonitor : MonoBehaviour
 
     public void NotifyGoal()
     {
+        counted = true;
         var goal = FindObjectOfType<ValueGoalManager>();
         if (goal != null)
         {

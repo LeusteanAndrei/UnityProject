@@ -25236,6 +25236,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManagerPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 5035476208841104555, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: reduceRate
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035476208841104555, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: cooldownTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8688407123306455379, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

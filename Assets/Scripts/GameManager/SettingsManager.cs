@@ -24,6 +24,7 @@ public class SettingsMenu : MonoBehaviour
 
         // --- SETUP RESOLUTIONS ---
         resolutions = Screen.resolutions;
+        resolutions = RemoveDuplicateResolutions(resolutions);
         resolutionDropdown.ClearOptions();
 
         List<string> options = new List<string>();
@@ -68,6 +69,27 @@ public class SettingsMenu : MonoBehaviour
 
         // 2. Setup is done. Disable the flag. Now events can run.
         isInitializing = false;
+    }
+
+    private Resolution[] RemoveDuplicateResolutions(Resolution[] input)
+    {
+        List<Resolution> uniqueResolutions = new List<Resolution>();
+
+        foreach (Resolution res in input)
+        {
+            // Only add if this width/height combo doesn't already exist
+            bool exists = uniqueResolutions.Exists(r =>
+                r.width == res.width &&
+                r.height == res.height
+            );
+
+            if (!exists)
+            {
+                uniqueResolutions.Add(res);
+            }
+        }
+
+        return uniqueResolutions.ToArray();
     }
 
     // --- UI EVENTS ---

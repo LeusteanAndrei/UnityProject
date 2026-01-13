@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SaveBrokenObject : MonoBehaviour, ISaveGame
@@ -24,7 +25,12 @@ public class SaveBrokenObject : MonoBehaviour, ISaveGame
         {
             if (data.brokenObjectIds[i] == objectId)
             {
+                collisions.fromLoad = true;
                 collisions.destroyed = true;
+                if(GetComponent<BreakableValueMonitor>()!=null)
+                {
+                    GetComponent<BreakableValueMonitor>().NotifyGoal();
+                }
                 if(!GetComponent<Chandelier>())
                     gameObject.SetActive(false);
                 if (goalObject != null)

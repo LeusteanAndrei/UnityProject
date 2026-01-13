@@ -6704,6 +6704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teleport
       objectReference: {fileID: 0}
+    - target: {fileID: 5909187549988388559, guid: 896e8f888c6bd1d47ad7c75273623b40, type: 3}
+      propertyPath: stageToLoad
+      value: Level 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5955906422064669267, guid: 896e8f888c6bd1d47ad7c75273623b40, type: 3}
       propertyPath: m_LocalPosition.x
       value: 137.23125
@@ -19362,7 +19366,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 6b22c42fc178aac438f50e010e50b929, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 188432190cc4c9e4d937a0ddde401c9a, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1363317676
 Transform:
@@ -30105,15 +30109,15 @@ PrefabInstance:
       objectReference: {fileID: 2002263045}
     - target: {fileID: 3216123603636724670, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.2817297
+      value: -5.24965
       objectReference: {fileID: 0}
     - target: {fileID: 3216123603636724670, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.639429
+      value: -7.9692216
       objectReference: {fileID: 0}
     - target: {fileID: 3216123603636724670, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.889523
+      value: -30.429514
       objectReference: {fileID: 0}
     - target: {fileID: 3216123603636724670, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30209,15 +30213,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6113503478664006733, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.2817297
+      value: -4.3138647
       objectReference: {fileID: 0}
     - target: {fileID: 6113503478664006733, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.639429
+      value: -6.2896314
       objectReference: {fileID: 0}
     - target: {fileID: 6113503478664006733, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.889523
+      value: -20.593782
       objectReference: {fileID: 0}
     - target: {fileID: 6113503478664006733, guid: bb6b42575b0d3124fa90c04818f329dd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30688,6 +30692,26 @@ PrefabInstance:
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 253426308}
+    - target: {fileID: 8578412213201511642, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578412213201511642, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2040670803741976716}
+    - target: {fileID: 8578412213201511642, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578412213201511642, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578412213201511642, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8688407123306455379, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -30697,6 +30721,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+--- !u!114 &2040670803741976716 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6949005432589042951, guid: 4ac35f93ed55a2246881288ab67aff01, type: 3}
+  m_PrefabInstance: {fileID: 2040670803741976715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b802935242866b4881bc3b4acf04f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

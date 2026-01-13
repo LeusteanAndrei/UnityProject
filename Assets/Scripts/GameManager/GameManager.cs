@@ -44,7 +44,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("ESC pressed");
-            TogglePause();
+            if (!gameOverCanvas.gameObject.activeSelf )
+            {
+                TogglePause();
+            }
         }
     }
     public void LoadTargetScene(string targetSceneName)
@@ -90,6 +93,8 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1.0f;
+
         GameDataManager.Instance.gameData.resetValues();
         GameDataManager.Instance.fileHandler.Save(GameDataManager.Instance.gameData);
         MainMenuManager.Instance.LoadGame(GameDataManager.Instance.loadedFromSaveFile, SceneManager.GetActiveScene().name);
@@ -132,6 +137,7 @@ public class GameManager : MonoBehaviour
             GameDataManager.Instance.gameData.resetValues();
             GameDataManager.Instance.fileHandler.Save(GameDataManager.Instance.gameData);
         }
+        //Time.timeScale = 0.0f;
         Instance.gameOverCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

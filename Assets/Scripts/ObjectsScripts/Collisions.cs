@@ -9,7 +9,9 @@ public class Collisions : MonoBehaviour
     [SerializeField] private float stunMax = 3f;
     [SerializeField] private float stunScale = 20f;
     [SerializeField] public bool destroyed = false;
-    
+
+    public bool fromLoad = false;
+
     [HideInInspector] public SoundMeterManage soundMeter;
     [HideInInspector] public float currentSpeed;
     private BreakObject breakObject;
@@ -98,7 +100,8 @@ public class Collisions : MonoBehaviour
                 breakObject.Slice();
             }
 
-            breakableValueMonitor.NotifyGoal();
+            if(breakableValueMonitor != null)
+                breakableValueMonitor.NotifyGoal();
         }
     }
     public bool IsDestroyed()
