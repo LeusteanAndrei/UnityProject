@@ -6,11 +6,11 @@ using System.Linq;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private int pathID;
-    [SerializeField] private int currentPathPoint;
-    [SerializeField] private GameObject CurrentTarget;
-    [SerializeField] private List<PathPoint> pathPoints;
+    [SerializeField] public int currentPathPoint;
+    [SerializeField] public GameObject CurrentTarget;
+    [SerializeField] public List<PathPoint> pathPoints;
     [SerializeField] private string CurrentAction;
-    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] public NavMeshAgent agent;
     [SerializeField] private Animator animator;
 
     // --- NEW VARIABLES FOR WAITING ---
