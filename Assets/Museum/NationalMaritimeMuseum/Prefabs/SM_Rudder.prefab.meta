@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: abc00000000003272546259561841415
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 243839
+  packageName: National Maritime Museum
+  packageVersion: 1.0
+  assetPath: Assets/NationalMaritimeMuseum/Prefabs/SM_Rudder.prefab
+  uploadId: 656610

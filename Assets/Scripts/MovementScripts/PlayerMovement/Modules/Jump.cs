@@ -34,8 +34,6 @@ public class Jump : MonoBehaviour
     private void Update()
     {
         CheckJumpInput();
-
-
     }
 
     private void FixedUpdate()
@@ -61,11 +59,19 @@ public class Jump : MonoBehaviour
     private void CheckJumpInput()
     {
         if (jumpAction.WasPressedThisFrame())
-            shouldJump = true;
+        {
+            Debug.Log(nrJump);
+
+            if (movementComponent.isGrounded)
+                shouldJump = true;
+            else if (nrJump == 1)
+                shouldJump = true;
+        }
         if (jumpAction.IsPressed())
             holdJump = true;
         else
             holdJump = false;
+
     }
 
 

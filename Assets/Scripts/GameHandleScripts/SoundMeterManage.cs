@@ -1,18 +1,22 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 public class SoundMeterManage : MonoBehaviour
 {
     public float currentSoundLevel;
-    [SerializeField] private float maxSoundLevel;
+    [SerializeField] private bool enemyToSound;
+    public float maxSoundLevel;
     [SerializeField] private float reduceRate;
     [SerializeField] private float cooldownTime;
     private float timeSinceLastIncrease;
+    private GameManager gameManager;
     public Slider SoundMeterUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         //currentSoundLevel = 0f;
         //maxSoundLevel = 20f;
+        gameManager = GetComponent<GameManager>();
         GameObject soundMeterObject = GameObject.Find("SoundMeter");
         if (soundMeterObject != null)
         {
@@ -48,8 +52,18 @@ public class SoundMeterManage : MonoBehaviour
         if (currentSoundLevel > maxSoundLevel)
         {
             currentSoundLevel = maxSoundLevel;
-            //game loss
+            gameManager.GameOver();
         }
         timeSinceLastIncrease = 0f;
     }
+    public void SetCurrentSoundLevel(float level)
+    {
+        this.currentSoundLevel = level;
+    }
+    public float GetCurrentSoundLevel()
+    {
+        return currentSoundLevel;
+    }
+
+    public bool GetEnemyToSound() { return enemyToSound; }
 }

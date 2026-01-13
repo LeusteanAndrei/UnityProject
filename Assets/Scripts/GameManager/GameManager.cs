@@ -10,11 +10,17 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private Canvas gameCanvas;
+    [SerializeField] private GameObject levelDoneCanvas;
 
     public string mainGameSceneName = "Level 2";
     public string loadingSceneName = "Loading Screen";
     public string mainMenuSceneName = "Main Menu";
     private string lastSceneLoaded;
+
+
+
+    public string NextLevelName;
 
 
     private LoadingScreenManager currentLoadingScreenManager;
@@ -38,7 +44,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("ESC pressed");
-            TogglePause();
+            if (!gameOverCanvas.gameObject.activeSelf )
+            {
+                TogglePause();
+            }
         }
     }
     public void LoadTargetScene(string targetSceneName)
@@ -60,12 +69,14 @@ public class GameManager : MonoBehaviour
             // Allow clicking UI
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            gameCanvas.gameObject.SetActive(false); 
         }
         else
         {
             // Restore gameplay mode (camera scripts expect this)
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            gameCanvas.gameObject.SetActive(true); 
         }
     }
 
@@ -77,12 +88,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        gameCanvas.gameObject.SetActive(true);
     }
 
     public void Restart()
     {
-        //Time.timeScale = 1; // Reset in case paused
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
+
+        GameDataManager.Instance.gameData.resetValues();
+        GameDataManager.Instance.fileHandler.Save(GameDataManager.Instance.gameData);
+        MainMenuManager.Instance.LoadGame(GameDataManager.Instance.loadedFromSaveFile, SceneManager.GetActiveScene().name);
     }
 
     public void NewGame()
@@ -97,6 +112,16 @@ public class GameManager : MonoBehaviour
         LoadTargetScene(mainMenuSceneName);
     }
 
+    public void OpenSettings()
+    {
+        // Tell the Settings menu: "I am coming from the Game"
+        SettingsMenu.previousSceneName = SceneManager.GetActiveScene().name;
+
+        // IMPORTANT: If you want to keep your game progress, 
+        // you should load the settings "Additively" so the game keeps running in the background.
+        SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+    }
+
     public void Quit()
     {
         Application.Quit();
@@ -105,11 +130,19 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
-    public static void GameOver()
+    public void GameOver()
     {
+        if (GameDataManager.Instance != null)
+        {
+            GameDataManager.Instance.gameData.resetValues();
+            GameDataManager.Instance.fileHandler.Save(GameDataManager.Instance.gameData);
+        }
+        //Time.timeScale = 0.0f;
         Instance.gameOverCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        gameCanvas.gameObject.SetActive(false);
+
     }
 
     private IEnumerator LoadSceneSequence(string targetSceneName)
@@ -158,6 +191,25 @@ public class GameManager : MonoBehaviour
         // Unload loading screen
         yield return SceneManager.UnloadSceneAsync(loadingSceneName);
     }
+
+    public void NextLevel()
+    {
+        MainMenuManager.Instance.LoadGame(true);
+    }
+
+    public void ShowFinalScreen()
+    {
+        Instance.levelDoneCanvas.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        gameCanvas.gameObject.SetActive(false);
+    }
+
+    public void SaveGame()
+    {
+        GameDataManager.Instance.SaveGame();
+    }
+
 }
 
 
