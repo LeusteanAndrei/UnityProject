@@ -23,20 +23,20 @@ public class BreakableValueMonitor : MonoBehaviour
         counted = false; // resetăm dacă obiectul e reactivat
     }
 
-    private void OnDisable()
-    {
-        // Nu facem nimic dacă obiectul nu a fost încă spart
-        if (counted || breakObject == null) return;
+    // private void OnDisable()
+    // {
+    //     // Nu facem nimic dacă obiectul nu a fost încă spart
+    //     if (counted || breakObject == null) return;
 
-        // sliceTarget este dezactivat de BreakObject
-        if (breakObject.sliceTarget == null || !breakObject.sliceTarget.activeInHierarchy)
-        {
-            counted = true;
-            NotifyGoal();
-        }
-    }
+    //     // sliceTarget este dezactivat de BreakObject
+    //     if (breakObject.sliceTarget == null || !breakObject.sliceTarget.activeInHierarchy)
+    //     {
+    //         counted = true;
+    //         NotifyGoal();
+    //     }
+    // }
 
-    private void NotifyGoal()
+    public void NotifyGoal()
     {
         var goal = FindObjectOfType<ValueGoalManager>();
         if (goal != null)

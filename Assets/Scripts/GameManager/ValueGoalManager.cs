@@ -6,7 +6,7 @@ public class ValueGoalManager : MonoBehaviour
     [SerializeField] private int goalAmount1 = 10000;
     [SerializeField] private int goalAmount2 = 10000;
     [Header("Debug")]
-    [SerializeField] private TMP_Text goalText; // Textul din canvas
+    [SerializeField] public TMP_Text goalText; // Textul din canvas
     [SerializeField] private int currentAmount = 0;
 
     [SerializeField] private int goalAmount;
@@ -18,8 +18,7 @@ public class ValueGoalManager : MonoBehaviour
 
     private void Awake()
     {
-        // barrier = GameObject.Find("Room 1 Barrier");
-        // goalText = GameObject.Find("Goal Text").GetComponent<TextMeshPro>();
+        barrier = GameObject.Find("Room 1 Barrier");
         goal1Reached = goal2Reached = false;
         goalAmount = goalAmount1;
         UpdateUI();
@@ -36,6 +35,7 @@ public class ValueGoalManager : MonoBehaviour
                 goal1Reached = true;
                 currentAmount = 0;
                 goalAmount = goalAmount2;
+                barrier.SetActive(false);
             }
 
             else
