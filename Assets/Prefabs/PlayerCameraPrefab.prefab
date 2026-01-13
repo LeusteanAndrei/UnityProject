@@ -505,6 +505,7 @@ MonoBehaviour:
   shakeFrequency: 0.2
   shakeMultiplier: 0.1
   minimumImpactValue: 15
+  minimumSoundImpactValue: 1
 --- !u!114 &8469392244317990280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,8 +730,8 @@ MonoBehaviour:
   maxStamina: 100
   appearTime: 5
   fadeSpeed: 2
-  rechargeDelay: 2
-  rechargeAmount: 10
+  rechargeDelay: 1
+  rechargeAmount: 20
 --- !u!1 &5624515709790271205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,15 +1993,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.776742
+      value: -4.5089865
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.612642
+      value: -8.252705
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.723215
+      value: -21.76735
       objectReference: {fileID: 0}
     - target: {fileID: 7468525666059471549, guid: 83c95f430a85c1a4eaacbc456c29d37f, type: 3}
       propertyPath: m_LocalRotation.w

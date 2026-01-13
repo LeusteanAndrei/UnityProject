@@ -2281,7 +2281,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundFxManager
   effectVolume: 1
   soundFXObject: {fileID: 693213286146925200, guid: f6b9268b68bb1cc48a0edef4f4b3cc9c, type: 3}
+  meowMultiplier: 0.1
+  fireMultiplier: 0.2
   fallSound: {fileID: 8300000, guid: eaae8fe8d600e1f459f34aa5757fa3b8, type: 3}
+  meowSounds:
+  - {fileID: 8300000, guid: 3ff1109a39fa5a94bb6d0594f4be2e06, type: 3}
+  - {fileID: 8300000, guid: 8cd9f797cb6a4f7479c0fa1505994350, type: 3}
+  - {fileID: 8300000, guid: 3fd2c646a28941e469b3484659db967d, type: 3}
+  teleportSound: {fileID: 8300000, guid: d654174ef194bd7479bf4b8d8f753318, type: 3}
+  fireSound: {fileID: 8300000, guid: 8a2043d14545b4b45b5cbc0c8cbb8874, type: 3}
 --- !u!4 &1975372099
 Transform:
   m_ObjectHideFlags: 0

@@ -9838,8 +9838,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.6794386, y: 2.6048346, z: 1.1782346}
-  m_Center: {x: -0.085344255, y: 1.5350578, z: 0.0031753778}
+  m_Size: {x: 3.6794386, y: 2.0503218, z: 0.9113412}
+  m_Center: {x: -0.085344315, y: 1.3097631, z: 0.028541505}
 --- !u!114 &6863710269191913767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9896,8 +9896,8 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.6268286, b: 0.2028302, a: 1}
-  m_Intensity: 13.406011
-  m_Range: 8.064383
+  m_Intensity: 16.070732
+  m_Range: 8.355132
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 10, y: 10}
