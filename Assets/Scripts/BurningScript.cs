@@ -35,6 +35,11 @@ public class BurningScript : MonoBehaviour
                 Burn();
             }
         }
+
+        if(isBurning)
+        {
+            SoundFxManager.instance.PlayFireSoundLoop(transform);
+        }
     }
 
     void Ignite()

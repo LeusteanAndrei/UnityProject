@@ -1997,7 +1997,7 @@ MonoBehaviour:
   hoverBorder: {fileID: 555242440}
   isCurrent: 0
   levelIndex: 5
-  levelName: Level_5
+  levelName: Level 5
   loadingSceneName: Loading Screen
 --- !u!1 &1076775896
 GameObject:

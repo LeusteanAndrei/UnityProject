@@ -17,7 +17,7 @@ public class FireParticleScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Burning cat");
-            //GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().GameOver();
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().GameOver();
         }
     }
 }

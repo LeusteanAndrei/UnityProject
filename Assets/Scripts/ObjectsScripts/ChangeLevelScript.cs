@@ -20,6 +20,7 @@ public class ChangeLevelScript : MonoBehaviour
         if (timer >=loadTime)
         {
             FinishedLevel();
+            SoundFxManager.instance.StopTeleportSound();
         }
         FillShader();
     }
@@ -57,6 +58,7 @@ public class ChangeLevelScript : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             timer = 0;
+            SoundFxManager.instance.PlayTeleportSound(transform, loadTime);
         }
     }
 
@@ -74,6 +76,7 @@ public class ChangeLevelScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             timer = 0;
+            SoundFxManager.instance.StopTeleportSound();
         }
     }
 }
