@@ -22,7 +22,6 @@ public class BurningScript : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (shouldBurn)
@@ -81,7 +80,7 @@ public class BurningScript : MonoBehaviour
         if (go.GetComponent<Chandelier>() != null)
         {
             shouldBurn = true;
-            timer = 1.0f;
+            timer = .4f;
         }
     }
 
