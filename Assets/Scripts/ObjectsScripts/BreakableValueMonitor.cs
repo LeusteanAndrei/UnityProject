@@ -38,7 +38,7 @@ public class BreakableValueMonitor : MonoBehaviour
 
     private void NotifyGoal()
     {
-        var goal = FindObjectOfType<GoalUI>();
+        var goal = FindObjectOfType<ValueGoalManager>();
         if (goal != null)
         {
             goal.AddAmount(value);

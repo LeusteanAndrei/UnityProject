@@ -19,9 +19,7 @@ MonoBehaviour:
   m_PlatformBuildProfile:
     rid: 1271843155546996736
   m_OverrideGlobalSceneList: 1
-  m_Scenes:
-  - m_enabled: 1
-    m_path: Assets/Scenes/David/David_Final_Level_3.unity
+  m_Scenes: []
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
