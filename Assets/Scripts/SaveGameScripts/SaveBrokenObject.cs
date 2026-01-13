@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,18 +22,31 @@ public class SaveBrokenObject : MonoBehaviour, ISaveGame
 
     public void LoadData(GameData data)
     {
+        Array.Sort(data.brokenObjectIds);
+
         for (int i = 0; i < data.brokenObjectIds.Length; i++)
         {
             if (data.brokenObjectIds[i] == objectId)
             {
-                collisions.fromLoad = true;
-                collisions.destroyed = true;
+                if (collisions != null)
+                {
+                    collisions.fromLoad = true;
+                    collisions.destroyed = true;
+                }
                 if(GetComponent<BreakableValueMonitor>()!=null)
                 {
                     GetComponent<BreakableValueMonitor>().NotifyGoal();
                 }
-                if(!GetComponent<Chandelier>())
-                    gameObject.SetActive(false);
+                if (!GetComponent<Chandelier>())
+                {
+                    gameObject.SetActive(false);  
+                }
+                else
+                {
+                    HingeJoint hj = GetComponent<HingeJoint>();
+                    if (hj != null)
+                        Destroy(hj);
+                }
                 if (goalObject != null)
                 {
                     goalObject.Mark();
@@ -43,9 +57,22 @@ public class SaveBrokenObject : MonoBehaviour, ISaveGame
     }
     public void SaveData(GameData data)
     {
-        if (collisions.IsDestroyed())
+        if(GetComponent<Chandelier>()!=null)
         {
-            data.AddBrokenObjectId(objectId);
+            if(GetComponent<GoalObject>()!=null)
+            {
+                if(GetComponent<GoalObject>().IsMarked() == true  )
+                {
+                    data.AddBrokenObjectId(objectId);
+                }
+            }
+        }
+        if (collisions)
+        {
+            if (collisions.IsDestroyed())
+            {
+                data.AddBrokenObjectId(objectId);
+            }
         }
     }
 }
