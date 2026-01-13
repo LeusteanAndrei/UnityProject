@@ -5,7 +5,7 @@ public class SoundMeterManage : MonoBehaviour
 {
     public float currentSoundLevel;
     [SerializeField] private bool enemyToSound;
-    [SerializeField] private float maxSoundLevel;
+    public float maxSoundLevel;
     [SerializeField] private float reduceRate;
     [SerializeField] private float cooldownTime;
     private float timeSinceLastIncrease;
