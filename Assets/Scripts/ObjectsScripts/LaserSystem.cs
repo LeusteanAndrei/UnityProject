@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LaserSystem : MonoBehaviour
 {
+    [SerializeField] private bool enableTriggers = true;
     [SerializeField] private float defaultThickness = 0.1f;
 
     private readonly Dictionary<string, LaserBeam> activeBeams = new Dictionary<string, LaserBeam>();
@@ -58,4 +59,6 @@ public class LaserSystem : MonoBehaviour
             activeBeams[id] = beam;
         }
     }
+
+    public bool TriggersEnabled() { return enableTriggers; }
 }

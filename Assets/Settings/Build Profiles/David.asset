@@ -19,13 +19,8 @@ MonoBehaviour:
   m_PlatformBuildProfile:
     rid: 1271843155546996736
   m_OverrideGlobalSceneList: 1
-  m_Scenes:
-  - m_enabled: 0
-    m_path: Assets/Scenes/Camera Testing.unity
-  - m_enabled: 0
-    m_path: Assets/Scenes/Level 3.unity
-  - m_enabled: 1
-    m_path: Assets/Scenes/Gliding.unity
+  m_Scenes: []
+  m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -41,7 +36,7 @@ MonoBehaviour:
     - line: '|   useOnDemandResources: 0'
     - line: '|   accelerometerFrequency: 60'
     - line: '|   companyName: DefaultCompany'
-    - line: '|   productName: My project'
+    - line: '|   productName: Nine Lives Later'
     - line: '|   defaultCursor: {instanceID: 0}'
     - line: '|   cursorHotspot: {x: 0, y: 0}'
     - line: '|   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b:
@@ -207,9 +202,10 @@ MonoBehaviour:
     - line: '|     tvOS: 0'
     - line: '|   overrideDefaultApplicationIdentifier: 1'
     - line: '|   AndroidBundleVersionCode: 1'
-    - line: '|   AndroidMinSdkVersion: 23'
+    - line: '|   AndroidMinSdkVersion: 25'
     - line: '|   AndroidTargetSdkVersion: 0'
     - line: '|   AndroidPreferredInstallLocation: 1'
+    - line: '|   AndroidPreferredDataLocation: 1'
     - line: '|   aotOptions: '
     - line: '|   stripEngineCode: 1'
     - line: '|   iPhoneStrippingLevel: 0'
@@ -224,11 +220,11 @@ MonoBehaviour:
     - line: '|   VertexChannelCompressionMask: 4054'
     - line: '|   iPhoneSdkVersion: 988'
     - line: '|   iOSSimulatorArchitecture: 0'
-    - line: '|   iOSTargetOSVersionString: 13.0'
+    - line: '|   iOSTargetOSVersionString: 15.0'
     - line: '|   tvOSSdkVersion: 0'
     - line: '|   tvOSSimulatorArchitecture: 0'
     - line: '|   tvOSRequireExtendedGameController: 0'
-    - line: '|   tvOSTargetOSVersionString: 13.0'
+    - line: '|   tvOSTargetOSVersionString: 15.0'
     - line: '|   VisionOSSdkVersion: 0'
     - line: '|   VisionOSTargetOSVersionString: 1.0'
     - line: '|   uIPrerenderedIcon: 0'
@@ -298,6 +294,7 @@ MonoBehaviour:
     - line: '|   useCustomGradleSettingsTemplate: 0'
     - line: '|   useCustomProguardFile: 0'
     - line: '|   AndroidTargetArchitectures: 2'
+    - line: '|   AndroidAllowedArchitectures: -1'
     - line: '|   AndroidSplashScreenScale: 0'
     - line: '|   androidSplashScreen: {instanceID: 0}'
     - line: '|   AndroidKeystoreName: '
@@ -606,7 +603,7 @@ MonoBehaviour:
     - line: '|   locationUsageDescription: '
     - line: '|   microphoneUsageDescription: '
     - line: '|   bluetoothUsageDescription: '
-    - line: '|   macOSTargetOSVersion: 11.0'
+    - line: '|   macOSTargetOSVersion: 12.0'
     - line: '|   switchNMETAOverride: '
     - line: '|   switchNetLibKey: '
     - line: '|   switchSocketMemoryPoolSize: 6144'
@@ -860,7 +857,24 @@ MonoBehaviour:
     - line: '|   webGLCloseOnQuit: 0'
     - line: '|   webWasm2023: 0'
     - line: '|   webEnableSubmoduleStrippingCompatibility: 0'
-    - line: '|   scriptingDefineSymbols: {}'
+    - line: '|   scriptingDefineSymbols:'
+    - line: '|     Android: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     EmbeddedLinux: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     GameCoreScarlett: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     GameCoreXboxOne: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     Kepler: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     LinuxHeadlessSimulation: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     Nintendo Switch: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     Nintendo Switch 2: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     PS4: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     PS5: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     QNX: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     ReservedCFE: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     Standalone: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     VisionOS: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     WebGL: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     XboxOne: UNITY_POST_PROCESSING_STACK_V2'
+    - line: '|     tvOS: UNITY_POST_PROCESSING_STACK_V2'
     - line: '|   additionalCompilerArguments: {}'
     - line: '|   platformArchitecture: {}'
     - line: '|   scriptingBackend:'
@@ -976,6 +990,7 @@ MonoBehaviour:
     - line: '|   androidVulkanAllowFilterList: []'
     - line: '|   androidVulkanDeviceFilterListAsset: {instanceID: 0}'
     - line: '|   d3d12DeviceFilterListAsset: {instanceID: 0}'
+    - line: '|   allowedHttpConnections: 3'
     - line: '| '
   references:
     version: 2
@@ -996,6 +1011,7 @@ MonoBehaviour:
         m_InstallInBuildFolder: 0
         m_InsightsSettingsContainer:
           m_BuildProfileEngineDiagnosticsState: 2
+        m_AdaptivePerformanceEnabled: 0
         m_WindowsBuildAndRunDeployTarget: 0
         m_Architecture: 0
         m_CreateSolution: 0
