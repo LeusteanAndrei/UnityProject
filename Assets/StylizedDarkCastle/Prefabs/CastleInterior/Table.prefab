@@ -154,7 +154,7 @@ MonoBehaviour:
   fireParticlesPrefab: {fileID: 0}
   burnIncreaseRate: 1
   maxIntensity: 10
-  spreadThreshold: 3
+  spreadThreshold: 1
   isBurning: 0
 --- !u!54 &497780170121637206
 Rigidbody:

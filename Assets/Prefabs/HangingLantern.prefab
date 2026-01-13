@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1008536880921197327}
   - component: {fileID: 6982085162706253193}
   - component: {fileID: 1151937150392416783}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Candle_large_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4761989002856848218}
   - component: {fileID: 1866510932364068396}
   - component: {fileID: 2979006556374651734}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Candle_small_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 6550425264635021331}
   - component: {fileID: 6541192087410424497}
   - component: {fileID: 2160131107117092976}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Candle_middle_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 4316643903600837162}
   - component: {fileID: 9145454869021945221}
   - component: {fileID: 3237848120945821843}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HangingLantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab902e4ceca10c40b1f2c990a807e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flashlight
-  loseTime: 2
+  loseTime: 0.5
   currentTime: 0
   isPlayerInLight: 0
   DetectionMark: {fileID: 0}
@@ -1820,7 +1820,7 @@ MonoBehaviour:
   LightOrigin: {fileID: 8090087034330843624}
   raycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 383
 --- !u!1 &5419428088202545048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1863,7 @@ GameObject:
   - component: {fileID: 383768343114303321}
   - component: {fileID: 7712580750485336961}
   - component: {fileID: 4622639743667472776}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Candle_fire_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1953,7 +1953,7 @@ GameObject:
   - component: {fileID: 8843837396660888923}
   - component: {fileID: 1631415207428794820}
   - component: {fileID: 7606974412823225848}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Candle_fire_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2043,7 +2043,7 @@ GameObject:
   - component: {fileID: 6715121964486644703}
   - component: {fileID: 960761767650286713}
   - component: {fileID: 1785226304828270001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Candle_fire_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
