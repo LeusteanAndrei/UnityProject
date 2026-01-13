@@ -25,7 +25,8 @@ public class SaveBrokenObject : MonoBehaviour, ISaveGame
             if (data.brokenObjectIds[i] == objectId)
             {
                 collisions.destroyed = true;
-                gameObject.SetActive(false);
+                if(!GetComponent<Chandelier>())
+                    gameObject.SetActive(false);
                 if (goalObject != null)
                 {
                     goalObject.Mark();

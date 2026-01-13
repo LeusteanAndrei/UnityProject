@@ -4860,6 +4860,8 @@ GameObject:
   - component: {fileID: 8172849020266659021}
   - component: {fileID: 8172849020266659020}
   - component: {fileID: 8172849020266659019}
+  - component: {fileID: 3114443534881388204}
+  - component: {fileID: 6863710269191913767}
   m_Layer: 0
   m_Name: CFXR2 Firewall A
   m_TagString: Untagged
@@ -9817,6 +9819,39 @@ MonoBehaviour:
     perlinColor: 0
     perlinColorSpeed: 1
   fadeOutReference: {fileID: 8172849020266659021}
+--- !u!65 &3114443534881388204
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172849020266659018}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.6794386, y: 2.6048346, z: 1.1782346}
+  m_Center: {x: -0.085344255, y: 1.5350578, z: 0.0031753778}
+--- !u!114 &6863710269191913767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172849020266659018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248729d277a6d5046a7769652648a50d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FireParticleScript
 --- !u!1 &8172849020746995793
 GameObject:
   m_ObjectHideFlags: 0
@@ -9861,8 +9896,8 @@ Light:
   serializedVersion: 12
   m_Type: 2
   m_Color: {r: 1, g: 0.6268286, b: 0.2028302, a: 1}
-  m_Intensity: 0
-  m_Range: 8.8731785
+  m_Intensity: 13.406011
+  m_Range: 8.064383
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 10, y: 10}

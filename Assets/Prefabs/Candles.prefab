@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5642607788205035895}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 337405807880279373}
   m_Layer: 7
   m_Name: Cone (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab902e4ceca10c40b1f2c990a807e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flashlight
-  loseTime: 2
+  loseTime: 0.5
   currentTime: 0
   isPlayerInLight: 0
   DetectionMark: {fileID: 0}
@@ -1453,7 +1453,7 @@ MonoBehaviour:
   LightOrigin: {fileID: 5814100026353861518}
   raycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 383
 --- !u!1001 &1259891666884779097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1462,6 +1462,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5642607788205035895}
     m_Modifications:
+    - target: {fileID: 348462216646309921, guid: 132db884e5c65af478cfd5a0b252e013, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8313103859946460159, guid: 132db884e5c65af478cfd5a0b252e013, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -1518,6 +1522,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NGF_Light_Candle_small_02
       objectReference: {fileID: 0}
+    - target: {fileID: 8653036968298006853, guid: 132db884e5c65af478cfd5a0b252e013, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8653036968298006853, guid: 132db884e5c65af478cfd5a0b252e013, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1536,9 +1548,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5642607788205035895}
     m_Modifications:
+    - target: {fileID: 858961419959076496, guid: 379c92303d62f9c4fa143f4305675a4f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8594949326525614118, guid: 379c92303d62f9c4fa143f4305675a4f, type: 3}
       propertyPath: m_Name
       value: NGF_Light_Candle_middle_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594949326525614118, guid: 379c92303d62f9c4fa143f4305675a4f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594949326525614118, guid: 379c92303d62f9c4fa143f4305675a4f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8938717767590908572, guid: 379c92303d62f9c4fa143f4305675a4f, type: 3}
       propertyPath: m_LocalScale.x
@@ -1610,6 +1634,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5642607788205035895}
     m_Modifications:
+    - target: {fileID: 2756566187280218585, guid: 8dc54d6d3a990504c8f8585ff986dc78, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6959842313795843514, guid: 8dc54d6d3a990504c8f8585ff986dc78, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -1665,6 +1693,14 @@ PrefabInstance:
     - target: {fileID: 7772512676319129344, guid: 8dc54d6d3a990504c8f8585ff986dc78, type: 3}
       propertyPath: m_Name
       value: NGF_Light_Candle_large_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772512676319129344, guid: 8dc54d6d3a990504c8f8585ff986dc78, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772512676319129344, guid: 8dc54d6d3a990504c8f8585ff986dc78, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

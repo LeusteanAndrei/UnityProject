@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 927694355925584237}
   - component: {fileID: 8102840854774394493}
   - component: {fileID: 6223069690145582190}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab902e4ceca10c40b1f2c990a807e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flashlight
-  loseTime: 2
+  loseTime: 0.5
   currentTime: 0
   isPlayerInLight: 0
   DetectionMark: {fileID: 0}
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   LightOrigin: {fileID: 4424502264259114583}
   raycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 383
 --- !u!1 &3294049366986165008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,7 +1489,7 @@ GameObject:
   - component: {fileID: 2545761700393025266}
   - component: {fileID: 5842860418328593582}
   - component: {fileID: 8870205983362642727}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Coal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1581,7 +1581,7 @@ GameObject:
   - component: {fileID: 3621957876449512571}
   - component: {fileID: 9090804963615905161}
   - component: {fileID: 3385390375330796396}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StandUpToch
   m_TagString: Untagged
   m_Icon: {fileID: 0}

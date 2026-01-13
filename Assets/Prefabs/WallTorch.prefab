@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab902e4ceca10c40b1f2c990a807e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Flashlight
-  loseTime: 2
+  loseTime: 0.5
   currentTime: 0
   isPlayerInLight: 0
   DetectionMark: {fileID: 0}
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   LightOrigin: {fileID: 2364857987568547570}
   raycastMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 383
 --- !u!1 &4210179863566944371
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1399,7 @@ GameObject:
   - component: {fileID: 8332463366042603557}
   - component: {fileID: 7662171452908447742}
   - component: {fileID: 5738361607454809427}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Coal_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1489,7 +1489,7 @@ GameObject:
   - component: {fileID: 6460367169865114644}
   - component: {fileID: 1483153869974783494}
   - component: {fileID: 5222676070404499048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Crystal_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1580,7 +1580,7 @@ GameObject:
   - component: {fileID: 4252104574836391999}
   - component: {fileID: 8421351263948519138}
   - component: {fileID: 1713915787138550189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallTorch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1695,7 +1695,7 @@ GameObject:
   - component: {fileID: 7624138809038589216}
   - component: {fileID: 6332402956955855184}
   - component: {fileID: 5595391330150083741}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NGF_Light_Torch_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
