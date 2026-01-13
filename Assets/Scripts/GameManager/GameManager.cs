@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
     {
         GameDataManager.Instance.gameData.resetValues();
         GameDataManager.Instance.fileHandler.Save(GameDataManager.Instance.gameData);
-        MainMenuManager.Instance.LoadGame(true);
+        MainMenuManager.Instance.LoadGame(GameDataManager.Instance.loadedFromSaveFile, SceneManager.GetActiveScene().name);
     }
 
     public void NewGame()

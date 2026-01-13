@@ -14,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            SoundFxManager.instance.PlayMeowSound(transform);
+        }
+
     }
 
 }
