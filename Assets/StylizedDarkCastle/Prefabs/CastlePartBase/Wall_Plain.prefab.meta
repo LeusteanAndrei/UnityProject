@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1f9e4f9a624816346853855ae37cfd9f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Prefabs/CastlePartBase/Wall_Plain.prefab
+  uploadId: 480580

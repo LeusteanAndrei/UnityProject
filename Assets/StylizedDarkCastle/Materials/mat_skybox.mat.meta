@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2263fab49d070d44ab9f496e820a55a6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Materials/mat_skybox.mat
+  uploadId: 480580

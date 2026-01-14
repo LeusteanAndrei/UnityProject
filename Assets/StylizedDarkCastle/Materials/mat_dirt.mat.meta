@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a518e611926878e4db6eb287ba696f6e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212904
+  packageName: Dark Stylized Castle Kit
+  packageVersion: 1.0
+  assetPath: Assets/StylizedDarkCastle/Materials/mat_dirt.mat
+  uploadId: 480580
