@@ -12,6 +12,7 @@ public class WetMeterManager : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField]private bool covered = false;
     [SerializeField] private Slider wetMeterSlider;
+    [SerializeField] private GameManager gameManager;
     public bool campfireNearby = false;
     public bool inLake = false;
     public bool underWeather = false;
@@ -20,6 +21,7 @@ public class WetMeterManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameManager = GetComponent<GameManager>();
         wetMeterValue = 0f;
         if (wetMeterSlider != null)
         {
@@ -85,7 +87,7 @@ public class WetMeterManager : MonoBehaviour
         wetMeterValue = Mathf.Clamp(wetMeterValue, 0f, maxWetMeterValue);
         if (wetMeterValue >= maxWetMeterValue)
         {
-            //game loss
+            gameManager.GameOver();
         }
         if (wetMeterSlider != null)
         {
