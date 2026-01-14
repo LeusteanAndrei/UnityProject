@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class WetMeterManager : MonoBehaviour
 {
     [SerializeField] private float wetMeterValue;
@@ -11,6 +11,7 @@ public class WetMeterManager : MonoBehaviour
     [SerializeField] private Vector3 originOffset = new Vector3(0f, 0.1f, 0f);
     [SerializeField] private Transform player;
     [SerializeField]private bool covered = false;
+    [SerializeField] private Slider wetMeterSlider;
     public bool campfireNearby = false;
     public bool inLake = false;
     public bool underWeather = false;
@@ -20,6 +21,10 @@ public class WetMeterManager : MonoBehaviour
     void Start()
     {
         wetMeterValue = 0f;
+        if (wetMeterSlider != null)
+        {
+            wetMeterSlider.maxValue = maxWetMeterValue;
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +35,7 @@ public class WetMeterManager : MonoBehaviour
             Vector3 origin = player.position + originOffset;
             bool hit = Physics.Raycast(origin, Vector3.up, out RaycastHit hitInfo, raycastDistance, raycastMask, QueryTriggerInteraction.Ignore);
             Debug.DrawRay(origin, Vector3.up * raycastDistance, hit ? Color.green : Color.red);
+            Debug.Log("Raycast hit: " + hit);
             if(hit && hitInfo.collider.CompareTag("Weather"))
             {
                 covered = false;
@@ -80,6 +86,10 @@ public class WetMeterManager : MonoBehaviour
         if (wetMeterValue >= maxWetMeterValue)
         {
             //game loss
+        }
+        if (wetMeterSlider != null)
+        {
+            wetMeterSlider.value = wetMeterValue;
         }
     }
 
